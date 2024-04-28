@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ProyectoMeep</string>
+    <string name="logLblLogin">Login</string>
+    <string name="logTxtCorreo">Correo</string>
+    <string name="logTxtClave">Clave</string>
+    <string name="logChkRecordar">Recordar sesión</string>
+    <string name="logBtnIniciar">Iniciar</string>
+    <string name="logLblRegistro">Sign up</string>
+    <string name="logLblPassword">Forget Password</string>
+</resources>
