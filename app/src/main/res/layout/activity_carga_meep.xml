@@ -4,41 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@drawable/fondo_carga"
+    android:padding="30dp"
     tools:context=".actividades.CargaMeepActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="MEEP"
-            android:textColor="@color/black"
-            android:textSize="28sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
-
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:src="@drawable/logo_meep"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"/>
+            android:layout_weight="15"/>
+
+        <TextView
+            android:id="@+id/lblProyecto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="@string/lblProyecto"
+            android:fontFamily="@font/inter_regular"
+            android:textSize="48sp"
+            android:textFontWeight="700"
+            android:textStyle="italic|bold"
+            android:gravity="center_horizontal"
+            android:layout_weight="15"/>
 
         <ProgressBar
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Welcome"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:gravity="center"/>
+            android:layout_weight="3"
+            android:layout_marginBottom="50dp"/>
+
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
