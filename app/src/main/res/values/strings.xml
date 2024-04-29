@@ -7,4 +7,5 @@
     <string name="logBtnIniciar">Iniciar</string>
     <string name="logLblRegistro">Sign up</string>
     <string name="logLblPassword">Forget Password</string>
+    <string name="lblProyecto">MEEP WORK</string>
 </resources>
