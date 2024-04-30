@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">ProyectoMeep</string>
     <string name="logLblLogin">Login</string>
-    <string name="logTxtCorreo">Correo</string>
+    <string name="logTxtUser">Usuario</string>
     <string name="logTxtClave">Clave</string>
     <string name="logChkRecordar">Recordar sesión</string>
-    <string name="logBtnIniciar">Iniciar</string>
-    <string name="logLblRegistro">Sign up</string>
-    <string name="logLblPassword">Forget Password</string>
+    <string name="logBtnIniciar">Iniciar Sesión</string>
+    <string name="logLblRegistro">No tienes cuenta?</string>
+    <string name="logLblRegistro1">Registrar</string>
+    <string name="logLblPassword">Aviso de Política de Seguridad</string>
     <string name="lblProyecto">MEEP WORK</string>
 </resources>
