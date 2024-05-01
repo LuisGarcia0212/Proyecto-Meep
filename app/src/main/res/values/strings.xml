@@ -3,10 +3,17 @@
     <string name="logLblLogin">Login</string>
     <string name="logTxtUser">Usuario</string>
     <string name="logTxtClave">Clave</string>
+    <string name="logTxtEmail">Email</string>
+    <string name="logTxtClaveConfirm">Confirman Contraseña</string>
     <string name="logChkRecordar">Recordar sesión</string>
+    <string name="logChkTerminos">Al firmar aceptas el Equipo de servicio y Política de privacidad</string>
     <string name="logBtnIniciar">Iniciar Sesión</string>
+    <string name="logBtnRegistrar">Registrar</string>
+    <string name="logBtnRestablecer">Enviar email de restablecimiento de constraseña</string>
     <string name="logLblRegistro">No tienes cuenta?</string>
     <string name="logLblRegistro1">Registrar</string>
     <string name="logLblPassword">Aviso de Política de Seguridad</string>
     <string name="lblProyecto">MEEP WORK</string>
+    <string name="lblTiContraseña">Restablecimiento de contraseña</string>
+    <string name="lblSubTiContraseña">Escribe tu email, a continuación, y te enviaremos un correo electrónico para restablecer la contraseña</string>
 </resources>
