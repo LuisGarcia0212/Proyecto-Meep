@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondoMeep"
-    tools:context=".actividades.InicionSesionMeepActivity">
+    tools:context=".actividades.RegistroActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_marginTop="35dp"
-                android:src="@drawable/logo1" />
+                android:src="@drawable/logo1"/>
 
             <TextView
                 android:id="@+id/lblProyecto"
@@ -62,6 +62,24 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/logTxtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@drawable/edit_text_backgroud"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/ic_email"
+                android:drawablePadding="10dp"
+                android:hint="@string/logTxtEmail"
+                android:inputType="textPersonName"
+                android:maxLength="100" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true">
 
@@ -71,7 +89,7 @@
                 android:layout_height="50dp"
                 android:background="@drawable/edit_text_backgroud"
                 android:layout_marginHorizontal="30dp"
-                android:layout_marginVertical="25dp"
+                android:layout_marginTop="10dp"
                 android:drawableStart="@drawable/ic_passord"
                 android:drawablePadding="10dp"
                 android:hint="@string/logTxtClave"
@@ -79,66 +97,45 @@
                 android:maxLength="100" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
-            android:id="@+id/logChkRecordar"
-            android:layout_width="wrap_content"
-            android:layout_height="58dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="-20dp"
-            android:text="@string/logChkRecordar"
-            android:textColor="#625a5a" />
-
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            app:passwordToggleEnabled="true">
 
-            <Button
-                android:id="@+id/logBtnIniciar"
+            <EditText
+                android:id="@+id/logTxtClaveConfirm"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/edit_text_backgroud"
                 android:layout_marginHorizontal="30dp"
-                android:textSize="20dp"
-                android:text="@string/logBtnIniciar"
-                android:textAllCaps="false" />
-        </LinearLayout>
+                android:layout_marginTop="10dp"
+                android:drawableStart="@drawable/ic_passord"
+                android:drawablePadding="10dp"
+                android:hint="@string/logTxtClaveConfirm"
+                android:inputType="textPassword"
+                android:maxLength="100" />
+        </com.google.android.material.textfield.TextInputLayout>
 
+        <CheckBox
+            android:id="@+id/logChkTerminos"
+            android:layout_width="wrap_content"
+            android:layout_height="58dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="30dp"
+            android:text="@string/logChkTerminos"
+            android:textColor="@color/lblSub" />
 
-        <RelativeLayout
+        <Button
+            android:id="@+id/logBtnRegistrar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+            android:layout_height="50dp"
+            android:background="@drawable/edit_text_backgroud"
+            android:layout_marginHorizontal="30dp"
+            android:textSize="20dp"
+            android:text="@string/logBtnRegistrar"
+            android:textAllCaps="false" />
 
-            <TextView
-                android:id="@+id/logLblRegistro"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginVertical="30dp"
-                android:text="@string/logLblRegistro"
-                android:textColor="#625a5a" />
-
-            <TextView
-                android:id="@+id/logLblRegistro1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@id/logLblRegistro"
-                android:layout_marginStart="9dp"
-                android:layout_toEndOf="@id/logLblRegistro"
-                android:text="@string/logLblRegistro1"
-                android:textColor="@color/btnColor"
-                android:textSize="15dp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:gravity="center_horizontal"
-            android:text="@string/logLblPassword"
-            android:textColor="#625a5a"
-            android:translationY="130dp" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

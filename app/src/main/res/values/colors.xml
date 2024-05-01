@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="fondoMeep">#1B232D</color>
     <color name="btnColor">#52C1FF</color>
+    <color name="etxtLogin">#B7BBC0</color>
+    <color name="lblSub">#625a5a</color>
 </resources>
