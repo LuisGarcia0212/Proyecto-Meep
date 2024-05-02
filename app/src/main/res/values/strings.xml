@@ -3,6 +3,8 @@
     <string name="logLblLogin">Login</string>
     <string name="logTxtUser">Usuario</string>
     <string name="logTxtClave">Clave</string>
+    <string name="logTxtContra1">Contraseña</string>
+    <string name="logTxtContra2">Contraseña</string>
     <string name="logTxtEmail">Email</string>
     <string name="logTxtClaveConfirm">Confirman Contraseña</string>
     <string name="logChkRecordar">Recordar sesión</string>
@@ -17,8 +19,12 @@
     <string name="logLblPassword">Aviso de Política de Seguridad</string>
     <string name="lblProyecto">MEEP WORK</string>
     <string name="lblTiContraseña">Restablecimiento de contraseña</string>
+    <string name="lblCode">Código de Verificación</string>
+    <string name="logTxtCode">Código</string>
+    <string name="lblRecup">Recuperación</string>
+    <string name="lblVeri">Verificar</string>
     <string name="lblSubTiContraseña">Escribe tu email, a continuación, y te enviaremos un correo electrónico para restablecer la contraseña</string>
->>>>>>>>>>>>>> HEAD
+    >>>>>>>>>>>>>> HEAD
     <string name="lblCuenta">Cuenta</string>
     <string name="lblDatos">Base de Información</string>
     <string name="lblNameComplet">Nombres Completos</string>
@@ -30,7 +36,7 @@
     <string name="logLblPro">Proyectos Restantes</string>
     <string name="logLblPro2">Proyectos Realizados</string>
     <string name="logLblPro3">Total Proyectos</string>
-=======
+    =======
 
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
@@ -39,5 +45,5 @@
     <string name="item3">Configuración</string>
     <string name="item4">Acerca de</string>
     <string name="item5">Cerrar Sesión</string>
->>>>>>> 56b9672a45789b8e0df5393587cc32e31f3d4bc5
+    >>>>>>> 56b9672a45789b8e0df5393587cc32e31f3d4bc5
 </resources>
