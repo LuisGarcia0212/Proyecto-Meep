@@ -47,7 +47,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/logTxtCorreo"
+                android:id="@+id/logTxtUser"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:background="@drawable/edit_text_backgroud"

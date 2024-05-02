@@ -12,8 +12,18 @@
     <string name="logBtnRestablecer">Enviar email de restablecimiento de constraseña</string>
     <string name="logLblRegistro">No tienes cuenta?</string>
     <string name="logLblRegistro1">Registrar</string>
+    <string name="logLblBienvenida">Hola psyduck,\n¿Qué tenemos hoy?</string>
+    <string name="logLblNotificaciones">NOTIFICACIONES</string>
     <string name="logLblPassword">Aviso de Política de Seguridad</string>
     <string name="lblProyecto">MEEP WORK</string>
     <string name="lblTiContraseña">Restablecimiento de contraseña</string>
     <string name="lblSubTiContraseña">Escribe tu email, a continuación, y te enviaremos un correo electrónico para restablecer la contraseña</string>
+
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+    <string name="item1">Cuenta</string>
+    <string name="item2">Mensajes</string>
+    <string name="item3">Configuración</string>
+    <string name="item4">Acerca de</string>
+    <string name="item5">Cerrar Sesión</string>
 </resources>
