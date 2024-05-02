@@ -16,4 +16,12 @@
     <string name="lblProyecto">MEEP WORK</string>
     <string name="lblTiContraseña">Restablecimiento de contraseña</string>
     <string name="lblSubTiContraseña">Escribe tu email, a continuación, y te enviaremos un correo electrónico para restablecer la contraseña</string>
+    <string name="lblCuenta">Cuenta</string>
+    <string name="lblDatos">Base de Información</string>
+    <string name="lblNameComplet">Nombres Completos</string>
+    <string name="lblUser">Username</string>
+    <string name="lblTelefono">Telefono</string>
+    <string name="lblDireccion">Dirección</string>
+    <string name="logBtnCancelar">Cancelar</string>
+    <string name="logBtnSave">Guardar</string>
 </resources>

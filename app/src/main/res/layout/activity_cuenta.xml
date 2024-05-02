@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondoMeep"
+    tools:context=".actividades.CuentaActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="13dp"
+        tools:layout_editor_absoluteY="26dp">
+        
+        <TextView
+            android:id="@+id/lblCuenta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_flechaback"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/lblCuenta"
+            android:textColor="#FFFFFF"
+            android:textSize="30sp"
+            android:drawablePadding="120dp"/>
+
+        <RelativeLayout
+            android:layout_width="350sp"
+            android:layout_height="150sp"
+            android:layout_marginTop="170dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/border">
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="350sp"
+            android:layout_height="320sp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/border">
+            <TextView
+                android:id="@+id/lblDatos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/lblDatos"
+                android:textColor="#FFFFFF"
+                android:textSize="30sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:id="@+id/lblNameComplet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/lblNameComplet"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:layout_marginTop="50dp"
+                android:layout_marginLeft="10dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:background="@drawable/edit_text_backgroud"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_marginTop="75dp"
+                    android:inputType="textPersonName"
+                    android:maxLength="100" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="300dp"
+                    android:layout_marginTop="133dp"
+                    android:src="@drawable/ic_pencil"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/lblUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/lblUser"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:layout_marginTop="105dp"
+                android:layout_marginLeft="10dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:background="@drawable/edit_text_backgroud"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_marginTop="125dp"
+                    android:inputType="textPersonName"
+                    android:maxLength="100" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="300dp"
+                    android:layout_marginTop="-79dp"
+                    android:src="@drawable/ic_pencil"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/llblTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/lblTelefono"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:layout_marginTop="155dp"
+                android:layout_marginLeft="10dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:background="@drawable/edit_text_backgroud"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_marginTop="180dp"
+                    android:inputType="textPersonName"
+                    android:maxLength="100" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="300dp"
+                    android:layout_marginTop="-83dp"
+                    android:src="@drawable/ic_pencil"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/lblDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/lblDireccion"
+                android:textColor="#FFFFFF"
+                android:textSize="15sp"
+                android:layout_marginTop="210dp"
+                android:layout_marginLeft="10dp"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:background="@drawable/edit_text_backgroud"
+                    android:layout_marginHorizontal="50dp"
+                    android:layout_marginTop="235dp"
+                    android:inputType="textPersonName"
+                    android:maxLength="100" />
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="300dp"
+                    android:layout_marginTop="-83dp"
+                    android:src="@drawable/ic_pencil"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="30dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="265dp">
+
+                <Button
+                    android:id="@+id/logBtnCancelar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/logBtnCancelar"
+                    android:textAllCaps="false"
+                    android:layout_marginRight="15dp"
+                    android:layout_weight="1"/>
+                <Button
+                    android:id="@+id/logBtnSave"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/logBtnSave"
+                    android:textAllCaps="false"
+                    android:backgroundTint="@color/lblSave"
+                    android:layout_marginLeft="15dp"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </LinearLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
