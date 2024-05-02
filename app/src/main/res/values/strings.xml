@@ -24,4 +24,7 @@
     <string name="lblDireccion">Dirección</string>
     <string name="logBtnCancelar">Cancelar</string>
     <string name="logBtnSave">Guardar</string>
+    <string name="logLblPro">Proyectos Restantes</string>
+    <string name="logLblPro2">Proyectos Realizados</string>
+    <string name="logLblPro3">Total Proyectos</string>
 </resources>
