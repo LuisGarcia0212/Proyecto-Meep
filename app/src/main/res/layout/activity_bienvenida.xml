@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    android:background="@color/fondoMeep"
+    tools:context=".actividades.BienvenidaActivity"
+    tools:openDrawer="start">
+
+    <include
+        layout="@layout/app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:orientation="vertical"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:id="@+id/logLblBienvenida"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/logLblBienvenida"
+            android:fontFamily="@font/inter_regular"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textFontWeight="700"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bienvenida_portada"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/logLblNotificaciones"
+            android:fontFamily="@font/inter_regular"
+            android:textColor="@color/white"
+            android:textSize="30dp"
+            android:textFontWeight="800"
+            android:layout_marginTop="5dp"
+            android:textStyle="italic"/>
+        <LinearLayout
+            android:id="@+id/linearNotificaciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="15dp">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/editText"
+                    android:layout_width="200dp"
+                    android:layout_height="150dp"
+                    android:background="@drawable/edit_text_notificaciones"
+                    android:padding="8dp"
+                    android:textColor="@android:color/transparent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Tarea 1"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@android:color/black" />
+                
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignEnd="@id/editText"
+                    android:layout_alignBottom="@id/editText"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/ic_derecha"
+                    android:contentDescription="Icono"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp">
+
+                <EditText
+                    android:id="@+id/editText2"
+                    android:layout_width="166dp"
+                    android:layout_height="125dp"
+                    android:background="@drawable/edit_text_notificaciones"
+                    android:padding="8dp"
+                    android:textColor="@android:color/transparent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Tarea 2"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:fontFamily="@font/inter_regular"
+                    android:textColor="@android:color/black" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignEnd="@id/editText2"
+                    android:layout_alignBottom="@id/editText2"
+                    android:layout_marginBottom="10dp"
+                    android:src="@drawable/ic_derecha"
+                    android:contentDescription="Icono" />
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_below="@id/editText2"
+                    android:layout_alignStart="@id/editText2"
+
+                    android:layout_marginTop="-52dp"
+                    android:src="@drawable/ic_izquierda"
+                    android:contentDescription="Otro Icono" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:gravity="center_horizontal">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <EditText
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/edit_icono_circular"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_file"
+                    android:contentDescription="Icono" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <EditText
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/edit_icono_circular"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_map"
+                    android:contentDescription="Icono" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp">
+
+                <EditText
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/edit_icono_circular"
+                    android:gravity="center"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/ic_chat"
+                    android:contentDescription="Icono" />
+
+            </RelativeLayout>
+            
+        </LinearLayout>
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@color/btnColor"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer"/>
+
+
+
+</androidx.drawerlayout.widget.DrawerLayout>

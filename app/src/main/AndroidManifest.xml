@@ -13,19 +13,13 @@
         android:theme="@style/Theme.ProyectoMeep"
         tools:targetApi="31">
         <activity
-            android:name=".actividades.CuentaActivity"
+            android:name=".actividades.BienvenidaActivity"
             android:exported="false" />
         <activity
             android:name=".actividades.RestablecerContrasenhaActivity"
             android:exported="false" />
         <activity
             android:name=".actividades.RegistroActivity"
-            android:exported="false" />
-        <activity
-            android:name=".actividades.SignUpActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SingUpActivity"
             android:exported="false" />
         <activity
             android:name=".actividades.InicionSesionMeepActivity"

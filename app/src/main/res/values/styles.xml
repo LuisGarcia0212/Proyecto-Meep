@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+>>>>>>>>  HEAD
     <style name="roundedImageViewRounded">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>
 
+=======
+
+    <style name="MenuItemText" parent="@android:style/TextAppearance.Widget.IconMenu.Item">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">40dp</item>
+    </style>
+>>>>>>> 56b9672a45789b8e0df5393587cc32e31f3d4bc5
 </resources>
