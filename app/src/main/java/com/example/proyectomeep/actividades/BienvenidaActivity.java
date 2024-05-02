@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -48,12 +49,18 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
         if (item.getItemId() == R.id.nav_item_one){
-            Toast.makeText(this, "Item 1", Toast.LENGTH_SHORT).show();
+            ingresarCuenta();
         } else if (item.getItemId() == R.id.nav_item_two) {
             Toast.makeText(this, "Item 2", Toast.LENGTH_SHORT).show();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void ingresarCuenta() {
+        Intent iCuenta= new Intent(this, CuentaActivity.class);
+        startActivity(iCuenta);
+        finish();
     }
 
     @Override
