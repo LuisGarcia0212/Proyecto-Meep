@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -14,17 +17,31 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.example.proyectomeep.R;
+import com.example.proyectomeep.clases.Menu;
+import com.example.proyectomeep.fragmentos.BienvenidaFragment;
+import com.example.proyectomeep.fragmentos.CrearPFragment;
+import com.example.proyectomeep.fragmentos.ForoFragment;
 import com.google.android.material.navigation.NavigationView;
 
-public class BienvenidaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class BienvenidaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Menu {
 
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
+
+    Fragment[] fragments;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bienvenida);
+
+        fragments = new Fragment[3];
+        fragments[0] = new BienvenidaFragment();
+        fragments[1] = new ForoFragment();
+        fragments[2] = new CrearPFragment();
+
+        int idBoton = 0;
+        onClickMenu(idBoton);
 
         Toolbar toolbar = findViewById(R.id.toolBar_main);
         setSupportActionBar(toolbar);
@@ -52,9 +69,21 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
             ingresarCuenta();
         } else if (item.getItemId() == R.id.nav_item_two) {
             Toast.makeText(this, "Item 2", Toast.LENGTH_SHORT).show();
+        } else if (item.getItemId() == R.id.nav_item_three) {
+            Toast.makeText(this, "Item 3", Toast.LENGTH_SHORT).show();
+        } else if (item.getItemId() == R.id.nav_item_four) {
+            Toast.makeText(this, "Item 4", Toast.LENGTH_SHORT).show();
+        } else if (item.getItemId() == R.id.nav_item_five) {
+            volverLogin();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private void volverLogin() {
+        Intent iLogin = new Intent(this, InicionSesionMeepActivity.class);
+        startActivity(iLogin);
+        finish();
     }
 
     private void ingresarCuenta() {
@@ -83,4 +112,11 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onClickMenu(int idBoton) {
+        FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.menuRelaArea, fragments[idBoton]);
+        ft.commit();
+    }
 }
