@@ -19,7 +19,7 @@ public class CargaMeepActivity extends AppCompatActivity {
             public void run(){
                   super.run();
                    try {
-                       sleep(3000);
+                       sleep(4000);
                    }catch (InterruptedException e){
                        throw new RuntimeException(e);
                    }

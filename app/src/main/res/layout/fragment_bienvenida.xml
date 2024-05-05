@@ -61,11 +61,12 @@
                     android:editable="false"/>
 
                 <TextView
+
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="20dp"
                     android:layout_marginTop="10dp"
-                    android:text="Tarea 1"
+                    android:text="@string/Tarea"
                     android:textSize="20dp"
                     android:textStyle="bold"
                     android:fontFamily="@font/inter_regular"

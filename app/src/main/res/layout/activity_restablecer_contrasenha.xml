@@ -78,14 +78,14 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/logBtnRegistrar"
+            android:id="@+id/logLblRecuperar1"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:background="@drawable/edit_text_background2"
             android:layout_marginHorizontal="20dp"
             android:textSize="17.5dp"
             android:layout_marginTop="20dp"
-            android:text="@string/logBtnRestablecer"
+            android:text="@string/logLblRecuperar1"
             android:textAllCaps="false" />
     </LinearLayout>
 
