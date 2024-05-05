@@ -13,6 +13,12 @@
         android:theme="@style/Theme.ProyectoMeep"
         tools:targetApi="31">
         <activity
+            android:name=".actividades.MapaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".actividades.AcercaDeActivity"
+            android:exported="false" />
+        <activity
             android:name=".actividades.RecuperacionActivity"
             android:exported="false" />
         <activity
@@ -41,7 +47,7 @@
         </activity>
         <activity
             android:name=".actividades.CuentaActivity"
-            android:exported="false"/>
+            android:exported="false" />
     </application>
 
 </manifest>
