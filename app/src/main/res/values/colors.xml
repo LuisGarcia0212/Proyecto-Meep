@@ -12,4 +12,8 @@
     <color name="etxtLogin">#B7BBC0</color>
     <color name="lblSub">#625a5a</color>
     <color name="lblSave">#e16767</color>
+    <color name="gray">#BDBDBB</color>
+    <color name="gray2">#D1D1CE</color>
+    <color name="orange">#FFA200 </color>
+    <color name="green">#17FF00 </color>
 </resources>

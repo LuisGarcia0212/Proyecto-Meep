@@ -3,12 +3,571 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".fragmentos.ForoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Creando foro" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:background="@color/btnColor">
+
+            <ImageView
+                android:id="@+id/barra"
+                android:layout_width="31dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:rotationY="0"
+                android:src="@drawable/align_left"
+                app:tint="@color/white" />
+
+            <TextView
+                android:id="@+id/lblForo"
+                android:layout_width="284dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/lblForo"
+                android:textSize="25sp"
+                android:textColor="@color/white"/>
+
+            <ImageView
+                android:id="@+id/backproyect"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/search"
+                app:tint="@color/white" />
+        </LinearLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="380sp"
+                    android:layout_height="150sp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#40505E">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/user1"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/psyduck_user" />
+
+                    <TextView
+                        android:id="@+id/lblProgress"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="55dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="@string/lblpost"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/morepoint"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="350dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/more_vertical"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/lblcpost1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="57dp"
+                        android:layout_marginTop="37dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="@string/lblcpost"
+                        android:textColor="#FFFFFF"
+                        android:textSize="8sp" />
+
+                    <RelativeLayout
+                        android:layout_width="357dp"
+                        android:layout_height="62dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="55dp"
+                        android:background="#757B85  ">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/user"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/hardbord" />
+
+                        <TextView
+                            android:id="@+id/lbluser2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblusuario3"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/lblcposts"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblcomment"
+                            android:textColor="#FFFFFF"
+                            android:textSize="8sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="380dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="120dp"
+                        android:background="#40505E">
+
+                        <ImageView
+                            android:id="@+id/chat"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/chat"
+                            app:tint="@color/gray" />
+                        <TextView
+                            android:id="@+id/lblnumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="35dp"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblnumber4"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp" />
+
+                        <ImageView
+                            android:id="@+id/btnlike"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="48dp"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/like"
+                            app:tint="@color/gray" />
+                        <TextView
+                            android:id="@+id/lblnumbers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblnumber2"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="380sp"
+                    android:layout_height="150sp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#40505E">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/user2"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/angelo" />
+
+                    <TextView
+                        android:id="@+id/cmposts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="55dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="@string/lblpost2"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/morepoint2"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="350dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/more_vertical"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/lblcpost2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="57dp"
+                        android:layout_marginTop="37dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="@string/lblcpost2"
+                        android:textColor="#FFFFFF"
+                        android:textSize="8sp" />
+
+                    <RelativeLayout
+                        android:layout_width="357dp"
+                        android:layout_height="62dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="55dp"
+                        android:background="#757B85  ">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/user3"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/gabriel" />
+
+                        <TextView
+                            android:id="@+id/lbluser4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblusuario1"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/lblcposts2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblcomment"
+                            android:textColor="#FFFFFF"
+                            android:textSize="8sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="380dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="120dp"
+                        android:background="#40505E">
+
+                        <ImageView
+                            android:id="@+id/chats"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/chat"
+                            app:tint="@color/gray" />
+                        <TextView
+                            android:id="@+id/lblnumber2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="35dp"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblnumber3"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp" />
+
+                        <ImageView
+                            android:id="@+id/btnlikes"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="48dp"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/like"
+                            app:tint="@color/gray" />
+                        <TextView
+                            android:id="@+id/lblnumbers3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblnumber4"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="380sp"
+                    android:layout_height="150sp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#40505E">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/userr"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/jara" />
+
+                    <TextView
+                        android:id="@+id/lblcpostss"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="55dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="@string/lblpost3"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/morepoints"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="350dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/more_vertical"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/lblcpost"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="57dp"
+                        android:layout_marginTop="37dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="@string/lblcpost3"
+                        android:textColor="#FFFFFF"
+                        android:textSize="8sp" />
+
+                    <RelativeLayout
+                        android:layout_width="357dp"
+                        android:layout_height="62dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="55dp"
+                        android:background="#757B85  ">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/user5"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/lulita" />
+
+                        <TextView
+                            android:id="@+id/lbluser6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblusuario2"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/lblpost"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblcomment"
+                            android:textColor="#FFFFFF"
+                            android:textSize="8sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="380dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="120dp"
+                        android:background="#40505E">
+
+                        <ImageView
+                            android:id="@+id/chatt"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/chat"
+                            app:tint="@color/gray" />
+                        <TextView
+                            android:id="@+id/lblnumberr"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="35dp"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblnumber"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp" />
+
+                        <ImageView
+                            android:id="@+id/btnlikee"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="48dp"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/like"
+                            app:tint="@color/gray" />
+                        <TextView
+                            android:id="@+id/lblnumberss"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblnumber3"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="380sp"
+                    android:layout_height="150sp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:background="#40505E">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/user7"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/dilan" />
+
+                    <TextView
+                        android:id="@+id/lblPsted"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="55dp"
+                        android:layout_marginTop="15dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="@string/lblpost"
+                        android:textColor="#FFFFFF"
+                        android:textSize="18sp" />
+
+                    <ImageView
+                        android:id="@+id/morepoint3"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_marginLeft="350dp"
+                        android:layout_marginTop="10dp"
+                        android:src="@drawable/more_vertical"
+                        app:tint="@color/white" />
+
+                    <TextView
+                        android:id="@+id/lblcpost3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="57dp"
+                        android:layout_marginTop="37dp"
+                        android:fontFamily="@font/inter_regular"
+                        android:text="@string/lblcpost"
+                        android:textColor="#FFFFFF"
+                        android:textSize="8sp" />
+
+                    <RelativeLayout
+                        android:layout_width="357dp"
+                        android:layout_height="62dp"
+                        android:layout_marginLeft="8dp"
+                        android:layout_marginTop="55dp"
+                        android:background="#757B85  ">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/use8"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="10dp"
+                            android:src="@drawable/pesheto" />
+
+                        <TextView
+                            android:id="@+id/lblusers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="10dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblusuario3"
+                            android:textColor="#FFFFFF"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/lblcposts3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="40dp"
+                            android:layout_marginTop="30dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblcomment"
+                            android:textColor="#FFFFFF"
+                            android:textSize="8sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="380dp"
+                        android:layout_height="28dp"
+                        android:layout_marginTop="120dp"
+                        android:background="#40505E">
+
+                        <ImageView
+                            android:id="@+id/chats2"
+                            android:layout_width="30dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/chat"
+                            app:tint="@color/gray" />
+                        <TextView
+                            android:id="@+id/lblnumbers2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="35dp"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblnumber2"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp" />
+
+                        <ImageView
+                            android:id="@+id/btnlikees"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginLeft="48dp"
+                            android:layout_marginTop="2dp"
+                            android:src="@drawable/like"
+                            app:tint="@color/gray" />
+                        <TextView
+                            android:id="@+id/lblnumbers4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="70dp"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblnumber3"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
 
 </FrameLayout>

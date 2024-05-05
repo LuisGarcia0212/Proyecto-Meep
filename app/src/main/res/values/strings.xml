@@ -38,6 +38,61 @@
     <string name="logLblPro2">Proyectos Realizados</string>
     <string name="logLblPro3">Total Proyectos</string>
     =======
+    ====================================
+    MIS PROYECTOS
+    <string name="lblMyproyect">Mis Proyectos</string>
+    <string name="lblGroupOrder">Agrupar por</string>
+    <string name="lblProgress">En progreso</string>
+    <string name="lblProgress2">En progreso</string>
+    <string name="lblProgress3">En progreso</string>
+    <string name="lblOpen">Abierto</string>
+    <string name="lblOpen2">Abierto</string>
+    <string name="lblFecha">02.05.24 09:00-05.05.24 22:00</string>
+    <string name="lblFecha2">27.04.24 07:00-11.05.24 23:00</string>
+    <string name="lblFecha3">06.05.24 10:00-20.05.24 13:00</string>
+    <string name="lblFecha4">20.04.24 12:00-08.05.24 18:00</string>
+    <string name="lblFecha5">06.05.24 22:00-30.06.24 07:00</string>
+    <string name="lblProyect1">Machine Learnig</string>
+    <string name="lblProyect2">Proyecto 2</string>
+    <string name="lblProyect3">Proyecto 3</string>
+    <string name="lblProyect4">Proyecto 4</string>
+    <string name="lblProyect5">Proyecto 5</string>
+    <string name="lblArea1">Marketing</string>
+    <string name="lblArea2">Desarrollo Web</string>
+    <string name="lblArea3">Administración</string>
+    <string name="lblArea4">Marketing</string>
+
+    ====================================
+    CREAR PROYECTO
+    <string name="newproyect">Crear Proyecto</string>
+    <string name="lblname">Nombre del Proyecto</string>
+    <string name="lblescribirName">Escribir el nombre</string>
+    <string name="LblFecha">Fecha</string>
+    <string name="lblescribirFecha">Seleccione</string>
+    <string name="lblDescripcion">Descripcion</string>
+    <string name="lblescribirDes">Escribir texto</string>
+    <string name="lblArea">Area</string>
+    <string name="lblescribirArea">Seleccione</string>
+    <string name="logbtnGenerar">Generar</string>
+    <string name="logbtnCreaProyect">Crear Proyecto</string>
+    =========================================
+    FOROOOO
+    <string name="lblForo">Foro</string>
+    <string name="lblusuario1">Michael</string>
+    <string name="lblusuario2">Lulita</string>
+    <string name="lblusuario3">Facundo</string>
+    <string name="lblpost">Trabajemos el proyecto</string>
+    <string name="lblpost2">Ya esta listo verifiquen!!</string>
+    <string name="lblpost3">Necesito ayuda, URGENTE</string>
+    <string name="lblcpost">posteado por Michael ahora</string>
+    <string name="lblcpost2">posteado por Lulita hace 1h</string>
+    <string name="lblcpost3">posteado por Facundo ayer</string>
+    <string name="lblcomment">Hola amigos! No se preocupen mañana empezaremos con el proyecto </string>
+    <string name="lblnumber">2</string>
+    <string name="lblnumber2">0</string>
+    <string name="lblnumber3">5</string>
+    <string name="lblnumber4">1</string>
+
 
     <string name="navigation_drawer_open">Abrir</string>
     <string name="navigation_drawer_close">Cerrar</string>
