@@ -13,6 +13,7 @@
         android:background="@color/btnColor">
 
         <ImageView
+            android:id="@+id/logVolverMenu"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="8dp"
