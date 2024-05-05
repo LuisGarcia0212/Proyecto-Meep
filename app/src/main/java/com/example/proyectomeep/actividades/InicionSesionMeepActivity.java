@@ -94,8 +94,6 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
     }
     }
 
-
-
     private void ingresarRegistro(){
         Intent iRegistro = new Intent(this, RegistroActivity.class);
         startActivity(iRegistro);
