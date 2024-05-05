@@ -27,10 +27,9 @@ import com.google.android.material.navigation.NavigationView;
 
 public class BienvenidaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Menu {
 
+
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
-
-
 
     Fragment[] fragments;
 
@@ -38,6 +37,7 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bienvenida);
+
 
         fragments = new Fragment[3];
         fragments[0] = new BienvenidaFragment();
@@ -63,6 +63,7 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
 
     }
 
@@ -124,4 +125,5 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         ft.replace(R.id.menuRelaArea, fragments[idBoton]);
         ft.commit();
     }
+
 }
