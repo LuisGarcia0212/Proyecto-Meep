@@ -25,9 +25,8 @@ import com.example.proyectomeep.fragmentos.ProyectoFragment;
 import com.example.proyectomeep.fragmentos.ForoFragment;
 import com.google.android.material.navigation.NavigationView;
 
-public class BienvenidaActivity extends AppCompatActivity implements View.OnClickListener, NavigationView.OnNavigationItemSelectedListener, Menu {
+public class BienvenidaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Menu {
 
-    ImageView imaMap;
 
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
@@ -65,10 +64,6 @@ public class BienvenidaActivity extends AppCompatActivity implements View.OnClic
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-
-        imaMap= findViewById(R.id.lblmapa);
-
-        imaMap.setOnClickListener(this);
 
     }
 
@@ -131,16 +126,4 @@ public class BienvenidaActivity extends AppCompatActivity implements View.OnClic
         ft.commit();
     }
 
-    @Override
-    public void onClick(View v) {
-        if(v.getId() == R.id.lblmapa){
-            volver1();
-        }
-    }
-
-    private void volver1(){
-        Intent iBienvenida1 = new Intent(this, MapaActivity.class);
-        startActivity(iBienvenida1);
-        finish();
-    }
 }
