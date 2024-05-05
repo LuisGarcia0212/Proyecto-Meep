@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProyectoMeep</string>
+    <string name="logLblLogin">Login</string>
+    <string name="logTxtUser">Username</string>
+    <string name="logTxtClave">Password</string>
+    <string name="logTxtContra1">Password</string>
+    <string name="logTxtContra2">Password</string>
+    <string name="logTxtEmail">Email</string>
+    <string name="logTxtClaveConfirm">Confirman Contraseña</string>
+    <string name="logChkRecordar">Remember session</string>
+    <string name="logChkTerminos">By signing you accept the Service Team and Privacy Policy</string>
+    <string name="logBtnIniciar">Log in</string>
+    <string name="logBtnRegistrar">Registry</string>
+    <string name="logLblRecuperar1">Send password reset email</string>
+    <string name="logLblRegistro">You do not have an account?</string>
+    <string name="logLblRegistro1">Registry</string>
+    <string name="logLblBienvenida">Hello psyduck, What do we have today?</string>
+    <string name="logLblNotificaciones">NOTIFICATIONS</string>
+    <string name="logLblPassword">Security Policy Notice</string>
+    <string name="lblProyecto">MEEP WORK</string>
+    <string name="lblTiContraseña">Password reset</string>
+    <string name="lblCode">Verification code</string>
+    <string name="logTxtCode">Code</string>
+    <string name="lblRecup">Recuperation</string>
+    <string name="lblVeri">Verify</string>
+    <string name="lblSubTiContraseña">Enter your email below and we will send you an email to reset your password</string>
+    >>>>>>>>>>>>>> HEAD
+    <string name="lblCuenta">Account</string>
+    <string name="lblDatos">Information Base</string>
+    <string name="lblNameComplet">Complete names</string>
+    <string name="lblUser">Username</string>
+    <string name="lblTelefono">Phone</string>
+    <string name="lblDireccion">Address</string>
+    <string name="logBtnCancelar">Cancel</string>
+    <string name="logBtnSave">Save</string>
+    <string name="logLblPro">Remaining Projects</string>
+    <string name="logLblPro2">Fulfilled projects</string>
+    <string name="logLblPro3">Total Projects</string>
+    =======
+
+    <string name="navigation_drawer_open">Open</string>
+    <string name="navigation_drawer_close">Close</string>
+    <string name="item1">Account</string>
+    <string name="item2">Messages</string>
+    <string name="item3">Setting</string>
+    <string name="item4">About</string>
+    <string name="item5">Sign off</string>
+    <string name="item6">theme</string>
+    <string name="Tarea">Task</string>
+    <string name="logLblRestablecer">Dont remember the password?</string>
+    <string name="logLblRestablecer1">Recover password</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    >>>>>>> 56b9672a45789b8e0df5393587cc32e31f3d4bc5
+</resources>
