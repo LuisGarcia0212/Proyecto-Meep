@@ -28,10 +28,9 @@ import com.google.android.material.navigation.NavigationView;
 
 public class BienvenidaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Menu {
 
+
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
-
-
 
     Fragment[] fragments;
 
@@ -40,7 +39,12 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bienvenida);
 
+<<<<<<< HEAD
         fragments = new Fragment[4];
+=======
+
+        fragments = new Fragment[3];
+>>>>>>> 078bb8851602ef3d5509b97623d963e698ec1fd8
         fragments[0] = new BienvenidaFragment();
         fragments[1] = new ForoFragment();
         fragments[2] = new ProyectoFragment();
@@ -66,6 +70,7 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+
     }
 
 
@@ -79,7 +84,7 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         } else if (item.getItemId() == R.id.nav_item_three) {
 
         } else if (item.getItemId() == R.id.nav_item_four) {
-            Toast.makeText(this, "Item 4", Toast.LENGTH_SHORT).show();
+            acercaDe();
         } else if (item.getItemId() == R.id.nav_item_five) {
             volverLogin();
         }
@@ -99,7 +104,15 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         finish();
     }
 
+<<<<<<< HEAD
 
+=======
+    private void acercaDe() {
+        Intent iCuenta= new Intent(this, AcercaDeActivity.class);
+        startActivity(iCuenta);
+        finish();
+    }
+>>>>>>> 078bb8851602ef3d5509b97623d963e698ec1fd8
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -128,4 +141,5 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         ft.replace(R.id.menuRelaArea, fragments[idBoton]);
         ft.commit();
     }
+
 }
