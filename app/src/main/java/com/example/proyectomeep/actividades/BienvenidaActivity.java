@@ -14,6 +14,8 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.proyectomeep.R;
@@ -27,6 +29,8 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
 
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
+
+
 
     Fragment[] fragments;
 
@@ -59,6 +63,7 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
 
