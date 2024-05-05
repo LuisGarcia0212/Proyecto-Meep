@@ -110,7 +110,14 @@
     <string name="logLblRestablecer">no se acuerda la contraseña?</string>
     <string name="logLblRestablecer1">Recuperar contraseña</string>
 
+    <string name="frgCfgNotificaciones">Notificaciones</string>
+    <string name="frgCfgPreferencias">Preferencias</string>
+    <string name="frgCfgSonido">Sonido</string>
 
+    <string name="lblConfig">configuracion</string>
+
+    <string name="frgCfgGuardar">Guardar</string>
+    <string name="frgCfgCerrarSesion">Cerrar Sesion</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hola fragmento en blanco</string>
 
