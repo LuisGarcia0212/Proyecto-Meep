@@ -81,7 +81,7 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         } else if (item.getItemId() == R.id.nav_item_two) {
             Toast.makeText(this, "Item 2", Toast.LENGTH_SHORT).show();
         } else if (item.getItemId() == R.id.nav_item_three) {
-
+            onClickMenu(3);
         } else if (item.getItemId() == R.id.nav_item_four) {
             acercaDe();
             Toast.makeText(this, "Item 4", Toast.LENGTH_SHORT).show();

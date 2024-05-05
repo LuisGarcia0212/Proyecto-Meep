@@ -114,7 +114,7 @@
     <string name="frgCfgPreferencias">Preferencias</string>
     <string name="frgCfgSonido">Sonido</string>
 
-    <string name="lblConfig">configuracion</string>
+    <string name="lblConfig">Configuración</string>
 
     <string name="frgCfgGuardar">Guardar</string>
     <string name="frgCfgCerrarSesion">Cerrar Sesion</string>
