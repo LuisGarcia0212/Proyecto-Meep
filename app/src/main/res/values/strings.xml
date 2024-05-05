@@ -1,20 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">ProyectoMeep</string>
-    <string name="logLblLogin">Login</string>
+    <string name="logLblLogin">Inicio de sesíon</string>
     <string name="logTxtUser">Usuario</string>
-    <string name="logTxtClave">Clave</string>
+    <string name="logTxtClave">Contraseña</string>
     <string name="logTxtContra1">Contraseña</string>
     <string name="logTxtContra2">Contraseña</string>
-    <string name="logTxtEmail">Email</string>
+    <string name="logTxtEmail">Correo electronico</string>
     <string name="logTxtClaveConfirm">Confirman Contraseña</string>
     <string name="logChkRecordar">Recordar sesión</string>
     <string name="logChkTerminos">Al firmar aceptas el Equipo de servicio y Política de privacidad</string>
     <string name="logBtnIniciar">Iniciar Sesión</string>
     <string name="logBtnRegistrar">Registrar</string>
-    <string name="logBtnRestablecer">Enviar email de restablecimiento de constraseña</string>
+    <string name="logLblRecuperar1">Enviar email de restablecimiento de constraseña</string>
     <string name="logLblRegistro">No tienes cuenta?</string>
     <string name="logLblRegistro1">Registrar</string>
-    <string name="logLblBienvenida">Hola psyduck,\n¿Qué tenemos hoy?</string>
+    <string name="logLblBienvenida">Hola psyduck, ¿Qué tenemos hoy?</string>
     <string name="logLblNotificaciones">NOTIFICACIONES</string>
     <string name="logLblPassword">Aviso de Política de Seguridad</string>
     <string name="lblProyecto">MEEP WORK</string>
@@ -28,7 +29,7 @@
     <string name="lblCuenta">Cuenta</string>
     <string name="lblDatos">Base de Información</string>
     <string name="lblNameComplet">Nombres Completos</string>
-    <string name="lblUser">Username</string>
+    <string name="lblUser">Nombre de usuario</string>
     <string name="lblTelefono">Telefono</string>
     <string name="lblDireccion">Dirección</string>
     <string name="logBtnCancelar">Cancelar</string>
@@ -38,14 +39,21 @@
     <string name="logLblPro3">Total Proyectos</string>
     =======
 
-    <string name="navigation_drawer_open">Open</string>
-    <string name="navigation_drawer_close">Close</string>
+    <string name="navigation_drawer_open">Abrir</string>
+    <string name="navigation_drawer_close">Cerrar</string>
     <string name="item1">Cuenta</string>
     <string name="item2">Mensajes</string>
     <string name="item3">Configuración</string>
     <string name="item4">Acerca de</string>
     <string name="item5">Cerrar Sesión</string>
+    <string name="item6">Fondo</string>
+    <string name="Tarea">Tarea</string>
+    <string name="logLblRestablecer">no se acuerda la contraseña?</string>
+    <string name="logLblRestablecer1">Recuperar contraseña</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+
     >>>>>>> 56b9672a45789b8e0df5393587cc32e31f3d4bc5
 </resources>
