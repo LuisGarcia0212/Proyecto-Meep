@@ -78,6 +78,7 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         } else if (item.getItemId() == R.id.nav_item_three) {
             Toast.makeText(this, "Item 3", Toast.LENGTH_SHORT).show();
         } else if (item.getItemId() == R.id.nav_item_four) {
+            acercaDe();
             Toast.makeText(this, "Item 4", Toast.LENGTH_SHORT).show();
         } else if (item.getItemId() == R.id.nav_item_five) {
             volverLogin();
@@ -94,6 +95,12 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
 
     private void ingresarCuenta() {
         Intent iCuenta= new Intent(this, CuentaActivity.class);
+        startActivity(iCuenta);
+        finish();
+    }
+
+    private void acercaDe() {
+        Intent iCuenta= new Intent(this, AcercaDeActivity.class);
         startActivity(iCuenta);
         finish();
     }
