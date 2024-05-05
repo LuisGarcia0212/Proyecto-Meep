@@ -21,7 +21,7 @@ import android.widget.Toast;
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.clases.Menu;
 import com.example.proyectomeep.fragmentos.BienvenidaFragment;
-import com.example.proyectomeep.fragmentos.CrearPFragment;
+import com.example.proyectomeep.fragmentos.ProyectoFragment;
 import com.example.proyectomeep.fragmentos.ForoFragment;
 import com.google.android.material.navigation.NavigationView;
 
@@ -43,7 +43,7 @@ public class BienvenidaActivity extends AppCompatActivity implements View.OnClic
         fragments = new Fragment[3];
         fragments[0] = new BienvenidaFragment();
         fragments[1] = new ForoFragment();
-        fragments[2] = new CrearPFragment();
+        fragments[2] = new ProyectoFragment();
 
         int idBoton = 0;
         onClickMenu(idBoton);
