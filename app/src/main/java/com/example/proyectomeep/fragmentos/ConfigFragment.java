@@ -100,7 +100,7 @@ Button btnGuardar, btnCerrarSesion;
     }
 
     private void cargarPreferencias() {
-        SharedPreferences preferences = getActivity().getSharedPreferences("preferencias", Context.MODE_PRIVATE);
+        SharedPreferences preferences = getActivity().getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
         boolean notificaciones = preferences.getBoolean("Notificaciones",false);
         boolean sonido = preferences.getBoolean("Sonido",false);
         int idioma = preferences.getInt("Idioma",0);
@@ -123,7 +123,7 @@ Button btnGuardar, btnCerrarSesion;
     }
 
     private void guardar() {
-        if (cboIdiomas.getSelectedItemPosition() == 0) {
+        if (cboIdiomas.getSelectedItemPosition() != 0) {
         SharedPreferences preferences = getActivity().getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
 
