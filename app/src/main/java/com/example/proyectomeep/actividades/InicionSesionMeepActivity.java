@@ -103,7 +103,7 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
     }
 
     private void iniciarSesion(String user, String psw){
-        if(user.equals("psyduck@gmail.com") && psw.equals("123456")) {
+        if(user.equals("psyduck") && psw.equals("123456")) {
             Intent iBienvenida = new Intent(this, BienvenidaActivity.class);
             startActivity(iBienvenida);
             finish();
