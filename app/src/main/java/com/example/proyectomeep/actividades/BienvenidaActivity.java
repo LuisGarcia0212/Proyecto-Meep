@@ -39,12 +39,11 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bienvenida);
 
-<<<<<<< HEAD
-        fragments = new Fragment[4];
-=======
 
-        fragments = new Fragment[3];
->>>>>>> 078bb8851602ef3d5509b97623d963e698ec1fd8
+
+
+        fragments = new Fragment[4];
+
         fragments[0] = new BienvenidaFragment();
         fragments[1] = new ForoFragment();
         fragments[2] = new ProyectoFragment();
@@ -104,15 +103,13 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         finish();
     }
 
-<<<<<<< HEAD
 
-=======
     private void acercaDe() {
         Intent iCuenta= new Intent(this, AcercaDeActivity.class);
         startActivity(iCuenta);
         finish();
     }
->>>>>>> 078bb8851602ef3d5509b97623d963e698ec1fd8
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
