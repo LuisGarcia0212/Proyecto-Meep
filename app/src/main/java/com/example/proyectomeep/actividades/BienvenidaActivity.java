@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.clases.Menu;
 import com.example.proyectomeep.fragmentos.BienvenidaFragment;
+import com.example.proyectomeep.fragmentos.ConfigFragment;
 import com.example.proyectomeep.fragmentos.ProyectoFragment;
 import com.example.proyectomeep.fragmentos.ForoFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -39,10 +40,11 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bienvenida);
 
-        fragments = new Fragment[3];
+        fragments = new Fragment[4];
         fragments[0] = new BienvenidaFragment();
         fragments[1] = new ForoFragment();
         fragments[2] = new ProyectoFragment();
+        fragments[3] = new ConfigFragment();
 
         int idBoton = 0;
         onClickMenu(idBoton);
@@ -75,7 +77,7 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         } else if (item.getItemId() == R.id.nav_item_two) {
             Toast.makeText(this, "Item 2", Toast.LENGTH_SHORT).show();
         } else if (item.getItemId() == R.id.nav_item_three) {
-            Toast.makeText(this, "Item 3", Toast.LENGTH_SHORT).show();
+
         } else if (item.getItemId() == R.id.nav_item_four) {
             Toast.makeText(this, "Item 4", Toast.LENGTH_SHORT).show();
         } else if (item.getItemId() == R.id.nav_item_five) {
@@ -96,6 +98,8 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         startActivity(iCuenta);
         finish();
     }
+
+
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {

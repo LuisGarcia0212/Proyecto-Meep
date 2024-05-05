@@ -14,7 +14,7 @@ public class ConfigActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_config);
+        setContentView(R.layout.fragment_config);
         backCuenta = findViewById(R.id.backCuenta);
 
         backCuenta.setOnClickListener(this);
