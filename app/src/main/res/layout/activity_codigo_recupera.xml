@@ -65,7 +65,8 @@
                 android:drawablePadding="10dp"
                 android:hint="@string/logTxtCode"
                 android:inputType="textPersonName"
-                android:maxLength="100" />
+                android:maxLength="100"
+                android:paddingLeft="10dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
@@ -73,11 +74,12 @@
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/edit_text_background2"
+            android:background="@drawable/edit_botones"
             android:layout_marginHorizontal="20dp"
             android:textSize="17.5dp"
             android:layout_marginTop="20dp"
             android:text="@string/lblVeri"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:textColor="@color/white"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

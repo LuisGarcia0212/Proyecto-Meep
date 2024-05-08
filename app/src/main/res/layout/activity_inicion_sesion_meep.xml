@@ -57,7 +57,8 @@
                 android:drawablePadding="10dp"
                 android:hint="@string/logTxtUser"
                 android:inputType="textPersonName"
-                android:maxLength="100" />
+                android:maxLength="100"
+                android:paddingLeft="10dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -76,17 +77,26 @@
                 android:drawablePadding="10dp"
                 android:hint="@string/logTxtClave"
                 android:inputType="textPassword"
-                android:maxLength="100" />
+                android:maxLength="100"
+                android:paddingLeft="10dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <CheckBox
-            android:id="@+id/logChkRecordar"
-            android:layout_width="wrap_content"
-            android:layout_height="58dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="-20dp"
-            android:text="@string/logChkRecordar"
-            android:textColor="#625a5a" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="35dp"
+            android:layout_marginBottom="20dp">
+            <CheckBox
+                android:id="@+id/logChkRecordar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/logChkRecordar"
+                android:textColor="@color/cardview_dark_background"
+                android:buttonTint="@color/btnColor"/>
+        </LinearLayout>
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -98,10 +108,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginHorizontal="30dp"
-                android:background="@drawable/edit_text_backgroud"
+                android:background="@drawable/edit_botones"
                 android:text="@string/logBtnIniciar"
                 android:textAllCaps="false"
-                android:textSize="20dp" />
+                android:textSize="20dp"
+                android:textColor="@color/white"/>
         </LinearLayout>
 
 
