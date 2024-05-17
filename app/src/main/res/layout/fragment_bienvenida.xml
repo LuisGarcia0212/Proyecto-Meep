@@ -156,8 +156,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/ic_file"
-                    android:contentDescription="Icono" />
+                    android:contentDescription="Icono"
+                    android:src="@drawable/ic_crear" />
 
             </RelativeLayout>
 
@@ -182,7 +182,7 @@
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:contentDescription="Icono"
-                    android:src="@drawable/ic_map" />
+                    android:src="@drawable/ic_ubicacion" />
 
             </RelativeLayout>
 
@@ -205,9 +205,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/ic_chat"
                     android:contentDescription="Icono"
-                    android:editable="false"/>
+                    android:editable="false"
+                    android:src="@drawable/ic_chat" />
 
             </RelativeLayout>
 

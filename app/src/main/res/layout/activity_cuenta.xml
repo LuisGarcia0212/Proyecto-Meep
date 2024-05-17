@@ -52,78 +52,115 @@
             android:layout_marginLeft="130dp"
             android:src="@drawable/psyduck_user" />
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="350sp"
             android:layout_height="150sp"
-            android:layout_marginTop="30dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginHorizontal="15dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
             android:background="@drawable/border">
 
-            <RelativeLayout
-                android:layout_width="80sp"
-                android:layout_height="60sp"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="17dp"
-                android:background="@drawable/border1">
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/logLblPro"
-                android:layout_width="100dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_regular"
-                android:text="@string/logLblPro"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:layout_marginTop="80dp"
-                android:layout_marginLeft="10dp"/>
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+                <EditText
+                    android:layout_width="70sp"
+                    android:layout_height="70sp"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:textSize="35sp"
+                    android:layout_weight="800"
+                    android:textStyle="bold"
+                    android:text="15"
+                    android:background="@drawable/border1"/>
 
+                <TextView
+                    android:id="@+id/logLblPro"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/logLblPro"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center"
+                    android:textSize="17sp"/>
+            </LinearLayout>
 
-            <RelativeLayout
-                android:layout_width="80sp"
-                android:layout_height="60sp"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="135dp"
-                android:background="@drawable/border1">
-            </RelativeLayout>
-
-            <TextView
-                android:id="@+id/logLblPro2"
-                android:layout_width="110dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_regular"
-                android:text="@string/logLblPro2"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:layout_marginTop="80dp"
-                android:layout_marginLeft="130dp"/>
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
 
+                <EditText
+                    android:layout_width="70sp"
+                    android:layout_height="70sp"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:textSize="35sp"
+                    android:layout_weight="800"
+                    android:textStyle="bold"
+                    android:text="0"
+                    android:background="@drawable/border1"/>
 
-            <RelativeLayout
-                android:layout_width="80sp"
-                android:layout_height="60sp"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="250dp"
-                android:background="@drawable/border1">
-            </RelativeLayout>
+                <TextView
+                    android:id="@+id/logLblPro2"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/logLblPro2"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center"
+                    android:textSize="17sp"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/logLblPro3"
-                android:layout_width="110dp"
+            <LinearLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_regular"
-                android:text="@string/logLblPro3"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:layout_marginTop="80dp"
-                android:layout_marginLeft="250dp"/>
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_width="350sp"
-            android:layout_height="320sp"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal">
+
+                <EditText
+                    android:layout_width="70sp"
+                    android:layout_height="70sp"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:textSize="35sp"
+                    android:layout_weight="800"
+                    android:textStyle="bold"
+                    android:text="15"
+                    android:background="@drawable/border1"/>
+
+                <TextView
+                    android:id="@+id/logLblPro3"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/logLblPro3"
+                    android:textColor="#FFFFFF"
+                    android:gravity="center"
+                    android:textSize="17sp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:layout_marginLeft="15dp"
-            android:background="@drawable/border">
+            android:layout_marginHorizontal="15dp"
+            android:orientation="vertical"
+            android:background="@drawable/border"
+            android:padding="2dp">
+
             <TextView
                 android:id="@+id/lblDatos"
                 android:layout_width="match_parent"
@@ -133,150 +170,210 @@
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
                 android:layout_marginTop="5dp"
-                android:layout_marginLeft="30dp"/>
+                android:textStyle="bold"
+                android:gravity="center_horizontal"/>
 
-            <TextView
-                android:id="@+id/lblNameComplet"
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_regular"
-                android:text="@string/lblNameComplet"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="10dp"/>
+                android:layout_marginTop="10dp">
 
-            <com.google.android.material.textfield.TextInputLayout
+
+                <TextView
+                    android:id="@+id/lblNameComplet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblNameComplet"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginHorizontal="25dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblNameComplet">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edit_text_backgroud"
+                            android:inputType="textPersonName"
+                            android:maxLength="100"
+                            android:layout_weight="90"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_pencil"
+                            android:layout_marginTop="-5dp"
+                            android:layout_weight="1"/>
+
+                    </LinearLayout>
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+
+                <TextView
+                    android:id="@+id/lblUser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblUser"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginHorizontal="25dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblUser">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:background="@drawable/edit_text_backgroud"
+                            android:inputType="textPersonName"
+                            android:maxLength="100"
+                            android:layout_weight="90"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_pencil"
+                            android:layout_marginTop="-5dp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:id="@+id/llblTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblTelefono"
+                    android:layout_marginHorizontal="25dp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/llblTelefono">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:background="@drawable/edit_text_backgroud"
+                            android:inputType="textPersonName"
+                            android:maxLength="100"
+                            android:layout_weight="90"/>
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_pencil"
+                            android:layout_marginTop="-5dp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <EditText
+                <TextView
+                    android:id="@+id/lblDireccion"
                     android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:background="@drawable/edit_text_backgroud"
-                    android:layout_marginHorizontal="50dp"
-                    android:layout_marginTop="75dp"
-                    android:inputType="textPersonName"
-                    android:maxLength="100" />
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblDireccion"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginHorizontal="25dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="300dp"
-                    android:layout_marginTop="133dp"
-                    android:src="@drawable/ic_pencil"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/lblUser"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_regular"
-                android:text="@string/lblUser"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                android:layout_marginTop="105dp"
-                android:layout_marginLeft="10dp"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
+                <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:background="@drawable/edit_text_backgroud"
-                    android:layout_marginHorizontal="50dp"
-                    android:layout_marginTop="125dp"
-                    android:inputType="textPersonName"
-                    android:maxLength="100" />
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblDireccion">
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="300dp"
-                    android:layout_marginTop="-79dp"
-                    android:src="@drawable/ic_pencil"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/llblTelefono"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_regular"
-                android:text="@string/lblTelefono"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                android:layout_marginTop="155dp"
-                android:layout_marginLeft="10dp"/>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:background="@drawable/edit_text_backgroud"
+                            android:inputType="textPersonName"
+                            android:maxLength="100"
+                            android:layout_weight="90"/>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:background="@drawable/edit_text_backgroud"
-                    android:layout_marginHorizontal="50dp"
-                    android:layout_marginTop="180dp"
-                    android:inputType="textPersonName"
-                    android:maxLength="100" />
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="300dp"
-                    android:layout_marginTop="-83dp"
-                    android:src="@drawable/ic_pencil"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <TextView
-                android:id="@+id/lblDireccion"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_regular"
-                android:text="@string/lblDireccion"
-                android:textColor="#FFFFFF"
-                android:textSize="15sp"
-                android:layout_marginTop="210dp"
-                android:layout_marginLeft="10dp"/>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:background="@drawable/edit_text_backgroud"
-                    android:layout_marginHorizontal="50dp"
-                    android:layout_marginTop="235dp"
-                    android:inputType="textPersonName"
-                    android:maxLength="100" />
-
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="300dp"
-                    android:layout_marginTop="-83dp"
-                    android:src="@drawable/ic_pencil"/>
-            </com.google.android.material.textfield.TextInputLayout>
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_pencil"
+                            android:layout_marginTop="-5dp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+                </com.google.android.material.textfield.TextInputLayout>
+            </RelativeLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="30dp"
                 android:orientation="horizontal"
-                android:layout_marginTop="265dp">
+                android:layout_marginVertical="10dp">
 
                 <Button
                     android:id="@+id/logBtnCancelar"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@string/logBtnCancelar"
+                    android:background="@drawable/edit_boton_celeste"
+                    android:textColor="@color/white"
                     android:textAllCaps="false"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginHorizontal="30dp"
                     android:layout_weight="1"/>
                 <Button
                     android:id="@+id/logBtnSave"
@@ -284,19 +381,12 @@
                     android:layout_height="wrap_content"
                     android:text="@string/logBtnSave"
                     android:textAllCaps="false"
-                    android:backgroundTint="@color/lblSave"
-                    android:layout_marginLeft="15dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/edit_boton_rojo"
+                    android:layout_marginHorizontal="30dp"
                     android:layout_weight="1"/>
             </LinearLayout>
-
-
-
-        </RelativeLayout>
-
-
+        </LinearLayout>
     </LinearLayout>
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
