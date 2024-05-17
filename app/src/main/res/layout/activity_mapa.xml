@@ -67,7 +67,8 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginHorizontal="20dp"
             android:layout_marginTop="10dp"
-            android:background="@drawable/edit_text_background2"
+            android:background="@drawable/edit_boton_celeste"
+            android:textColor="@color/white"
             android:text="@string/logTxtAceptar"
             android:textAllCaps="false"
             android:textSize="17.5dp" />
