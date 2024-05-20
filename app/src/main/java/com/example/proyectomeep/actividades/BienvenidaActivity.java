@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.proyectomeep.R;
+import com.example.proyectomeep.SQLite.MEEP;
 import com.example.proyectomeep.clases.Menu;
 import com.example.proyectomeep.fragmentos.BienvenidaFragment;
 import com.example.proyectomeep.fragmentos.ConfigFragment;
@@ -86,13 +87,16 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
             acercaDe();
             Toast.makeText(this, "Item 4", Toast.LENGTH_SHORT).show();
         } else if (item.getItemId() == R.id.nav_item_five) {
-            volverLogin();
+            cerrarSesion();
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
 
-    private void volverLogin() {
+    private void cerrarSesion() {
+        MEEP mp = new MEEP(this);
+        mp.eliminarUsuario(1);
+        finish();
         Intent iLogin = new Intent(this, InicionSesionMeepActivity.class);
         startActivity(iLogin);
         finish();

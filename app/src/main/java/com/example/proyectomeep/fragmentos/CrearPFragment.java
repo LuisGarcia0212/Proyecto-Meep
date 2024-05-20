@@ -8,9 +8,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.proyectomeep.R;
+import com.example.proyectomeep.SQLite.MEEP;
 import com.example.proyectomeep.actividades.BienvenidaActivity;
 import com.example.proyectomeep.actividades.CuentaActivity;
 
@@ -61,12 +65,27 @@ public class CrearPFragment extends Fragment implements View.OnClickListener{
         }
     }
 
+
+    EditText editNombre;
+    EditText editFecha;
+    EditText editArea;
+    EditText editDescripcion;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_crear_p, container, false);
 
         ImageView imgVolver = view.findViewById(R.id.logVolverMenu);
+        Button btnGenerar = view.findViewById(R.id.logBtnGenerar);
+
+        //valores del proyecto
+        editNombre = view.findViewById(R.id.editName);
+        editFecha = view.findViewById(R.id.editFecha);
+        editArea = view.findViewById(R.id.editArea);
+        editDescripcion = view.findViewById(R.id.editDescripcion);
+
+        btnGenerar.setOnClickListener(this);
         imgVolver.setOnClickListener(this);
         return view;
     }
@@ -75,11 +94,27 @@ public class CrearPFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         if(v.getId() == R.id.logVolverMenu){
             volverBienvenida();
+        } else if (v.getId() == R.id.logBtnGenerar) {
+            generarProyecto(editNombre.getText().toString(), editFecha.getText().toString(),
+                    editArea.getText().toString(), editDescripcion.getText().toString());
         }
     }
 
     private void volverBienvenida() {
         Intent iBienvenida = new Intent(getActivity(), BienvenidaActivity.class);
         startActivity(iBienvenida);
+    }
+
+    private void generarProyecto(String nombre, String fecha, String area, String descripcion){
+        MEEP mp = new MEEP(getContext());
+        if(nombre.equals("")  || fecha.equals("") || area.equals("") || descripcion.equals("") )
+            Toast.makeText(getContext(), "Completa todos los espacios", Toast.LENGTH_SHORT).show();
+        else{
+            //guardamos el proyecto
+            mp.agregarProyecto(nombre, fecha, area, descripcion);
+            Toast.makeText(getContext(), "El proyecto se registro exitosamente", Toast.LENGTH_SHORT).show();
+            Intent iBienvenida = new Intent(getActivity(), BienvenidaActivity.class);
+            startActivity(iBienvenida);
+        }
     }
 }
