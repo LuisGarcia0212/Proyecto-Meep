@@ -66,17 +66,17 @@
                 android:textSize="15sp" />
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="50dp"
-                android:layout_marginTop="70dp"
-                android:background="@drawable/edit_text_backgroud">
+                android:layout_marginTop="70dp">
 
-                <TextView
-                    android:id="@+id/lblname"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                <EditText
+                    android:id="@+id/editName"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:paddingLeft="10dp"
                     android:layout_marginTop="10dp"
+                    android:background="@drawable/edit_text_backgroud"
                     android:hint="@string/lblescribirName"/>
             </RelativeLayout>
 
@@ -92,31 +92,31 @@
                 android:textSize="15sp" />
             <RelativeLayout
                 android:layout_width="310dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="50dp"
-                android:layout_marginTop="155dp"
-                android:background="@drawable/edit_text_backgroud">
+                android:layout_marginTop="155dp">
 
-                <TextView
-                    android:id="@+id/lblname3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                <EditText
+                    android:id="@+id/editFecha"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/lblescribirFecha" />
+                    android:paddingLeft="10dp"
+                    android:hint="@string/lblescribirFecha"
+                    android:background="@drawable/edit_text_backgroud"/>
 
                 <ImageView
                     android:id="@+id/chat"
                     android:layout_width="30dp"
                     android:layout_height="20dp"
                     android:layout_marginLeft="270dp"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:src="@drawable/calendar"
-                    app:tint="@color/cardview_dark_background" />
+                    app:tint="@color/cardview_dark_background"/>
             </RelativeLayout>
 
             <TextView
-                android:id="@+id/lblArea"
+                android:id="@+id/lblAreaa"
                 android:layout_width="wrap_content"
                 android:layout_height="19dp"
                 android:layout_marginHorizontal="50dp"
@@ -127,18 +127,18 @@
                 android:textSize="15sp" />
             <RelativeLayout
                 android:layout_width="310dp"
-                android:layout_height="40dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="50dp"
-                android:layout_marginTop="250dp"
-                android:background="@drawable/edit_text_backgroud">
+                android:layout_marginTop="250dp">
 
-                <TextView
-                    android:id="@+id/lblescribirArea"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                <EditText
+                    android:id="@+id/editArea"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:paddingLeft="10dp"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/lblescribirArea" />
+                    android:hint="@string/lblescribirArea"
+                    android:background="@drawable/edit_text_backgroud"/>
             </RelativeLayout>
             <TextView
                 android:id="@+id/lbldescripcion"
@@ -152,18 +152,19 @@
                 android:textSize="15sp" />
             <RelativeLayout
                 android:layout_width="310dp"
-                android:layout_height="120dp"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="50dp"
-                android:layout_marginTop="340dp"
-                android:background="@drawable/edit_text_background2">
+                android:layout_marginTop="340dp">
 
-                <TextView
-                    android:id="@+id/lbldescripcions"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="20dp"
+                <EditText
+                    android:id="@+id/editDescripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
                     android:layout_marginTop="10dp"
-                    android:hint="@string/lblescribirDes" />
+                    android:paddingLeft="15dp"
+                    android:paddingBottom="80dp"
+                    android:hint="@string/lblescribirDes"
+                    android:background="@drawable/edit_text_background2"/>
             </RelativeLayout>
 
             <Button

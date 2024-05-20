@@ -11,12 +11,15 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectomeep.R;
+import com.example.proyectomeep.SQLite.MEEP;
+import com.example.veterinaria.clases.Hash;
 
 import java.util.Locale;
 
@@ -25,6 +28,8 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
     TextView lblRegistro,lblRecuperacion,lblRestablecer ;
 
     EditText txtUser, txtPsw;
+
+    CheckBox chkRecordar;
 
     Button btnIniciarSesion;
 
@@ -40,11 +45,14 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
         txtPsw = findViewById(R.id.logTxtClave);
         btnIniciarSesion = findViewById(R.id.logBtnIniciar);
         lblRestablecer = findViewById(R.id.logLblRestablecer1);
+        chkRecordar = findViewById(R.id.logChkRecordar);
 
         btnIniciarSesion.setOnClickListener(this);
         lblRegistro.setOnClickListener(this);
         lblRestablecer.setOnClickListener(this);
 
+
+        validarRecordarSesion();
 
 
         spinner = findViewById(R.id.spinner);
@@ -74,6 +82,13 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
             }
         });
     }
+
+    private void validarRecordarSesion() {
+        MEEP mp = new MEEP(this);
+        if (mp.recordarSesion())
+            iniciarSesion(mp.getValue("usuario"), mp.getValue("clave"), true);
+    }
+
     public void setLocal(Activity activity,String langCode){
         Locale locale= new Locale(langCode);
         locale.setDefault(locale);
@@ -86,7 +101,7 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.logBtnIniciar){
-            iniciarSesion(txtUser.getText().toString().trim(), txtPsw.getText().toString());
+            iniciarSesion(txtUser.getText().toString().trim(), txtPsw.getText().toString(), false);
         } else if (v.getId() == R.id.logLblRegistro1) {
             ingresarRegistro();
         }else if (v.getId() == R.id.logLblRestablecer1) {
@@ -100,9 +115,17 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
         finish();
     }
 
-    private void iniciarSesion(String user, String psw){
-        if(user.equals("psyduck") && psw.equals("123456")) {
+    private void iniciarSesion(String user, String psw, boolean recordar){
+        MEEP mp = new MEEP(this);
+        Hash hash = new Hash();
+        psw = recordar == true ? psw : hash.StringToHash(psw, "SHA256");
+        if(user.equals("psyduck") && psw.equals("8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92")) {
+            if(chkRecordar.isChecked()){
+                //Guardar las credenciales en la BD SQLite
+                mp.agregarUsuario(1, user, psw);
+            }
             Intent iBienvenida = new Intent(this, BienvenidaActivity.class);
+            iBienvenida.putExtra("nombre", "Psyduck");
             startActivity(iBienvenida);
             finish();
         }else {
