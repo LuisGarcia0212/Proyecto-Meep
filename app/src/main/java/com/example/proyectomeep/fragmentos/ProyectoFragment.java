@@ -1,5 +1,6 @@
 package com.example.proyectomeep.fragmentos;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,8 +11,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import com.example.proyectomeep.R;
+import com.example.proyectomeep.actividades.InicionSesionMeepActivity;
 import com.example.proyectomeep.clases.Menu;
 
 /**
@@ -75,7 +78,9 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
 
 
         Button btnCrear = view.findViewById(R.id.logbtncrearproyect);
+        RelativeLayout rlForo = view.findViewById(R.id.logRlForo);
         btnCrear.setOnClickListener(this);
+        rlForo.setOnClickListener(this);
         return view;
     }
 
@@ -83,7 +88,14 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
     public void onClick(View v) {
         if(v.getId() == R.id.logbtncrearproyect){
             ingresarCrear();
+        } else if (v.getId() == R.id.logRlForo) {
+            ingresarForo();
         }
+    }
+
+    private void ingresarForo() {
+        int idBoton = 1;
+        onClickMenu(idBoton);
     }
 
     private void ingresarCrear() {
