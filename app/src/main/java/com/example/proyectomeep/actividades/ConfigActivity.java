@@ -10,14 +10,14 @@ import android.widget.ImageView;
 import com.example.proyectomeep.R;
 
 public class ConfigActivity extends AppCompatActivity implements View.OnClickListener{
-    ImageView backCuenta;
+    ImageView backCount;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fragment_config);
-        backCuenta = findViewById(R.id.backCuenta);
+        backCount = findViewById(R.id.backCuenta);
 
-        backCuenta.setOnClickListener(this);
+        backCount.setOnClickListener(this);
     }
 
     @Override

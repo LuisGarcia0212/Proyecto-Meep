@@ -1,5 +1,6 @@
 package com.example.proyectomeep.fragmentos;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -9,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -17,6 +19,8 @@ import com.example.proyectomeep.R;
 import com.example.proyectomeep.SQLite.MEEP;
 import com.example.proyectomeep.actividades.BienvenidaActivity;
 import com.example.proyectomeep.actividades.CuentaActivity;
+
+import java.util.Calendar;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -87,6 +91,7 @@ public class CrearPFragment extends Fragment implements View.OnClickListener{
 
         btnGenerar.setOnClickListener(this);
         imgVolver.setOnClickListener(this);
+        editFecha.setOnClickListener(this);
         return view;
     }
 
@@ -94,10 +99,29 @@ public class CrearPFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         if(v.getId() == R.id.logVolverMenu){
             volverBienvenida();
+        } else if (v.getId() == R.id.editFecha){
+            seleccionarFecha();
         } else if (v.getId() == R.id.logBtnGenerar) {
             generarProyecto(editNombre.getText().toString(), editFecha.getText().toString(),
                     editArea.getText().toString(), editDescripcion.getText().toString());
         }
+
+    }
+
+    private void seleccionarFecha() {
+        DatePickerDialog dpd;
+        final Calendar fechaActual = Calendar.getInstance();
+        int dia = fechaActual.get(Calendar.DAY_OF_MONTH);
+        int mes = fechaActual.get(Calendar.MONTH);
+        int anio = fechaActual.get(Calendar.YEAR);
+
+        dpd = new DatePickerDialog(requireContext(), new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int y, int m, int d) {
+                editFecha.setText(y + "-" + ((m + 1) < 10 ? "0" + (m + 1) : (m + 1)) + "-" + (d < 10 ? "0" + d : d));
+            }
+        }, anio, mes, dia);
+        dpd.show();
     }
 
     private void volverBienvenida() {

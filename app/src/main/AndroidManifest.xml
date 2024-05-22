@@ -7,12 +7,15 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_logomeap"
-        android:logo="@mipmap/ic_logomeap"
         android:label="@string/app_name"
+        android:logo="@mipmap/ic_logomeap"
         android:roundIcon="@mipmap/ic_logomeap"
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoMeep"
         tools:targetApi="31">
+        <activity
+            android:name=".actividades.MensInterActivity"
+            android:exported="false" />
         <activity
             android:name=".actividades.MapaActivity"
             android:exported="false" />
