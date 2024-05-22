@@ -79,7 +79,8 @@ public class MenuNavFragment extends Fragment {
                 @Override
                 public void onClick(View v) {
                     Activity actActual = getActivity();
-                    ((Menu)actActual).onClickMenu(REQUEST_BUTTON);
+                    if (REQUEST_BUTTON != 1)
+                        ((Menu)actActual).onClickMenu(REQUEST_BUTTON);
                 }
             });
         }

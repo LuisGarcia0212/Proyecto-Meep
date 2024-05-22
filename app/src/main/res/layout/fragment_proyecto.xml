@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/fondoMeep"
     tools:context=".fragmentos.ProyectoFragment">
     <LinearLayout
         android:layout_width="match_parent"
@@ -88,6 +89,7 @@
                 android:orientation="vertical">
 
                 <RelativeLayout
+                    android:id="@+id/logRlForo"
                     android:layout_width="380sp"
                     android:layout_height="90sp"
                     android:layout_marginLeft="12dp"
