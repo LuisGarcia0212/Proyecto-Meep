@@ -9,7 +9,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -27,6 +30,8 @@ import com.example.proyectomeep.fragmentos.ProyectoFragment;
 import com.example.proyectomeep.fragmentos.ForoFragment;
 import com.google.android.material.navigation.NavigationView;
 
+import java.util.ArrayList;
+
 public class BienvenidaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Menu {
 
 
@@ -39,9 +44,6 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bienvenida);
-
-
-
 
         fragments = new Fragment[4];
 
