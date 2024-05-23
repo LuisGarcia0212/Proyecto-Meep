@@ -13,7 +13,18 @@
     android:orientation="horizontal"
     android:background="@color/btnColor">
 
+    <ImageView
+        android:id="@+id/logBackMenu"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="20dp"
+        android:rotation="90"
+        android:src="@drawable/chevron_down"
+        app:tint="@color/white" />
+
 </LinearLayout>
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -22,15 +33,104 @@
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/nav_header_imageView"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginTop="80dp"
-        android:layout_marginLeft="130dp"
-        android:src="@drawable/psyduck_user" />
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/psyduck_user"/>
 
+    <TextView
+        android:id="@+id/lblCabezal"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginRight="90dp"
+        android:drawablePadding="120dp"
+        android:fontFamily="@font/inter_regular"
+        android:gravity="center|center_horizontal"
+        android:text="@string/lblCabezal"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"/>
 </LinearLayout>
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/nav_header_imageView1"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="593dp"
+        android:layout_marginLeft="5dp"
+        android:src="@drawable/psyduck_user" />
+
+<LinearLayout
+    android:layout_width="300dp"
+    android:layout_height="30dp"
+    android:layout_marginTop="540dp"
+    android:layout_marginHorizontal="100dp"
+    android:orientation="vertical"
+    android:background="@drawable/border"
+    android:padding="2dp">
+
+    <TextView
+        android:id="@+id/lblConv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/inter_regular"
+        android:text="@string/lblConv1"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="2dp"
+        android:layout_marginHorizontal="25dp"
+        android:textSize="15sp"
+        android:textStyle="bold"/>
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="590dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="0dp"
+        android:orientation="vertical"
+        android:background="@drawable/border"
+        android:padding="2dp">
+
+        <TextView
+            android:id="@+id/lblConv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/lblConv2"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="2dp"
+            android:layout_marginHorizontal="10dp"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
 
 
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/hface"
+            android:layout_marginTop="656dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"/>
+
+        <EditText
+            android:id="@+id/lblchat"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginTop="655dp"
+            android:layout_marginLeft="50dp"
+            android:background="@drawable/edit_text_backgroud"
+            android:hint="@string/lblchat"/>
+    </RelativeLayout>
 
 </FrameLayout>
