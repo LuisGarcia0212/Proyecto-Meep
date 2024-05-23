@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,7 @@ import com.example.proyectomeep.R;
 import com.example.proyectomeep.SQLite.MEEP;
 import com.example.proyectomeep.actividades.BienvenidaActivity;
 import com.example.proyectomeep.actividades.CuentaActivity;
+import com.example.proyectomeep.clases.Menu;
 
 import java.util.Calendar;
 
@@ -27,7 +30,7 @@ import java.util.Calendar;
  * Use the {@link CrearPFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class CrearPFragment extends Fragment implements View.OnClickListener{
+public class CrearPFragment extends Fragment implements View.OnClickListener, Menu {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,10 +78,19 @@ public class CrearPFragment extends Fragment implements View.OnClickListener{
     EditText editArea;
     EditText editDescripcion;
 
+    Fragment[] fragments;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_crear_p, container, false);
+
+        fragments = new Fragment[5];
+        fragments[0] = new BienvenidaFragment();
+        fragments[1] = new ForoFragment();
+        fragments[2] = new ProyectoFragment();
+        fragments[3] = new CrearPFragment();
+        fragments[4] = new MessageListFragment();
 
         ImageView imgVolver = view.findViewById(R.id.logVolverMenu);
         Button btnGenerar = view.findViewById(R.id.logBtnGenerar);
@@ -98,7 +110,7 @@ public class CrearPFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.logVolverMenu){
-            volverBienvenida();
+            volver();
         } else if (v.getId() == R.id.editFecha){
             seleccionarFecha();
         } else if (v.getId() == R.id.logBtnGenerar) {
@@ -124,9 +136,9 @@ public class CrearPFragment extends Fragment implements View.OnClickListener{
         dpd.show();
     }
 
-    private void volverBienvenida() {
-        Intent iBienvenida = new Intent(getActivity(), BienvenidaActivity.class);
-        startActivity(iBienvenida);
+    private void volver() {
+        int btnMenu = 2;
+        onClickMenu(btnMenu);
     }
 
     private void generarProyecto(String nombre, String fecha, String area, String descripcion){
@@ -140,5 +152,13 @@ public class CrearPFragment extends Fragment implements View.OnClickListener{
             Intent iBienvenida = new Intent(getActivity(), BienvenidaActivity.class);
             startActivity(iBienvenida);
         }
+    }
+
+    @Override
+    public void onClickMenu(int idBoton) {
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.menuRelaArea, fragments [idBoton]);
+        ft.commit();
     }
 }
