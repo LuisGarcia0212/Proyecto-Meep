@@ -122,4 +122,35 @@
     <string name="hello_blank_fragment">Hola fragmento en blanco</string>
 
     >>>>>>> 56b9672a45789b8e0df5393587cc32e31f3d4bc5
+
+    =========================================
+    MENSAJERIA INTERNA
+
+    <string name="lblCabezal">BETO - AREA SEXOLOGIA</string>
+    <string name="lblchat">Aa</string>
+    <string name="lblConv1">Oe mrd, a que hora vas a avanzar?</string>
+    <string name="lblConv2">Ahora no mi rei, ando en mi reu con el gremio</string>
+
+
+    =========================================
+    MESSAGE LIST
+    <string name="lblCon1">BETO</string>
+    <string name="lblCon1.1">Beto: NO JODAS</string>
+    <string name="lblCon2">DJ PICHULita</string>
+    <string name="lblCon2.2">DJ Pichulita: Me duele la prostata</string>
+    <string name="lblCon3">Lulita</string>
+    <string name="lblCon3.3">Lulita: Ay mi cholito</string>
+    <string name="lblCon4">Angela</string>
+    <string name="lblCon4.4">Angela: Me pica el huevo</string>
+    <string name="lblCon5">Cuñado de Todos</string>
+    <string name="lblCon5.5">Cuñado de Todos: GO TONO</string>
+    <string name="lblCon6">Xupapi</string>
+    <string name="lblCon6.6">Xupapi: NO JODAS MRD</string>
+    <string name="lblCon7">GAAAA</string>
+    <string name="lblCon7.7">GAAAA: QUIERO CACA WAZAAA</string>
+    <string name="lblCon8">Carlozzzzzz</string>
+    <string name="lblCon8.8">Carlozzzzzz: deja dormir no mas</string>
+    <string name="lblTime1">12:00 p.m.</string>
+    <string name="lblTime2">10:00 p.m.</string>
+    <string name="lblNum">1</string>
 </resources>
