@@ -74,12 +74,13 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_foro, container, false);
-        fragments = new Fragment[5];
+        fragments = new Fragment[6];
         fragments[0] = new BienvenidaFragment();
         fragments[1] = new ForoFragment();
         fragments[2] = new ProyectoFragment();
         fragments[3] = new CrearPFragment();
         fragments[4] = new MessageListFragment();
+        fragments[5] = new MenInterFragment();
 
         ImageView imgBack = view.findViewById(R.id.barra);
         CircleImageView imgUser = view.findViewById(R.id.user1);
@@ -102,7 +103,7 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
     }
 
     private void enviarMensaje() {
-        int btnMenu = 4;
+        int btnMenu = 5;
         onClickMenu(btnMenu);
     }
 
