@@ -26,6 +26,7 @@ import com.example.proyectomeep.SQLite.MEEP;
 import com.example.proyectomeep.clases.Menu;
 import com.example.proyectomeep.fragmentos.BienvenidaFragment;
 import com.example.proyectomeep.fragmentos.ConfigFragment;
+import com.example.proyectomeep.fragmentos.MessageListFragment;
 import com.example.proyectomeep.fragmentos.ProyectoFragment;
 import com.example.proyectomeep.fragmentos.ForoFragment;
 import com.google.android.material.navigation.NavigationView;
@@ -45,12 +46,13 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bienvenida);
 
-        fragments = new Fragment[4];
+        fragments = new Fragment[5];
 
         fragments[0] = new BienvenidaFragment();
-        fragments[1] = new ForoFragment();
+        fragments[1] = new MessageListFragment();
         fragments[2] = new ProyectoFragment();
         fragments[3] = new ConfigFragment();
+        fragments[4] = new ForoFragment();
 
         int idBoton = 0;
         onClickMenu(idBoton);
