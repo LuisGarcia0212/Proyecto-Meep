@@ -1,8 +1,12 @@
 package com.example.proyectomeep.fragmentos;
 
+import android.app.ActivityOptions;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.widget.ImageView;
 
@@ -10,14 +14,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-
-
 import android.content.Intent;
-import android.widget.Button;
-
+import android.widget.TextView;
 
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.actividades.MapaActivity;
+import com.example.proyectomeep.actividades.TaskAdapter;
+import com.example.proyectomeep.actividades.TaskViewActivity;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +63,6 @@ public class BienvenidaFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +72,10 @@ public class BienvenidaFragment extends Fragment {
         }
 
     }
-
+    private RecyclerView recyclerView;
+    //private ArrayList<TaskAdapter.TaskItem> arrayList;
+    private ArrayList<String> arrayList;
+    private TaskAdapter adapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -84,7 +91,43 @@ public class BienvenidaFragment extends Fragment {
             }
         });
 
-        return view1;
+        recyclerView = view1.findViewById(R.id.linearNotificaciones);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 
+        arrayList = new ArrayList<>();
+        arrayList.add("TAREAS DESARROLLO WEB\n\n"+
+                "Actualizar la Base de Datos de Clientes\n\n"+
+                "-> Revisar y actualizar la información de contacto.\n-> Verificar la precisión de las direcciones y teléfonos.");
+        arrayList.add("TAREAS MARKETING\n\n"+
+                "Crear Contenido para Redes Sociales\n\n"+
+                "-> Diseñar gráficos y escribir publicaciones.\n-> Programar publicaciones utilizando herramientas como Hootsuite o Buffer.");
+        arrayList.add("TAREAS DE RR.HH\n\n"+
+                "Capacitación y Desarrollo\n\n"+
+                "-> Organizar programas de capacitación para empleados.\n-> Evaluar la efectividad de las capacitaciones y hacer ajustes.");
+        /*arrayList.add(new TaskAdapter.TaskItem("TAREAS DESARROLLO WEB\n",
+                "Actualizar la Base de Datos de Clientes\n",
+                "-> Revisar y actualizar la información de contacto.\n-> Verificar la precisión de las direcciones y teléfonos.",
+                18f, 16f, 14f, Color.BLACK, Color.BLUE, Color.RED));
+        arrayList.add(new TaskAdapter.TaskItem("TAREAS MARKETING\n",
+                "Crear Contenido para Redes Sociales\n",
+                "-> Diseñar gráficos y escribir publicaciones.\n-> Programar publicaciones utilizando herramientas como Hootsuite o Buffer.",
+                18f, 16f, 14f, Color.BLACK, Color.BLUE, Color.RED));
+        arrayList.add(new TaskAdapter.TaskItem("TAREAS DE RR.HH\n",
+                "Capacitación y Desarrollo\n\n",
+                "-> Organizar programas de capacitación para empleados.\n-> Evaluar la efectividad de las capacitaciones y hacer ajustes.",
+                18f, 16f, 14f, Color.BLACK, Color.BLUE, Color.RED));
+        */
+        adapter = new TaskAdapter(getContext(), arrayList);
+        recyclerView.setAdapter(adapter);
+        adapter.setOnItemClickListener(new TaskAdapter.OnItemClickListener() {
+            @Override
+            public void onClick(TextView textView, String text) {
+                startActivity(new Intent(getActivity(), TaskViewActivity.class)
+                                .putExtra("tareas", text),
+                        ActivityOptions.makeSceneTransitionAnimation(getActivity(), textView, "tareas").toBundle());
+            }
+        });
+
+        return view1;
     }
 }

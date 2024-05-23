@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/fondoMeep"
     tools:context=".fragmentos.BienvenidaFragment">
 
@@ -40,94 +41,14 @@
             android:textFontWeight="800"
             android:layout_marginTop="5dp"
             android:textStyle="italic"/>
-        <LinearLayout
+
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/linearNotificaciones"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="164dp"
             android:orientation="horizontal"
-            android:layout_marginTop="15dp">
+            app:layoutManager="com.google.android.material.carousel.CarouselLayoutManager" />
 
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/editText"
-                    android:layout_width="200dp"
-                    android:layout_height="150dp"
-                    android:background="@drawable/edit_text_notificaciones"
-                    android:padding="8dp"
-                    android:textColor="@android:color/transparent"
-                    android:editable="false"/>
-
-                <TextView
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/Tarea"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/inter_regular"
-                    android:textColor="@android:color/black" />
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignEnd="@id/editText"
-                    android:layout_alignBottom="@id/editText"
-                    android:layout_marginEnd="5dp"
-                    android:layout_marginBottom="10dp"
-                    android:src="@drawable/ic_derecha"
-                    android:contentDescription="Icono"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp">
-
-                <EditText
-                    android:id="@+id/editText2"
-                    android:layout_width="166dp"
-                    android:layout_height="125dp"
-                    android:background="@drawable/edit_text_notificaciones"
-                    android:padding="8dp"
-                    android:textColor="@android:color/transparent"
-                    android:editable="false"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/Tarea"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:fontFamily="@font/inter_regular"
-                    android:textColor="@android:color/black" />
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_alignEnd="@id/editText2"
-                    android:layout_alignBottom="@id/editText2"
-                    android:layout_marginBottom="10dp"
-                    android:src="@drawable/ic_derecha"
-                    android:contentDescription="Icono" />
-
-                <ImageView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:layout_below="@id/editText2"
-                    android:layout_alignStart="@id/editText2"
-
-                    android:layout_marginTop="-52dp"
-                    android:src="@drawable/ic_izquierda"
-                    android:contentDescription="Otro Icono" />
-            </RelativeLayout>
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
