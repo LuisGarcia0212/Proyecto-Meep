@@ -1,5 +1,7 @@
 package com.example.proyectomeep.fragmentos;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,10 +11,13 @@ import androidx.fragment.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.clases.Menu;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,21 +67,25 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
     }
 
     Fragment[] fragments;
+    AlertDialog a2;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_foro, container, false);
-        fragments = new Fragment[4];
+        fragments = new Fragment[5];
         fragments[0] = new BienvenidaFragment();
         fragments[1] = new ForoFragment();
         fragments[2] = new ProyectoFragment();
         fragments[3] = new CrearPFragment();
+        fragments[4] = new MessageListFragment();
 
         ImageView imgBack = view.findViewById(R.id.barra);
+        CircleImageView imgUser = view.findViewById(R.id.user1);
 
         imgBack.setOnClickListener(this);
+        imgUser.setOnClickListener(this);
         return view;
     }
 
@@ -84,6 +93,31 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
     public void onClick(View v) {
         if (v.getId() == R.id.barra)
             volver();
+        else if (v.getId() == R.id.user1) {
+            abrirDialog();
+        } else if (v.getId() == R.id.btnEnviarMensaje) {
+            a2.dismiss();
+            enviarMensaje();
+        }
+    }
+
+    private void enviarMensaje() {
+        int btnMenu = 4;
+        onClickMenu(btnMenu);
+    }
+
+    private void abrirDialog() {
+        AlertDialog.Builder d = new AlertDialog.Builder(getContext(), R.style.CustomDialogTheme);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.fragment_dialog_usuario, null);
+        d.setView(dialogView);
+        a2 = d.create();
+
+        Button btnEnviar = dialogView.findViewById(R.id.btnEnviarMensaje);
+
+        btnEnviar.setOnClickListener(this);
+
+        a2.show();
     }
 
     @Override

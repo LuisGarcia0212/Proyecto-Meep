@@ -153,4 +153,8 @@
     <string name="lblTime1">12:00 p.m.</string>
     <string name="lblTime2">10:00 p.m.</string>
     <string name="lblNum">1</string>
+
+
+    <string name="dialog1" translatable="false">El terror de la chata</string>
+    <string name="dialog2" translatable="false">Descripción del perfil</string>
 </resources>
