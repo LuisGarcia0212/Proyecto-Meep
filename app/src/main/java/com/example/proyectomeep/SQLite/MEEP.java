@@ -12,7 +12,7 @@ public class MEEP extends SQLiteOpenHelper {
     private static final String nameDB = "ProjectMEEP.db";
     private static final int versionDB = 1;
 
-    private static final String createTableUsuario = "CREATE TABLE IF NOT EXISTS Usuario (id INTEGER PRIMARY KEY AUTOINCREMENT, usuario VARCHAR(255), clave VARCHAR(255));";
+    private static final String createTableUsuario = "CREATE TABLE IF NOT EXISTS Usuario (id INTEGER, usuario VARCHAR(255), clave VARCHAR(255));";
     private static final String dropTableUsuario = "DROP TABLE IF EXISTS Usuario;";
 
     private static final String createTableProyectos = "CREATE TABLE IF NOT EXISTS Proyecto (id INTEGER PRIMARY KEY AUTOINCREMENT, nombreP VARCHAR(255), fecha VARCHAR(50), area VARCHAR(255), descripcion VARCHAR(500));";
@@ -42,7 +42,7 @@ public class MEEP extends SQLiteOpenHelper {
     public boolean agregarUsuario(int id, String usuario, String clave) {
         SQLiteDatabase db = getWritableDatabase();
         if (db != null) {
-            db.execSQL("INSERT INTO Usuario (usuario, clave) VALUES ("+id+", '" + usuario + "', '" + clave + "');");
+            db.execSQL("INSERT INTO Usuario (id, usuario, clave) VALUES ("+id+", '" + usuario + "', '" + clave + "');");
             db.close();
             return true;
         }
