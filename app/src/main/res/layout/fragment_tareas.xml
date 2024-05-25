@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragmentos.TareasFragment"
+    android:background="@color/fondoMeep">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:background="@color/btnColor">
+
+        <ImageView
+            android:id="@+id/logVolverMenu"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="20dp"
+            android:rotation="90"
+            android:src="@drawable/chevron_down"
+            app:tint="@color/white" />
+        <TextView
+            android:id="@+id/lblCabe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/inter_regular"
+            android:text="@string/lblCabe"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+
+    <LinearLayout
+        android:layout_width="350sp"
+        android:layout_height="100sp"
+        android:layout_marginTop="85dp"
+        android:layout_marginHorizontal="30dp"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="@drawable/border">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/lblIni1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/lblIni1"
+                android:textSize="15sp"/>
+            <TextView
+                android:id="@+id/lblIni1.1"
+                android:layout_width="260dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="9dp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/inter_regular"
+                android:text="@string/lblIni1.1"
+                android:textSize="13sp"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/nav_header_imageView"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginLeft="270dp"
+                android:layout_marginTop="-58sp"
+                android:src="@drawable/dilan"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="130dp">
+
+        <LinearLayout
+            android:layout_width="350sp"
+            android:layout_height="100sp"
+            android:layout_marginTop="85dp"
+            android:layout_marginHorizontal="30dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:background="@drawable/border">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/lblIni2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblIni2"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:id="@+id/lblIni2.2"
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="9dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblIni2.2"
+                    android:textSize="13sp"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/nav_header_imageView1"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="270dp"
+                    android:layout_marginTop="-58sp"
+                    android:src="@drawable/angelo"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="250dp">
+
+        <LinearLayout
+            android:layout_width="350sp"
+            android:layout_height="100sp"
+            android:layout_marginTop="85dp"
+            android:layout_marginHorizontal="30dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:background="@drawable/border">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/lblIni3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblIni3"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:id="@+id/lblIni3.3"
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="9dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblIni3.3"
+                    android:textSize="13sp"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/nav_header_imageView2"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="270dp"
+                    android:layout_marginTop="-58sp"
+                    android:src="@drawable/gabriel"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="370dp">
+
+        <LinearLayout
+            android:layout_width="350sp"
+            android:layout_height="100sp"
+            android:layout_marginTop="85dp"
+            android:layout_marginHorizontal="30dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:background="@drawable/border">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/lblIni4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblIni4"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:id="@+id/lblIni4.4"
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="9dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblIni4.4"
+                    android:textSize="13sp"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/nav_header_imageView3"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="270dp"
+                    android:layout_marginTop="-58sp"
+                    android:src="@drawable/hardbord"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="490dp">
+
+        <LinearLayout
+            android:layout_width="350sp"
+            android:layout_height="100sp"
+            android:layout_marginTop="85dp"
+            android:layout_marginHorizontal="30dp"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            android:background="@drawable/border">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/lblIni5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblIni5"
+                    android:textSize="15sp"/>
+                <TextView
+                    android:id="@+id/lblIni5.5"
+                    android:layout_width="260dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="9dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblIni5.5"
+                    android:textSize="13sp"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/nav_header_imageView4"
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginLeft="270dp"
+                    android:layout_marginTop="-58sp"
+                    android:src="@drawable/img"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>
