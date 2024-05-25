@@ -157,4 +157,28 @@
 
     <string name="dialog1" translatable="false">El terror de la chata</string>
     <string name="dialog2" translatable="false">Descripción del perfil</string>
+
+    =========================================
+    TAREAS
+    <string name="lblCabe">Mis Tareas</string>
+    <string name="lblIni1">Fumar Porro</string>
+    <string name="lblIni1.1">Sebitas se mete su porrito a fuera de la universidad y se rapta a los niños del colegio :3</string>
+    <string name="lblIni2">Tomar Afuera de la U</string>
+    <string name="lblIni2.2">Pesheto y sus amigos tienen una tarea para tomar a fuera de la universidad sin que los botes los serenazgos</string>
+    <string name="lblIni3">Atender a las clases de Landita</string>
+    <string name="lblIni3.3">Pesheto y sus amigos tienen una tarea para tomar a fuera de la universidad sin que los botes los serenazgos</string>
+    <string name="lblIni4">Atender a las clases de Gerardito</string>
+    <string name="lblIni4.4">Alvarito necesita terminara sus clases con el Profe Gerardo y necesita su ayuda para culminar su trabajo</string>
+    <string name="lblIni5">Tirarse la pera de las clases</string>
+    <string name="lblIni5.5">Alfredito no sabe si ir a la clase de los domingos y necesita ver si el sábado ira a una fiesta , que podría hacer</string>
+
+    =========================================
+    PROYECTS
+    <string name="lblCabeP1">Mis Proyectos</string>
+    <string name="lblInic1">Lider del Proyecto:</string>
+    <string name="lblUserAsig">Facundo</string>
+    <string name="lblToaTare">Total de Tareas</string>
+
+    <string name="logBtn11">Foro</string>
+    <string name="logBtn22">Visualizar Tareas</string>
 </resources>
