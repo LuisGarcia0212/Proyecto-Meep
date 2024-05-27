@@ -93,17 +93,14 @@ public class CrearPFragment extends Fragment implements View.OnClickListener, Me
         fragments[4] = new MessageListFragment();
 
         ImageView imgVolver = view.findViewById(R.id.logVolverMenu);
-        Button btnGenerar = view.findViewById(R.id.logBtnGenerar);
+        Button btnGenerar = view.findViewById(R.id.logbtnCrear);
 
         //valores del proyecto
         editNombre = view.findViewById(R.id.editName);
-        editFecha = view.findViewById(R.id.editFecha);
-        editArea = view.findViewById(R.id.editArea);
         editDescripcion = view.findViewById(R.id.editDescripcion);
 
         btnGenerar.setOnClickListener(this);
         imgVolver.setOnClickListener(this);
-        editFecha.setOnClickListener(this);
         return view;
     }
 
@@ -111,29 +108,11 @@ public class CrearPFragment extends Fragment implements View.OnClickListener, Me
     public void onClick(View v) {
         if(v.getId() == R.id.logVolverMenu){
             volver();
-        } else if (v.getId() == R.id.editFecha){
-            seleccionarFecha();
-        } else if (v.getId() == R.id.logBtnGenerar) {
+        } else if (v.getId() == R.id.logbtnCrear) {
             generarProyecto(editNombre.getText().toString(), editFecha.getText().toString(),
                     editArea.getText().toString(), editDescripcion.getText().toString());
         }
 
-    }
-
-    private void seleccionarFecha() {
-        DatePickerDialog dpd;
-        final Calendar fechaActual = Calendar.getInstance();
-        int dia = fechaActual.get(Calendar.DAY_OF_MONTH);
-        int mes = fechaActual.get(Calendar.MONTH);
-        int anio = fechaActual.get(Calendar.YEAR);
-
-        dpd = new DatePickerDialog(requireContext(), new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int y, int m, int d) {
-                editFecha.setText(y + "-" + ((m + 1) < 10 ? "0" + (m + 1) : (m + 1)) + "-" + (d < 10 ? "0" + d : d));
-            }
-        }, anio, mes, dia);
-        dpd.show();
     }
 
     private void volver() {

@@ -71,13 +71,12 @@
     <string name="newproyect">Crear Proyecto</string>
     <string name="lblname">Nombre del Proyecto</string>
     <string name="lblescribirName">Escribir el nombre</string>
-    <string name="LblFecha">Fecha</string>
-    <string name="lblescribirFecha">Seleccione</string>
-    <string name="lblDescripcion">Descripcion</string>
+    <string name="lblToken">Token del Proyecto</string>
+    <string name="lblDescripcion">Descripción</string>
     <string name="lblescribirDes">Escribir texto</string>
-    <string name="lblArea">Area</string>
-    <string name="lblescribirArea">Seleccione</string>
-    <string name="logbtnGenerar">Generar</string>
+    <string name="lblTok1">Token Unico:</string>
+    <string name="logBtnGen">Generar Token</string>
+    <string name="logbtnCrear">Crear</string>
     <string name="logbtnCreaProyect">Crear Proyecto</string>
     =========================================
     FOROOOO
@@ -178,7 +177,16 @@
     <string name="lblInic1">Lider del Proyecto:</string>
     <string name="lblUserAsig">Facundo</string>
     <string name="lblToaTare">Total de Tareas</string>
-
+    <string name="lblIn1">Título de Tarea</string>
+    <string name="lblIn2">Miembros</string>
+    <string name="lblIn3">Descripción</string>
     <string name="logBtn11">Foro</string>
     <string name="logBtn22">Visualizar Tareas</string>
+
+    =========================================
+    LINK PROYECTS
+    <string name="lblUni">Unirse al Proyecto</string>
+    <string name="lblEsCode">Escribe el token</string>
+    <string name="lblEnter">Unirse</string>
+
 </resources>
