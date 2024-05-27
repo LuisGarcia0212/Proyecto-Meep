@@ -484,16 +484,16 @@
                         android:textSize="13sp" />
                 </RelativeLayout>
             </LinearLayout>
-        </ScrollView>
 
+        </ScrollView>
         <Button
             android:id="@+id/logbtncrearproyect"
             android:layout_width="168dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="220dp"
             android:layout_marginTop="-100dp"
-            android:text="@string/logbtnCreaProyect"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            android:src="@drawable/ic_pencil"/>
     </LinearLayout>
 
 </FrameLayout>

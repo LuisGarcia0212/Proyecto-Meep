@@ -47,7 +47,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginTop="-20dp">
 
         <RelativeLayout
             android:layout_width="410dp"
@@ -57,13 +58,13 @@
             <TextView
                 android:id="@+id/lblnamee"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
+                android:layout_height="25dp"
                 android:layout_marginHorizontal="50dp"
                 android:layout_marginTop="40dp"
                 android:fontFamily="@font/inter_regular"
                 android:text="@string/lblname"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="20sp" />
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,82 +84,78 @@
             <TextView
                 android:id="@+id/blname2"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
+                android:layout_height="25dp"
                 android:layout_marginHorizontal="50dp"
                 android:layout_marginTop="130dp"
                 android:fontFamily="@font/inter_regular"
-                android:text="@string/LblFecha"
+                android:text="@string/lblToken"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="20sp" />
             <RelativeLayout
-                android:layout_width="310dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="50dp"
-                android:layout_marginTop="155dp">
+                android:layout_marginHorizontal="100dp"
+                android:layout_marginTop="170dp">
+
+                <TextView
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="@drawable/edit_icono_circular"/>
+                <TextView
+                    android:id="@+id/lblNum"
+                    android:layout_width="130dp"
+                    android:layout_height="50dp"
+                    android:fontFamily="@font/inter_regular"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="43dp"
+                    android:layout_gravity="end"
+                    android:hint="@string/lblTok1"
+                    android:textColorHint="@color/black"
+                    android:textSize="17dp"/>
 
                 <EditText
-                    android:id="@+id/editFecha"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginTop="10dp"
-                    android:maxLength="10"
-                    android:clickable="false"
-                    android:focusable="false"
-                    android:inputType="date"
-                    android:paddingLeft="10dp"
-                    android:hint="@string/lblescribirFecha"
-                    android:background="@drawable/edit_text_backgroud"/>
+                    android:layout_width="130sp"
+                    android:layout_height="60sp"
+                    android:enabled="false"
+                    android:gravity="center"
+                    android:layout_marginTop="60dp"
+                    android:layout_marginLeft="45dp"
+                    android:textSize="35sp"
+                    android:layout_weight="800"
+                    android:textStyle="bold"
+                    android:text="011124"/>
 
-                <ImageView
-                    android:id="@+id/chat"
-                    android:layout_width="30dp"
-                    android:layout_height="20dp"
-                    android:layout_marginLeft="270dp"
-                    android:layout_marginTop="20dp"
-                    android:src="@drawable/calendar"
-                    app:tint="@color/cardview_dark_background"/>
+                <Button
+                    android:id="@+id/logBtnGen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/logBtnGen"
+                    android:background="@drawable/edit_boton_celeste"
+                    android:textColor="@color/white"
+                    android:layout_marginTop="190dp"
+                    android:textAllCaps="false"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_weight="1"/>
+
             </RelativeLayout>
 
-            <TextView
-                android:id="@+id/lblAreaa"
-                android:layout_width="wrap_content"
-                android:layout_height="19dp"
-                android:layout_marginHorizontal="50dp"
-                android:layout_marginTop="220dp"
-                android:fontFamily="@font/inter_regular"
-                android:text="@string/lblArea"
-                android:textColor="@color/white"
-                android:textSize="15sp" />
-            <RelativeLayout
-                android:layout_width="310dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="50dp"
-                android:layout_marginTop="250dp">
-
-                <EditText
-                    android:id="@+id/editArea"
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:paddingLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:hint="@string/lblescribirArea"
-                    android:background="@drawable/edit_text_backgroud"/>
-            </RelativeLayout>
             <TextView
                 android:id="@+id/lbldescripcion"
                 android:layout_width="wrap_content"
-                android:layout_height="19dp"
+                android:layout_height="25dp"
                 android:layout_marginHorizontal="50dp"
-                android:layout_marginTop="310dp"
+                android:layout_marginTop="420dp"
                 android:fontFamily="@font/inter_regular"
                 android:text="@string/lblDescripcion"
                 android:textColor="@color/white"
-                android:textSize="15sp" />
+                android:textSize="20sp" />
             <RelativeLayout
                 android:layout_width="310dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="50dp"
-                android:layout_marginTop="340dp">
+                android:layout_marginTop="445dp">
 
                 <EditText
                     android:id="@+id/editDescripcion"
@@ -167,20 +164,20 @@
                     android:layout_marginTop="10dp"
                     android:paddingLeft="15dp"
                     android:paddingBottom="80dp"
-                    android:hint="@string/lblescribirDes"
                     android:background="@drawable/edit_text_background2"/>
-            </RelativeLayout>
 
-            <Button
-                android:id="@+id/logBtnGenerar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="150dp"
-                android:layout_marginTop="480dp"
-                android:background="@color/btnRojo"
-                android:textColor="@color/white"
-                android:text="@string/logbtnGenerar"
-                android:textSize="15sp" />
+                <Button
+                    android:id="@+id/logbtnCrear"
+                    android:layout_width="150dp"
+                    android:layout_height="40dp"
+                    android:text="@string/logbtnCrear"
+                    android:textAllCaps="false"
+                    android:layout_marginTop="150dp"
+                    android:textColor="@color/white"
+                    android:background="@drawable/edit_boton_rojo"
+                    android:layout_marginHorizontal="80dp"
+                    android:layout_weight="1"/>
+            </RelativeLayout>
         </RelativeLayout>
     </LinearLayout>
 

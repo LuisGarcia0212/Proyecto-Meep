@@ -290,74 +290,150 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
                 <TextView
-                    android:id="@+id/lblIni1"
+                    android:id="@+id/lblIn1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:textColor="@color/black"
-                    android:fontFamily="@font/inter_regular"
-                    android:text="@string/lblIni1"
-                    android:textSize="15sp"/>
-                <TextView
-                    android:id="@+id/lblIni1.1"
-                    android:layout_width="260dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="9dp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/inter_regular"
-                    android:text="@string/lblIni1.1"
-                    android:textSize="13sp"/>
+                    android:text="@string/lblIn1"
+                    android:textSize="15sp"/>
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/nav_header_imageView"
-                    xmlns:app="http://schemas.android.com/apk/res-auto"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:layout_marginLeft="270dp"
-                    android:layout_marginTop="-58sp"
-                    android:src="@drawable/dilan"/>
+                <EditText
+                    android:id="@+id/editName"
+                    android:layout_width="220dp"
+                    android:layout_height="40dp"
+                    android:paddingLeft="10dp"
+                    android:layout_marginTop="3dp"
+                    android:background="@drawable/edit_text_backgroud"
+                    android:hint="@string/lblescribirName"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp">
+
+                <ImageView
+                    android:id="@+id/delete"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/basura"/>
+
+                <ImageView
+                    android:id="@+id/check"
+                    android:layout_width="40dp"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:src="@drawable/ic_check"/>
+
             </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="400dp">
 
+        <LinearLayout
+            android:layout_width="350sp"
+            android:layout_height="245sp"
+            android:layout_marginTop="85dp"
+            android:layout_marginHorizontal="30dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/lblIn2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblIn2"
+                    android:textSize="15sp"/>
 
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/nav_header_imageView1"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/dilan"/>
 
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/nav_header_imageView2"
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/dilan"/>
+                    <ImageView
+                        android:id="@+id/chat"
+                        android:layout_width="30dp"
+                        android:layout_height="20dp"
+                        android:layout_marginTop="5dp"
+                        android:src="@drawable/mas"
+                        app:tint="@color/cardview_dark_background"/>
+                </LinearLayout>
+            </LinearLayout>
 
+        </LinearLayout>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="455dp">
 
+        <LinearLayout
+            android:layout_width="350sp"
+            android:layout_height="245sp"
+            android:layout_marginTop="85dp"
+            android:layout_marginHorizontal="30dp"
+            android:orientation="horizontal"
+            android:padding="10dp">
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/lblIn3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblIn3"
+                    android:textSize="15sp"/>
 
+                <EditText
+                    android:id="@+id/editDescripcion"
+                    android:layout_width="330dp"
+                    android:layout_height="80dp"
+                    android:paddingLeft="15dp"
+                    android:paddingBottom="80dp"
+                    android:background="@drawable/edit_text_background2"/>
 
+            </LinearLayout>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        </LinearLayout>
+    </LinearLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
