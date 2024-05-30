@@ -3,19 +3,23 @@ package com.example.proyectomeep.fragmentos;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.proyectomeep.R;
+import com.example.proyectomeep.clases.Menu;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ProyectsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ProyectsFragment extends Fragment {
+public class ProyectsFragment extends Fragment implements View.OnClickListener, Menu {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -57,10 +61,54 @@ public class ProyectsFragment extends Fragment {
         }
     }
 
+    Fragment[] fragments;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_proyects, container, false);
+        View view = inflater.inflate(R.layout.fragment_proyects, container, false);
+
+        fragments = new Fragment[6];
+        fragments[0] = new BienvenidaFragment();
+        fragments[1] = new ForoFragment();
+        fragments[2] = new ProyectoFragment();
+        fragments[3] = new CrearPFragment();
+        fragments[4] = new ProyectsFragment();
+        fragments[5] = new TareasFragment();
+
+        Button btnForo = view.findViewById(R.id.logBtnForo);
+        Button btnTarea = view.findViewById(R.id.logBtnViTareas);
+        btnForo.setOnClickListener(this);
+        btnTarea.setOnClickListener(this);
+        return view;
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.logBtnForo){
+            ingresarForo();
+        } else if (v.getId() == R.id.logBtnViTareas) {
+            ingresarTareas();
+        }
+    }
+
+    private void ingresarTareas() {
+        int btnBoton = 5;
+        onClickMenu(btnBoton);
+    }
+
+    private void ingresarForo() {
+        int btnBoton = 1;
+        onClickMenu(btnBoton);
+    }
+
+    @Override
+    public void onClickMenu(int idBoton) {
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.menuRelaArea, fragments[idBoton]);
+        ft.commit();
     }
 }
