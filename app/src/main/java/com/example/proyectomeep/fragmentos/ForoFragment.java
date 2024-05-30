@@ -2,6 +2,7 @@ package com.example.proyectomeep.fragmentos;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,9 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.proyectomeep.R;
+import com.example.proyectomeep.actividades.MiembrosActivity;
+import com.example.proyectomeep.actividades.RestablecerContrasenhaActivity;
 import com.example.proyectomeep.clases.Menu;
+
+import org.w3c.dom.Text;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -74,19 +80,25 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_foro, container, false);
-        fragments = new Fragment[6];
+        fragments = new Fragment[7];
         fragments[0] = new BienvenidaFragment();
         fragments[1] = new ForoFragment();
         fragments[2] = new ProyectoFragment();
         fragments[3] = new CrearPFragment();
         fragments[4] = new MessageListFragment();
         fragments[5] = new MenInterFragment();
+        fragments[6] = new TareasFragment();
 
         ImageView imgBack = view.findViewById(R.id.barra);
         CircleImageView imgUser = view.findViewById(R.id.user1);
-
+        TextView txtPublicacion = view.findViewById(R.id.lblPublicacion);
+        TextView txtTareas = view.findViewById(R.id.lblTareas);
+        TextView txtMiembros = view.findViewById(R.id.lblMiembros);
         imgBack.setOnClickListener(this);
         imgUser.setOnClickListener(this);
+        txtPublicacion.setOnClickListener(this);
+        txtTareas.setOnClickListener(this);
+        txtMiembros.setOnClickListener(this);
         return view;
     }
 
@@ -99,7 +111,28 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
         } else if (v.getId() == R.id.btnEnviarMensaje) {
             a2.dismiss();
             enviarMensaje();
+        } else if (v.getId() == R.id.lblPublicacion) {
+            ingresarPublicacion();
+        } else if (v.getId() == R.id.lblTareas) {
+            ingresarTareas();
+        } else if (v.getId() == R.id.lblMiembros) {
+            ingresarMiembros();
         }
+    }
+
+    private void ingresarMiembros() {
+        Intent iMiembro = new Intent(getActivity(), MiembrosActivity.class);
+        startActivity(iMiembro);
+    }
+
+    private void ingresarTareas() {
+        int btnMenu = 6;
+        onClickMenu(btnMenu);
+    }
+
+    private void ingresarPublicacion() {
+        int btnMenu = 1;
+        onClickMenu(btnMenu);
     }
 
     private void enviarMensaje() {

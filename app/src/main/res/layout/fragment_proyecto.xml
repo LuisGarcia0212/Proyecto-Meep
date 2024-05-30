@@ -88,412 +88,237 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-                <RelativeLayout
-                    android:id="@+id/logRlForo"
-                    android:layout_width="380sp"
+                <LinearLayout
+                    android:id="@+id/logPro1"
+                    android:layout_width="match_parent"
                     android:layout_height="90sp"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="20dp"
-                    android:background="#40505E">
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="#40505E"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/lblProgress"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblProgress"
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp" />
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:layout_weight="0.8">
 
-                    <ImageView
-                        android:layout_width="7dp"
-                        android:layout_height="7dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
-                        android:src="@drawable/circle"
-                        app:tint="@color/orange" />
-                    <TextView
-                        android:id="@+id/lblFecha"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="220dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblFecha"
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="7dp"
+                                android:layout_height="7dp"
+                                android:src="@drawable/circle"
+                                android:layout_marginHorizontal="2dp"
+                                app:tint="@color/orange"/>
+                            <TextView
+                                android:id="@+id/lblProgress"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_regular"
+                                android:text="@string/lblProgress"
+                                android:textColor="#FFFFFF"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                        <TextView
+                            android:id="@+id/lblProyect1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblProyect1"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="20sp" />
 
-                    <TextView
-                        android:id="@+id/lblProyect1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="28dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblProyect1"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp" />
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:id="@+id/lblArea1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_regular"
+                                android:text="@string/lblArea1"
+                                android:textColor="@color/white"
+                                android:textSize="13sp" />
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:rotation="-90"
+                                android:src="@drawable/chevron_down"
+                                android:layout_marginTop="1dp"
+                                app:tint="@color/white" />
 
-                    <TextView
-                        android:id="@+id/lblArea1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="60dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblArea1"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp" />
+                            <TextView
+                                android:id="@+id/lblArea2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_regular"
+                                android:text="@string/lblArea2"
+                                android:textColor="@color/white"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="9dp"
-                        android:layout_height="11dp"
-                        android:layout_marginLeft="78dp"
-                        android:layout_marginTop="65dp"
-                        android:rotation="-90"
-                        android:src="@drawable/chevron_down"
-                        app:tint="@color/white" />
 
-                    <TextView
-                        android:id="@+id/lblArea2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="90dp"
-                        android:layout_marginTop="60dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblArea2"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp" />
-                </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <TextView
+                            android:id="@+id/lblFecha"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblFecha"
+                            android:layout_margin="5dp"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:gravity="center_vertical|end">
+                            <ImageView
+                                android:id="@+id/imgAdmin"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:src="@drawable/ic_admin_p"/>
+                        </RelativeLayout>
+                    </LinearLayout>
 
-                <RelativeLayout
-                    android:layout_width="380sp"
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="90sp"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="20dp"
-                    android:background="#40505E">
+                    android:layout_marginTop="10dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:background="#40505E"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:padding="10dp"
+                        android:layout_weight="0.8">
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+                            <ImageView
+                                android:layout_width="7dp"
+                                android:layout_height="7dp"
+                                android:src="@drawable/circle"
+                                android:layout_marginHorizontal="2dp"
+                                app:tint="@color/green"/>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_regular"
+                                android:text="@string/lblOpen"
+                                android:textColor="#FFFFFF"
+                                android:textSize="10sp" />
+                        </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblProyect2"
+                            android:textColor="#FFFFFF"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginBottom="5dp"
+                            android:textSize="20sp"/>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:gravity="center"
+                            android:orientation="horizontal">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_regular"
+                                android:text="@string/lblArea1"
+                                android:textColor="@color/white"
+                                android:textSize="13sp" />
+                            <ImageView
+                                android:layout_width="10dp"
+                                android:layout_height="10dp"
+                                android:rotation="-90"
+                                android:src="@drawable/chevron_down"
+                                android:layout_marginTop="1dp"
+                                app:tint="@color/white" />
 
-                    <TextView
-                        android:id="@+id/lblProgress2"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblProgress2"
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp" />
-                    <ImageView
-                        android:layout_width="7dp"
-                        android:layout_height="7dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
-                        android:src="@drawable/circle"
-                        app:tint="@color/orange" />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/inter_regular"
+                                android:text="@string/lblArea2"
+                                android:textColor="@color/white"
+                                android:textSize="13sp" />
+                        </LinearLayout>
+                    </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/lblFecha2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="220dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblFecha2"
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp" />
-
-                    <TextView
-                        android:id="@+id/lblProyect2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="28dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblProyect2"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/lblArea3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="60dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblArea3"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp" />
-
-                    <ImageView
-                        android:layout_width="9dp"
-                        android:layout_height="11dp"
-                        android:layout_marginLeft="108dp"
-                        android:layout_marginTop="65dp"
-                        android:rotation="-90"
-                        android:src="@drawable/chevron_down"
-                        app:tint="@color/white" />
-
-                    <TextView
-                        android:id="@+id/lblArea4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="120dp"
-                        android:layout_marginTop="60dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblArea1"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="380sp"
-                    android:layout_height="90sp"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="20dp"
-                    android:background="#40505E">
-
-                    <TextView
-                        android:id="@+id/lblOpen"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblOpen"
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp" />
-                    <ImageView
-                        android:layout_width="7dp"
-                        android:layout_height="7dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
-                        android:src="@drawable/circle"
-                        app:tint="@color/gray" />
-
-                    <TextView
-                        android:id="@+id/lblFecha3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="220dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblFecha3"
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp" />
-
-                    <TextView
-                        android:id="@+id/lblProyect3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="28dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblProyect3"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/lblArea5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="60dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblArea1"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp" />
-
-                    <ImageView
-                        android:layout_width="9dp"
-                        android:layout_height="11dp"
-                        android:layout_marginLeft="78dp"
-                        android:layout_marginTop="65dp"
-                        android:rotation="-90"
-                        android:src="@drawable/chevron_down"
-                        app:tint="@color/white" />
-
-                    <TextView
-                        android:id="@+id/lblArea6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="90dp"
-                        android:layout_marginTop="60dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblArea3"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="380sp"
-                    android:layout_height="90sp"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="20dp"
-                    android:background="#40505E">
-
-                    <TextView
-                        android:id="@+id/lblProgress3"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblProgress3"
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp" />
-                    <ImageView
-                        android:layout_width="7dp"
-                        android:layout_height="7dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
-                        android:src="@drawable/circle"
-                        app:tint="@color/orange" />
-
-                    <TextView
-                        android:id="@+id/lblFecha4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="220dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblFecha4"
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp" />
-
-                    <TextView
-                        android:id="@+id/lblProyect4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="28dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblProyect4"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/lblArea7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="60dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblArea2"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp" />
-
-                    <ImageView
-                        android:layout_width="9dp"
-                        android:layout_height="11dp"
-                        android:layout_marginLeft="109dp"
-                        android:layout_marginTop="65dp"
-                        android:rotation="-90"
-                        android:src="@drawable/chevron_down"
-                        app:tint="@color/white" />
-
-                    <TextView
-                        android:id="@+id/lblArea8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="120dp"
-                        android:layout_marginTop="60dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblArea1"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp" />
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="380sp"
-                    android:layout_height="90sp"
-                    android:layout_marginLeft="12dp"
-                    android:layout_marginTop="20dp"
-                    android:background="#40505E">
-
-                    <TextView
-                        android:id="@+id/lblOpen2"
-                        android:layout_width="100dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblOpen2"
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp" />
-                    <ImageView
-                        android:layout_width="7dp"
-                        android:layout_height="7dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
-                        android:src="@drawable/circle"
-                        app:tint="@color/gray" />
-
-                    <TextView
-                        android:id="@+id/lblFech5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="220dp"
-                        android:layout_marginTop="10dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblFecha5"
-                        android:textColor="#FFFFFF"
-                        android:textSize="10sp" />
-
-                    <TextView
-                        android:id="@+id/lblProyect5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="28dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblProyect5"
-                        android:textColor="#FFFFFF"
-                        android:textSize="20sp" />
-
-                    <TextView
-                        android:id="@+id/lblArea9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginTop="60dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblArea1"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp" />
-
-                    <ImageView
-                        android:layout_width="9dp"
-                        android:layout_height="11dp"
-                        android:layout_marginLeft="78dp"
-                        android:layout_marginTop="65dp"
-                        android:rotation="-90"
-                        android:src="@drawable/chevron_down"
-                        app:tint="@color/white" />
-
-                    <TextView
-                        android:id="@+id/lblArea10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="90dp"
-                        android:layout_marginTop="60dp"
-                        android:fontFamily="@font/inter_regular"
-                        android:text="@string/lblArea2"
-                        android:textColor="#FFFFFF"
-                        android:textSize="13sp" />
-                </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/inter_regular"
+                            android:text="@string/lblFecha2"
+                            android:layout_margin="5dp"
+                            android:textColor="@color/white"
+                            android:textSize="10sp" />
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:padding="10dp"
+                            android:gravity="center_vertical|end">
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
 
         </ScrollView>
-        <Button
-            android:id="@+id/logbtncrearproyect"
-            android:layout_width="168dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="220dp"
-            android:layout_marginTop="-100dp"
-            android:textAllCaps="false"
-            android:src="@drawable/ic_pencil"/>
     </LinearLayout>
-
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|bottom"
+        android:background="@drawable/edit_back"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="40dp"
+        android:padding="10dp"
+        android:orientation="horizontal">
+        <ImageView
+            android:id="@+id/imgJoin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_join_project"
+            android:layout_weight="1"/>
+        <ImageView
+            android:id="@+id/imgToken"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_new_token"
+            android:layout_weight="1"/>
+    </LinearLayout>
 </FrameLayout>

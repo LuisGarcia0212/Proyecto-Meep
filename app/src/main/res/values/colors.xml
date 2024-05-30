@@ -17,4 +17,8 @@
     <color name="gray2">#D1D1CE</color>
     <color name="orange">#FFA200 </color>
     <color name="green">#17FF00 </color>
+    <color name="cardProyectos">#40505E</color>
+    <color name="desProyecto">#868686</color>
+    <color name="cardCrear">#94979C</color>
+    <color name="foroH">#161514</color>
 </resources>

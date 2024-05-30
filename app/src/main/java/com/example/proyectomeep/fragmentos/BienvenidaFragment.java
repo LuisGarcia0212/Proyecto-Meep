@@ -81,16 +81,6 @@ public class BienvenidaFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view1 = inflater.inflate(R.layout.fragment_bienvenida, container, false);
-
-        ImageView img = view1.findViewById(R.id.lblmapa);
-        img.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), MapaActivity.class);
-                startActivity(intent);
-            }
-        });
-
         recyclerView = view1.findViewById(R.id.linearNotificaciones);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
 

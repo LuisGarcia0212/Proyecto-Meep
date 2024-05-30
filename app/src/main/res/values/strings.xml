@@ -38,9 +38,9 @@
     <string name="lblDireccion">Dirección</string>
     <string name="logBtnCancelar">Cancelar</string>
     <string name="logBtnSave">Guardar</string>
-    <string name="logLblPro">Proyectos Restantes</string>
-    <string name="logLblPro2">Proyectos Realizados</string>
-    <string name="logLblPro3">Total Proyectos</string>
+    <string name="logLblPro">Tareas Restantes</string>
+    <string name="logLblPro2">Tareas Realizadas</string>
+    <string name="logLblPro3">Total Tareas</string>
     =======
     ====================================
     MIS PROYECTOS
@@ -77,6 +77,7 @@
     <string name="lblTok1">Token Unico:</string>
     <string name="logBtnGen">Generar Token</string>
     <string name="logbtnCrear">Crear</string>
+    <string name="logbtnCrearA">Crear Areas</string>
     <string name="logbtnCreaProyect">Crear Proyecto</string>
     =========================================
     FOROOOO
@@ -119,6 +120,10 @@
     <string name="frgCfgCerrarSesion">Cerrar Sesion</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+
+    <string name="lblPublicacion">Publicación</string>
+    <string name="lblTareas">Tareas</string>
+    <string name="lblMiembros">Miembros</string>
 
     >>>>>>> 56b9672a45789b8e0df5393587cc32e31f3d4bc5
 
@@ -188,5 +193,11 @@
     <string name="lblUni">Unirse al Proyecto</string>
     <string name="lblEsCode">Escribe el token</string>
     <string name="lblEnter">Unirse</string>
+
+    =========================================
+    Miembros
+    <string name="txtMiembros">Miembros</string>
+    <string name="txtBusquedaM">Buscar por nombre</string>
+    <string name="txtMiembro1">Miembro 1</string>
 
 </resources>

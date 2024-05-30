@@ -11,6 +11,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.example.proyectomeep.R;
@@ -70,36 +72,47 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_proyecto, container, false);
-        fragments = new Fragment[4];
+        fragments = new Fragment[6];
         fragments[0] = new BienvenidaFragment();
         fragments[1] = new ForoFragment();
         fragments[2] = new ProyectoFragment();
         fragments[3] = new CrearPFragment();
+        fragments[4] = new ProyectsFragment();
+        fragments[5] = new LinkProyectFragment();
 
 
-        Button btnCrear = view.findViewById(R.id.logbtncrearproyect);
-        RelativeLayout rlForo = view.findViewById(R.id.logRlForo);
-        btnCrear.setOnClickListener(this);
-        rlForo.setOnClickListener(this);
+        LinearLayout lyProyecto = view.findViewById(R.id.logPro1);
+        ImageView imgJoin = view.findViewById(R.id.imgJoin);
+        ImageView imgCProyect = view.findViewById(R.id.imgToken);
+        lyProyecto.setOnClickListener(this);
+        imgJoin.setOnClickListener(this);
+        imgCProyect.setOnClickListener(this);
         return view;
     }
 
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.logbtncrearproyect){
-            ingresarCrear();
-        } else if (v.getId() == R.id.logRlForo) {
-            ingresarForo();
+        if(v.getId() == R.id.logPro1){
+            ingresarAProy();
+        }else if (v.getId() == R.id.imgJoin){
+            ingresarUnirse();
+        } else if (v.getId() == R.id.imgToken) {
+            ingresarCProyecto();
         }
     }
 
-    private void ingresarForo() {
-        int idBoton = 1;
-        onClickMenu(idBoton);
+    private void ingresarCProyecto() {
+        int btnBoton = 5;
+        onClickMenu(btnBoton);
     }
 
-    private void ingresarCrear() {
-        int idBoton = 3;
+    private void ingresarUnirse() {
+        int btnBoton = 5;
+        onClickMenu(btnBoton);
+    }
+
+    private void ingresarAProy() {
+        int idBoton = 4;
         onClickMenu(idBoton);
     }
 
