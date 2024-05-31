@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.SQLite.MEEP;
 import com.example.proyectomeep.clases.Menu;
+import com.example.proyectomeep.clases.Usuario;
 import com.example.proyectomeep.fragmentos.BienvenidaFragment;
 import com.example.proyectomeep.fragmentos.ConfigFragment;
 import com.example.proyectomeep.fragmentos.MessageListFragment;
@@ -36,6 +37,7 @@ import java.util.ArrayList;
 public class BienvenidaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Menu {
 
 
+    Usuario usuario;
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
 
@@ -45,6 +47,8 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bienvenida);
+
+        usuario = (Usuario) getIntent().getSerializableExtra("usuario");
 
         fragments = new Fragment[5];
 
@@ -99,7 +103,8 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
 
     private void cerrarSesion() {
         MEEP mp = new MEEP(this);
-        mp.eliminarUsuario(1);
+        int id = usuario.getIdUsuario();
+        mp.eliminarUsuario(id);
         finish();
         Intent iLogin = new Intent(this, InicionSesionMeepActivity.class);
         startActivity(iLogin);
