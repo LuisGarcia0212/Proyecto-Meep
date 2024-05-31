@@ -102,7 +102,7 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
     }
 
     private void ingresarCProyecto() {
-        int btnBoton = 5;
+        int btnBoton = 3;
         onClickMenu(btnBoton);
     }
 

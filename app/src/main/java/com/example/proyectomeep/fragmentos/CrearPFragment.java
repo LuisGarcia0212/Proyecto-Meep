@@ -22,8 +22,15 @@ import com.example.proyectomeep.SQLite.MEEP;
 import com.example.proyectomeep.actividades.BienvenidaActivity;
 import com.example.proyectomeep.actividades.CuentaActivity;
 import com.example.proyectomeep.clases.Menu;
+import com.example.proyectomeep.clases.Usuario;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.BaseJsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import java.util.Calendar;
+import java.util.UUID;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,11 +79,11 @@ public class CrearPFragment extends Fragment implements View.OnClickListener, Me
         }
     }
 
+    //BD
+    private String urlCrearProyecto = "http://meep.atwebpages.com/services/agregarProyecto.php";
 
-    EditText editNombre;
-    EditText editFecha;
-    EditText editArea;
-    EditText editDescripcion;
+    EditText editNombre, editToken, editDescripcion;
+
 
     Fragment[] fragments;
 
@@ -94,13 +101,16 @@ public class CrearPFragment extends Fragment implements View.OnClickListener, Me
 
         ImageView imgVolver = view.findViewById(R.id.logVolverMenu);
         Button btnGenerar = view.findViewById(R.id.logbtnCrear);
+        Button btnGenTo = view.findViewById(R.id.logBtnGen);
 
         //valores del proyecto
         editNombre = view.findViewById(R.id.editName);
+        editToken = view.findViewById(R.id.editToken);
         editDescripcion = view.findViewById(R.id.editDescripcion);
 
         btnGenerar.setOnClickListener(this);
         imgVolver.setOnClickListener(this);
+        btnGenTo.setOnClickListener(this);
         return view;
     }
 
@@ -109,10 +119,17 @@ public class CrearPFragment extends Fragment implements View.OnClickListener, Me
         if(v.getId() == R.id.logVolverMenu){
             volver();
         } else if (v.getId() == R.id.logbtnCrear) {
-            generarProyecto(editNombre.getText().toString(), editFecha.getText().toString(),
-                    editArea.getText().toString(), editDescripcion.getText().toString());
+            generarProyecto(editNombre.getText().toString(), editToken.getText().toString(),
+                    editDescripcion.getText().toString());
+        } else if (v.getId() == R.id.logBtnGen) {
+            generarToken();
         }
 
+    }
+
+    private void generarToken() {
+        String token = UUID.randomUUID().toString().replace("-", "").substring(0,6);
+        editToken.setText(token);
     }
 
     private void volver() {
@@ -120,17 +137,50 @@ public class CrearPFragment extends Fragment implements View.OnClickListener, Me
         onClickMenu(btnMenu);
     }
 
-    private void generarProyecto(String nombre, String fecha, String area, String descripcion){
-        MEEP mp = new MEEP(getContext());
-        if(nombre.equals("")  || fecha.equals("") || area.equals("") || descripcion.equals("") )
-            Toast.makeText(getContext(), "Completa todos los espacios", Toast.LENGTH_SHORT).show();
-        else{
-            //guardamos el proyecto
-            mp.agregarProyecto(nombre, fecha, area, descripcion);
-            Toast.makeText(getContext(), "El proyecto se registro exitosamente", Toast.LENGTH_SHORT).show();
-            Intent iBienvenida = new Intent(getActivity(), BienvenidaActivity.class);
-            startActivity(iBienvenida);
+    private void generarProyecto(String nombre, String token, String descripcion){
+        Usuario usuario = (Usuario) getActivity().getIntent().getSerializableExtra("usuario");
+        AsyncHttpClient ahccrearProyecto = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        String estadoP = "Activo";
+
+        if(validarDatos()){
+            params.add("usuarioid", String.valueOf(usuario.getIdUsuario()));
+            params.add("estado", estadoP);
+            params.add("nombre_proyecto", nombre);
+            params.add("token_proyecto", token);
+            params.add("descripcion", descripcion);
+
+            ahccrearProyecto.post(urlCrearProyecto, params, new BaseJsonHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, Object response) {
+                    if (statusCode == 200){
+                        int retVal = rawJsonResponse.length() == 0 ? 0 : Integer.parseInt(rawJsonResponse);
+                        if (retVal == 1){
+                            Toast.makeText(getActivity().getApplicationContext(), "Proyecto Creado Correctamente", Toast.LENGTH_SHORT).show();
+                            int btnMenu = 2;
+                            onClickMenu(btnMenu);
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, Object errorResponse) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Error: "+statusCode, Toast.LENGTH_SHORT).show();
+                }
+
+                @Override
+                protected Object parseResponse(String rawJsonData, boolean isFailure) throws Throwable {
+                    return null;
+                }
+            });
         }
+    }
+
+    private boolean validarDatos() {
+        if(editNombre.getText().toString().isEmpty() || editToken.getText().toString().isEmpty() ||
+                editDescripcion.getText().toString().isEmpty())
+            return  false;
+        return true;
     }
 
     @Override

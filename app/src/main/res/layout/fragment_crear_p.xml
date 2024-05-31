@@ -116,6 +116,7 @@
                     android:textSize="17dp"/>
 
                 <EditText
+                    android:id="@+id/editToken"
                     android:layout_width="130sp"
                     android:layout_height="60sp"
                     android:enabled="false"

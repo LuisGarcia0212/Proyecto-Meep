@@ -129,16 +129,15 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
     private void iniciarSesion(String user, String psw, boolean recordar){
         MEEP mp = new MEEP(this);
         Hash hash = new Hash();
-
         AsyncHttpClient ahcIniciarSesion = new AsyncHttpClient();
         RequestParams params = new RequestParams();
 
         psw = recordar == true ? psw : hash.StringToHash(psw, "SHA256");
-
         params.add("usuario", user);
         params.add("clave", psw);
 
         ahcIniciarSesion.post(urlIniciarSesion, params, new BaseJsonHttpResponseHandler() {
+
             @Override
             public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, Object response) {
                 if(statusCode == 200){
@@ -172,6 +171,8 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
                         throw new RuntimeException(e);
                     }
 
+                }else {
+                    Toast.makeText(getApplicationContext(), "NO entro", Toast.LENGTH_SHORT).show();
                 }
             }
 
