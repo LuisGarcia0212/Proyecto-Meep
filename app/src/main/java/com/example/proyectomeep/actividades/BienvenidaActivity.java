@@ -113,14 +113,16 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
 
     private void ingresarCuenta() {
         Intent iCuenta= new Intent(this, CuentaActivity.class);
+        iCuenta.putExtra("usuario", usuario);
         startActivity(iCuenta);
         finish();
     }
 
 
     private void acercaDe() {
-        Intent iCuenta= new Intent(this, AcercaDeActivity.class);
-        startActivity(iCuenta);
+        Intent iAcerca= new Intent(this, AcercaDeActivity.class);
+        iAcerca.putExtra("usuario", usuario);
+        startActivity(iAcerca);
         finish();
     }
 
