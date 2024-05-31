@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +19,20 @@ import android.widget.RelativeLayout;
 
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.actividades.InicionSesionMeepActivity;
+import com.example.proyectomeep.adaptadores.ProyectoAdapter;
 import com.example.proyectomeep.clases.Menu;
+import com.example.proyectomeep.clases.Proyectos;
+import com.example.proyectomeep.clases.Usuario;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.BaseJsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -66,7 +81,12 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
         }
     }
 
+    //BD
+    final static String urlMostraProyecto  = "http://meep.atwebpages.com/services/mostrarProyecto.php";
     Fragment[] fragments;
+    RecyclerView rvProyecto;
+    ArrayList<Proyectos> lista;
+    ProyectoAdapter adapter = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,21 +100,64 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
         fragments[4] = new ProyectsFragment();
         fragments[5] = new LinkProyectFragment();
 
+        rvProyecto = view.findViewById(R.id.cardProyceto);
+        lista = new ArrayList<>();
+        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        rvProyecto.setLayoutManager(manager);
+        adapter = new ProyectoAdapter(lista);
+        rvProyecto.setAdapter(adapter);
 
-        LinearLayout lyProyecto = view.findViewById(R.id.logPro1);
+        mostrarProyectos();
+
         ImageView imgJoin = view.findViewById(R.id.imgJoin);
         ImageView imgCProyect = view.findViewById(R.id.imgToken);
-        lyProyecto.setOnClickListener(this);
         imgJoin.setOnClickListener(this);
         imgCProyect.setOnClickListener(this);
         return view;
     }
 
+    private void mostrarProyectos() {
+        AsyncHttpClient ahcMostrarProyecto = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        Usuario usuario = (Usuario) getActivity().getIntent().getSerializableExtra("usuario");
+        params.add("usuarioid", String.valueOf(usuario.getIdUsuario()));
+        ahcMostrarProyecto.get(urlMostraProyecto, params, new BaseJsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, Object response) {
+                if (statusCode == 200){
+                    try {
+                        JSONArray jsonArray = new JSONArray(rawJsonResponse);
+                        lista.clear();
+                        for (int i = 0; i < jsonArray.length(); i++){
+                            lista.add(new Proyectos(jsonArray.getJSONObject(i).getInt("idProyecto"),
+                                                    jsonArray.getJSONObject(i).getString("Estado"),
+                                                    jsonArray.getJSONObject(i).getString("NombreProyec"),
+                                                    jsonArray.getJSONObject(i).getString("Descripcion"),
+                                                    jsonArray.getJSONObject(i).getInt("id_Rol")));
+                            adapter.notifyDataSetChanged();
+                        }
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, Object errorResponse) {
+
+            }
+
+            @Override
+            protected Object parseResponse(String rawJsonData, boolean isFailure) throws Throwable {
+                return null;
+            }
+        });
+    }
+
     @Override
     public void onClick(View v) {
-        if(v.getId() == R.id.logPro1){
-            ingresarAProy();
-        }else if (v.getId() == R.id.imgJoin){
+        if(v.getId() == R.id.imgJoin){
             ingresarUnirse();
         } else if (v.getId() == R.id.imgToken) {
             ingresarCProyecto();
