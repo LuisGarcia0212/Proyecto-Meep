@@ -19,11 +19,22 @@ import android.widget.Toast;
 
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.SQLite.MEEP;
+import com.example.proyectomeep.clases.Usuario;
 import com.example.veterinaria.clases.Hash;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.BaseJsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.Locale;
 
+import cz.msebera.android.httpclient.Header;
+
 public class InicionSesionMeepActivity extends AppCompatActivity implements View.OnClickListener{
+    //BD
+    private String urlIniciarSesion = "http://meep.atwebpages.com/services/iniciarSesion.php";
     Spinner spinner;
     TextView lblRegistro,lblRecuperacion,lblRestablecer ;
 
@@ -118,20 +129,62 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
     private void iniciarSesion(String user, String psw, boolean recordar){
         MEEP mp = new MEEP(this);
         Hash hash = new Hash();
+
+        AsyncHttpClient ahcIniciarSesion = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+
         psw = recordar == true ? psw : hash.StringToHash(psw, "SHA256");
-        if(user.equals("psyduck") && psw.equals("8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92")) {
-            if(chkRecordar.isChecked()){
-                //Guardar las credenciales en la BD SQLite
-                mp.agregarUsuario(1, user, psw);
+
+        params.add("usuario", user);
+        params.add("clave", psw);
+
+        ahcIniciarSesion.post(urlIniciarSesion, params, new BaseJsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, Object response) {
+                if(statusCode == 200){
+                    try {
+                        JSONArray jsonArray = new JSONArray(rawJsonResponse);
+                        if(jsonArray.length() > 0){
+                            int id = jsonArray.getJSONObject(0).getInt("idUsuario");
+                            if (id == -1)
+                                Toast.makeText(getApplicationContext(), "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+                            else {
+                                Usuario usuario = new Usuario();
+                                usuario.setIdUsuario(id);
+                                usuario.setNombresC(jsonArray.getJSONObject(0).getString("NombresCompletos"));
+                                usuario.setUsuario(jsonArray.getJSONObject(0).getString("Username"));
+                                usuario.setClave(jsonArray.getJSONObject(0).getString("Contraseña"));
+                                usuario.setEmail(jsonArray.getJSONObject(0).getString("Email"));
+                                usuario.setTelefono(jsonArray.getJSONObject(0).getString("Telefono"));
+                                usuario.setDireccion(jsonArray.getJSONObject(0).getString("Direccion"));
+                                usuario.setDescripcion(jsonArray.getJSONObject(0).getString("Descripcion"));
+                                usuario.setFoto(jsonArray.getJSONObject(0).getString("Foto"));
+
+                                if(chkRecordar.isChecked())
+                                    mp.agregarUsuario(usuario.getIdUsuario(), usuario.getUsuario(), usuario.getClave());
+                                Intent iBienvenida = new Intent(getApplicationContext(), BienvenidaActivity.class);
+                                iBienvenida.putExtra("usuario", usuario);
+                                startActivity(iBienvenida);
+                                finish();
+                            }
+                        }
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
             }
-            Intent iBienvenida = new Intent(this, BienvenidaActivity.class);
-            iBienvenida.putExtra("nombre", "Psyduck");
-            startActivity(iBienvenida);
-            finish();
-        }else {
-            Toast.makeText(this, "Usuario o contraseña incorrecta",
-                    Toast.LENGTH_SHORT).show();
-        }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, Object errorResponse) {
+                Toast.makeText(getApplicationContext(), "Error: "+statusCode, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            protected Object parseResponse(String rawJsonData, boolean isFailure) throws Throwable {
+                return null;
+            }
+        });
     }
 
 

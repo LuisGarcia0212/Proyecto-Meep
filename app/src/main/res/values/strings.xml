@@ -3,10 +3,12 @@
     <string name="app_name">ProyectoMeep</string>
     <string name="logLblLogin">Inicio de sesíon</string>
     <string name="logTxtUser">Usuario</string>
+    <string name="lblTxtNombres" translatable="false">Nombres Completos</string>
     <string name="logTxtClave">Contraseña</string>
     <string name="logTxtContra1">Contraseña</string>
     <string name="logTxtContra2">Contraseña</string>
     <string name="logTxtEmail">Correo electronico</string>
+    <string name="logTxtTelefono" translatable="false">Telefóno</string>
     <string name="logTxtClaveConfirm">Confirman Contraseña</string>
     <string name="logChkRecordar">Recordar sesión</string>
     <string name="logChkTerminos">Al firmar aceptas el Equipo de servicio y Política de privacidad</string>
