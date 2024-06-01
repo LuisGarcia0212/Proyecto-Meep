@@ -104,7 +104,7 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
         lista = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         rvProyecto.setLayoutManager(manager);
-        adapter = new ProyectoAdapter(lista);
+        adapter = new ProyectoAdapter(getContext(),lista, fragments);
         rvProyecto.setAdapter(adapter);
 
         mostrarProyectos();

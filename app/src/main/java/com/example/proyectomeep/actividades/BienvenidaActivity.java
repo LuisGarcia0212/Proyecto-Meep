@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.SQLite.MEEP;
+import com.example.proyectomeep.adaptadores.ProyectoAdapter;
 import com.example.proyectomeep.clases.Menu;
 import com.example.proyectomeep.clases.Usuario;
 import com.example.proyectomeep.fragmentos.BienvenidaFragment;
