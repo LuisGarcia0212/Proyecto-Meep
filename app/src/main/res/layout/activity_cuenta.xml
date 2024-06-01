@@ -44,7 +44,7 @@
 
 
         <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/nav_header_imageView"
+            android:id="@+id/perfilImage"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:layout_width="120dp"
             android:layout_height="120dp"
@@ -178,8 +178,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp">
-
-
                 <TextView
                     android:id="@+id/lblNameComplet"
                     android:layout_width="match_parent"
@@ -203,6 +201,7 @@
                         android:orientation="horizontal">
 
                         <EditText
+                            android:id="@+id/editNombres"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/edit_text_backgroud"
@@ -211,6 +210,7 @@
                             android:layout_weight="90"/>
 
                         <ImageView
+                            android:id="@+id/ediNombres"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:src="@drawable/ic_pencil"
@@ -250,6 +250,7 @@
                         android:orientation="horizontal">
 
                         <EditText
+                            android:id="@+id/editUsuario"
                             android:layout_width="match_parent"
                             android:layout_height="25dp"
                             android:background="@drawable/edit_text_backgroud"
@@ -258,6 +259,104 @@
                             android:layout_weight="90"/>
 
                         <ImageView
+                            android:id="@+id/ediUsuario"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_pencil"
+                            android:layout_marginTop="-5dp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+
+                <TextView
+                    android:id="@+id/lblSenha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblSenha"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginHorizontal="25dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblSenha">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/editSenha"
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:background="@drawable/edit_text_backgroud"
+                            android:inputType="textPersonName"
+                            android:maxLength="100"
+                            android:layout_weight="90"/>
+
+                        <ImageView
+                            android:id="@+id/ediClave"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_pencil"
+                            android:layout_marginTop="-5dp"
+                            android:layout_weight="1"/>
+                    </LinearLayout>
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+
+                <TextView
+                    android:id="@+id/lblEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblEmail"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginHorizontal="25dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lblEmail">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="20dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/editEmail"
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:background="@drawable/edit_text_backgroud"
+                            android:inputType="textPersonName"
+                            android:maxLength="100"
+                            android:layout_weight="90"/>
+
+                        <ImageView
+                            android:id="@+id/ediEmail"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:src="@drawable/ic_pencil"
@@ -296,6 +395,7 @@
                         android:orientation="horizontal">
 
                         <EditText
+                            android:id="@+id/editTelefono"
                             android:layout_width="match_parent"
                             android:layout_height="25dp"
                             android:background="@drawable/edit_text_backgroud"
@@ -304,6 +404,7 @@
                             android:layout_weight="90"/>
 
                         <ImageView
+                            android:id="@+id/ediTelefono"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:src="@drawable/ic_pencil"
@@ -342,6 +443,7 @@
                         android:orientation="horizontal">
 
                         <EditText
+                            android:id="@+id/editDireccion"
                             android:layout_width="match_parent"
                             android:layout_height="25dp"
                             android:background="@drawable/edit_text_backgroud"
@@ -350,6 +452,7 @@
                             android:layout_weight="90"/>
 
                         <ImageView
+                            android:id="@+id/ediDireccion"
                             android:layout_width="30dp"
                             android:layout_height="30dp"
                             android:src="@drawable/ic_pencil"

@@ -36,6 +36,8 @@
     <string name="lblDatos">Base de Información</string>
     <string name="lblNameComplet">Nombres Completos</string>
     <string name="lblUser">Nombre de usuario</string>
+    <string name="lblSenha" translatable="false">Contraseña</string>
+    <string name="lblEmail" translatable="false">Email</string>
     <string name="lblTelefono">Telefono</string>
     <string name="lblDireccion">Dirección</string>
     <string name="logBtnCancelar">Cancelar</string>
