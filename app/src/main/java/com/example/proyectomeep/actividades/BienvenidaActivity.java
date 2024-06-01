@@ -15,10 +15,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectomeep.R;
@@ -32,8 +35,11 @@ import com.example.proyectomeep.fragmentos.MessageListFragment;
 import com.example.proyectomeep.fragmentos.ProyectoFragment;
 import com.example.proyectomeep.fragmentos.ForoFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.loopj.android.http.Base64;
 
 import java.util.ArrayList;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class BienvenidaActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Menu {
 
@@ -41,8 +47,9 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
     Usuario usuario;
     private DrawerLayout drawer;
     private ActionBarDrawerToggle toggle;
-
+    CircleImageView perfilImage;
     Fragment[] fragments;
+    TextView nombreUsuario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +57,7 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         setContentView(R.layout.activity_bienvenida);
 
         usuario = (Usuario) getIntent().getSerializableExtra("usuario");
+
 
         fragments = new Fragment[5];
 
@@ -77,9 +85,16 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         getSupportActionBar().setHomeButtonEnabled(true);
 
         NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
         navigationView.setNavigationItemSelectedListener(this);
 
-
+        perfilImage = headerView.findViewById(R.id.nav_header_perfil);
+        nombreUsuario = headerView.findViewById(R.id.nav_header_textView);
+        String imagen = usuario.getFoto();
+        byte[] imageByte = Base64.decode(imagen, Base64.DEFAULT);
+        Bitmap bitmap = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
+        perfilImage.setImageBitmap(bitmap);
+        nombreUsuario.setText(usuario.getUsuario());
     }
 
 

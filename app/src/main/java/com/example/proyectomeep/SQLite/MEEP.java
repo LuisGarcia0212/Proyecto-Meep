@@ -87,6 +87,12 @@ public class MEEP extends SQLiteOpenHelper {
         return false;
     }
 
+    public void reiniciarSesion(){
+        SQLiteDatabase db = getReadableDatabase();
+        db.execSQL(dropTableUsuario);
+        db.execSQL(createTableUsuario);
+    }
+
     public boolean agregarProyecto(String nombre, String fecha, String area, String descripcion) {
         SQLiteDatabase db = getWritableDatabase();
         if (db != null) {
