@@ -125,8 +125,7 @@
                     android:layout_marginLeft="45dp"
                     android:textSize="35sp"
                     android:layout_weight="800"
-                    android:textStyle="bold"
-                    android:text="011124"/>
+                    android:textStyle="bold" />
 
                 <Button
                     android:id="@+id/logBtnGen"
