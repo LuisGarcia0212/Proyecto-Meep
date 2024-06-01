@@ -173,6 +173,8 @@ public class CrearPFragment extends Fragment implements View.OnClickListener, Me
                     return null;
                 }
             });
+        }else{
+            Toast.makeText(getActivity().getApplicationContext(), "Llene todos los espacios", Toast.LENGTH_SHORT).show();
         }
     }
 

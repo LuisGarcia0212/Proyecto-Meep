@@ -29,11 +29,14 @@
                 android:layout_marginBottom="5dp"
                 android:gravity="center"
                 android:orientation="horizontal">
-                <ImageView
+
+                <EditText
+                    android:id="@+id/cirEstado"
                     android:layout_width="7dp"
                     android:layout_height="7dp"
-                    android:src="@drawable/circle"
-                    android:layout_marginHorizontal="2dp"/>
+                    android:layout_marginHorizontal="2dp"
+                    android:inputType="none"
+                    android:background="@drawable/circle" />
                 <TextView
                     android:id="@+id/lblEstado"
                     android:layout_width="wrap_content"
