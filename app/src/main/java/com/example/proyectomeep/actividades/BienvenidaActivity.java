@@ -17,6 +17,7 @@ import android.content.Intent;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -90,10 +91,9 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
 
         perfilImage = headerView.findViewById(R.id.nav_header_perfil);
         nombreUsuario = headerView.findViewById(R.id.nav_header_textView);
-        String imagen = usuario.getFoto();
-        byte[] imageByte = Base64.decode(imagen, Base64.DEFAULT);
-        Bitmap bitmap = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
-        perfilImage.setImageBitmap(bitmap);
+        String image = usuario.getFoto();
+        Uri imgUri = Uri.parse(image);
+        perfilImage.setImageURI(imgUri);
         nombreUsuario.setText(usuario.getUsuario());
     }
 
