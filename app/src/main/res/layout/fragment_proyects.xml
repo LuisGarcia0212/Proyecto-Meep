@@ -115,11 +115,13 @@
                         android:text="@string/lblArea2"
                         android:textColor="@color/white"
                         android:textSize="13sp" />
+
                 </LinearLayout>
             </LinearLayout>
 
 
             <LinearLayout
+                android:id="@+id/proyectosContainer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center_horizontal"
@@ -131,7 +133,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/inter_regular"
                     android:text="@string/lblFecha"
-                    android:layout_margin="5dp"
+                    android:layout_marginRight="15dp"
                     android:textColor="@color/white"
                     android:textSize="10sp" />
             </LinearLayout>
