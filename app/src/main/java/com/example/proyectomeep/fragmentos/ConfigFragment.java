@@ -85,11 +85,10 @@ public class ConfigFragment extends Fragment implements View.OnClickListener {
         cboIdiomas = vista.findViewById(R.id.frgCfgIdiomas);
 
         btnGuardar = vista.findViewById(R.id.frgCfgGuardar);
-        btnCerrarSesion = vista.findViewById(R.id.frgCfgCerrarSesion);
 
         //Configura los eventos on clic a los botones
         btnGuardar.setOnClickListener(this);
-        btnCerrarSesion.setOnClickListener(this);
+
 
         //cargar Idiomas al comboBox
         llenarIdiomas();
@@ -145,8 +144,6 @@ public class ConfigFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if(v.getId() == R.id.frgCfgGuardar){
             guardar();
-        } else if (v.getId() == R.id.frgCfgCerrarSesion) {
-            cerrarsesion();
         }
     }
 

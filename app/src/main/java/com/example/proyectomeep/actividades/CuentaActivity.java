@@ -205,7 +205,6 @@ public class CuentaActivity extends AppCompatActivity implements View.OnClickLis
                 params.add("clave", clave);
             }
 
-
             params.add("usuarioid", String.valueOf(usuario.getIdUsuario()));
             params.add("nombresusu", nombres);
             params.add("usuario", usua);
