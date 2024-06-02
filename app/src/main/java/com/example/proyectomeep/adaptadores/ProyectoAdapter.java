@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -106,7 +107,8 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ViewHo
     public class ViewHolder extends RecyclerView.ViewHolder {
         CardView carItemProyecto;
         TextView lblEstado,lblProyecto;
-        ImageView imageA;
+        ImageView imageA, btnFavorite;
+        ImageButton menuProyect1;
         EditText estado;
         LinearLayout contenedor;
         public ViewHolder(@NonNull View itemView) {
@@ -117,6 +119,8 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ViewHo
             imageA = itemView.findViewById(R.id.imgAdmin);
             estado = itemView.findViewById(R.id.cirEstado);
             contenedor = itemView.findViewById(R.id.logPro1);
+            menuProyect1 = itemView.findViewById(R.id.menuProyect1);
+            btnFavorite = itemView.findViewById(R.id.addfavorites1);
         }
     }
 }
