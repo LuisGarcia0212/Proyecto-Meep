@@ -68,7 +68,10 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
         lblRestablecer.setOnClickListener(this);
 
 
+        
         validarRecordarSesion();
+
+
 
     }
 

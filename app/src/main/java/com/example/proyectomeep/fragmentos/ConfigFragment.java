@@ -27,10 +27,10 @@ import java.util.Locale;
  * create an instance of this fragment.
  */
 public class ConfigFragment extends Fragment implements View.OnClickListener {
-CheckBox chkNotificaciones, chkSonido;
-Spinner cboIdiomas;
+    CheckBox chkNotificaciones, chkSonido;
+    Spinner cboIdiomas;
 
-Button btnGuardar, btnCerrarSesion;
+    Button btnGuardar, btnCerrarSesion;
 
 
     // TODO: Rename parameter arguments, choose names that match
