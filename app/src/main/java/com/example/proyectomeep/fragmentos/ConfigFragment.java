@@ -177,7 +177,6 @@ public class ConfigFragment extends Fragment implements View.OnClickListener {
                     selectedLanguage = "qu"; // Quechua
                     break;
             }
-
             // Cambiar el idioma
             setLocale(selectedLanguage);
 
@@ -186,7 +185,6 @@ public class ConfigFragment extends Fragment implements View.OnClickListener {
             Toast.makeText(getContext(), "Debes elegir un idioma", Toast.LENGTH_SHORT).show();
         }
     }
-
 
     private void  cerrarsesion() {
         getActivity().finish();

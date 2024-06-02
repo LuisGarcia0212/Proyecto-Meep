@@ -13,6 +13,7 @@
     <string name="logChkTerminos">By signing you accept the Service Team and Privacy Policy</string>
     <string name="logBtnIniciar">Log in</string>
     <string name="logBtnRegistrar">Registry</string>
+
     <string name="logLblRecuperar1">Send password reset email</string>
     <string name="logLblRegistro">You do not have an account?</string>
     <string name="logLblRegistro1">Registry</string>
