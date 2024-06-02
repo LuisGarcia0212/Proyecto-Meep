@@ -47,50 +47,162 @@
                 android:text="@string/lblProyecto"
                 android:textColor="#FFFFFF"
                 android:textSize="35sp" />
-
         </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lblPre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/inter_regular"
+                android:gravity="center_vertical"
+                android:text="@string/lblPre"
+                android:textColor="#FFFFFF"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/lblsobre"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/inter_regular"
+                android:gravity="center_vertical"
+                android:text="@string/lblsobre"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp" />
+        </LinearLayout>
+
 
         <RelativeLayout
-            android:layout_width="365sp"
-            android:layout_height="530sp"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/border1">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+            <TextView
+                android:id="@+id/lblAcer"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/inter_regular"
+                android:gravity="center_vertical"
+                android:text="@string/lblAcer"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+            <ImageView
+                android:id="@+id/infomas"
+                android:layout_width="45dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_mas"
+                android:layout_marginTop="28dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="55dp"
+                app:tint="@color/white" />
 
             <TextView
-                android:id="@+id/lblAcercaDe1"
-                android:layout_width="match_parent"
+                android:id="@+id/lblQuSms"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="75dp"
                 android:fontFamily="@font/inter_regular"
-                android:text="@string/lblAcercaDe1"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="60dp"/>
-
-
-
+                android:gravity="center_vertical"
+                android:text="@string/lblQuSms"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+            <ImageView
+                android:id="@+id/infomas1"
+                android:layout_width="45dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_mas"
+                android:layout_marginTop="78dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="55dp"
+                app:tint="@color/white" />
 
             <TextView
-                android:id="@+id/lblAcercaDe"
-                android:layout_width="match_parent"
+                android:id="@+id/lblFun"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="125dp"
                 android:fontFamily="@font/inter_regular"
-                android:text="@string/lblAcercaDe"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:layout_marginTop="50dp"
-                android:layout_marginLeft="10dp"/>
+                android:gravity="center_vertical"
+                android:text="@string/lblFun"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+            <ImageView
+                android:id="@+id/infomas2"
+                android:layout_width="45dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_mas"
+                android:layout_marginTop="128dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="55dp"
+                app:tint="@color/white" />
 
-
-
+            <TextView
+                android:id="@+id/lblCont"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="175dp"
+                android:fontFamily="@font/inter_regular"
+                android:gravity="center_vertical"
+                android:text="@string/lblCont"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+            <ImageView
+                android:id="@+id/infomas3"
+                android:layout_width="45dp"
+                android:layout_height="25dp"
+                android:src="@drawable/ic_mas"
+                android:layout_marginTop="178dp"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="55dp"
+                app:tint="@color/white" />
         </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 
     </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

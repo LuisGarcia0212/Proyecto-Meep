@@ -7,16 +7,20 @@ public class Proyectos implements Serializable {
     private String estado;
     private String nombreProyecto;
     private String descripcionProyecto;
+    private boolean pinned;
+    private boolean favorite;
     private int id_rol;
 
     public Proyectos() {
     }
 
-    public Proyectos(int idProyecto, String estado, String nombreProyecto, String descripcionProyecto, int id_rol) {
+    public Proyectos(int idProyecto, String estado, String nombreProyecto, String descripcionProyecto, boolean pinned, boolean favorite, int id_rol) {
         this.idProyecto = idProyecto;
         this.estado = estado;
         this.nombreProyecto = nombreProyecto;
         this.descripcionProyecto = descripcionProyecto;
+        this.pinned = pinned;
+        this.favorite = favorite;
         this.id_rol = id_rol;
     }
 
@@ -50,6 +54,22 @@ public class Proyectos implements Serializable {
 
     public void setDescripcionProyecto(String descripcionProyecto) {
         this.descripcionProyecto = descripcionProyecto;
+    }
+
+    public boolean isPinned() {
+        return pinned;
+    }
+
+    public void setPinned(boolean pinned) {
+        this.pinned = pinned;
+    }
+
+    public boolean isFavorite() {
+        return favorite;
+    }
+
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
     }
 
     public int getId_rol() {

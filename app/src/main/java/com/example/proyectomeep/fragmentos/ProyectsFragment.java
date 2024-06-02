@@ -84,7 +84,6 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
         return view;
     }
 
-
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.logBtnForo){
