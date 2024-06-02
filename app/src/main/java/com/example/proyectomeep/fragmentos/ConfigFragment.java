@@ -3,7 +3,7 @@ package com.example.proyectomeep.fragmentos;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
+import android.app.NotificationManager;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -17,7 +17,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.proyectomeep.R;
-
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.Build;
+import java.util.Locale;
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ConfigFragment#newInstance} factory method to
@@ -97,6 +100,28 @@ Button btnGuardar, btnCerrarSesion;
         return vista;
     }
 
+    private void deshabilitarNotificaciones() {
+        NotificationManager notificationManager = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        if (notificationManager != null) {
+            notificationManager.cancelAll();
+        }
+    }
+    private void setLocale(String lang) {
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Resources resources = getResources();
+        Configuration config = new Configuration(resources.getConfiguration());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            config.setLocale(locale);
+        } else {
+            config.locale = locale;
+        }
+        resources.updateConfiguration(config, resources.getDisplayMetrics());
+
+        // Reiniciar la actividad para aplicar los cambios
+        getActivity().recreate();
+    }
+
     private void llenarIdiomas() {
         String [] idiomas ={"----Elija un idioma----","Español","Ingles","Portugues","Quechua"};
         cboIdiomas.setAdapter(new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_dropdown_item,idiomas));
@@ -127,22 +152,44 @@ Button btnGuardar, btnCerrarSesion;
 
     private void guardar() {
         if (cboIdiomas.getSelectedItemPosition() != 0) {
-        SharedPreferences preferences = getActivity().getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
+            SharedPreferences preferences = getActivity().getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = preferences.edit();
 
-        editor.putBoolean("Notificaciones", chkNotificaciones.isChecked());
-        editor.putBoolean("Sonido", chkSonido.isChecked());
+            editor.putBoolean("Notificaciones", chkNotificaciones.isChecked());
+            editor.putBoolean("Sonido", chkSonido.isChecked());
 
-        editor.putInt("Idioma", cboIdiomas.getSelectedItemPosition());
-        editor.commit();
+            editor.putInt("Idioma", cboIdiomas.getSelectedItemPosition());
+            editor.commit();
 
-        Toast.makeText(getContext(), "Preferencias Guardadas", Toast.LENGTH_SHORT).show();
-        }
-        else
+            // Obtener el idioma seleccionado
+            String selectedLanguage = "";
+            switch (cboIdiomas.getSelectedItemPosition()) {
+                case 1:
+                    selectedLanguage = "es"; // Español
+                    break;
+                case 2:
+                    selectedLanguage = "en"; // Inglés
+                    break;
+                case 3:
+                    selectedLanguage = "pt"; // Portugués
+                    break;
+                case 4:
+                    selectedLanguage = "qu"; // Quechua
+                    break;
+            }
+
+            // Cambiar el idioma
+            setLocale(selectedLanguage);
+
+            Toast.makeText(getContext(), "Preferencias Guardadas", Toast.LENGTH_SHORT).show();
+        } else {
             Toast.makeText(getContext(), "Debes elegir un idioma", Toast.LENGTH_SHORT).show();
+        }
     }
 
+
     private void  cerrarsesion() {
+        getActivity().finish();
     }
 
 }

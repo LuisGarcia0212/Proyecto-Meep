@@ -161,6 +161,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@id/logLblRestablecer1"
+                android:layout_marginStart="25dp"
                 android:layout_toEndOf="@id/logLblRestablecer"
                 android:text="@string/logLblRestablecer1"
                 android:textColor="@color/btnColor"
@@ -168,24 +169,6 @@
                 android:textStyle="bold" />
 
         </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="16dp"
-                android:layout_marginEnd="16dp"
-                android:background="@color/btnColor"
-                android:textColor="@android:color/white" />
-        </RelativeLayout>
-
 
 
 

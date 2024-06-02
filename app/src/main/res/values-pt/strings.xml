@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProyectoMeep</string>
+    <string name="logLblLogin">Início de sessão</string>
+    <string name="logTxtUser">Usuário</string>
+    <string name="lblTxtNombres">Nomes Completos</string>
+    <string name="logTxtClave">Senha</string>
+    <string name="logTxtContra1">Senha</string>
+    <string name="logTxtContra2">Senha</string>
+    <string name="logTxtEmail">Correio eletrônico</string>
+    <string name="logTxtTelefono">Telefone</string>
+    <string name="logTxtClaveConfirm">Confirmar Senha</string>
+    <string name="logChkRecordar">Lembrar sessão</string>
+    <string name="logChkTerminos">Ao assinar, você aceita os Termos de serviço e a Política de privacidade</string>
+</resources>

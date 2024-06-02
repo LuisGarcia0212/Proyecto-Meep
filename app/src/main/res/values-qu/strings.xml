@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ProyectoMeep</string>
+    <string name="logLblLogin">Rikuchiqkuna qallaripay</string>
+    <string name="logTxtUser">Ruraq</string>
+    <string name="lblTxtNombres">Sutiyuqkuna</string>
+    <string name="logTxtClave">Suti kamay</string>
+    <string name="logTxtContra1">Suti kamay</string>
+    <string name="logTxtContra2">Suti kamay</string>
+    <string name="logTxtEmail">Correo rimanakuy</string>
+    <string name="logTxtTelefono">Wasi ruray</string>
+    <string name="logTxtClaveConfirm">Suti kamay yachachiy</string>
+    <string name="logChkRecordar">Yuyachiy tinkuy</string>
+    <string name="logChkTerminos">Firmaqtam ruraspa, kasqayki ruraykuna wasiyuqchaykitaq qatiykita kasqaykichik</string>
+</resources>

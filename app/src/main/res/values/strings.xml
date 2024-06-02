@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">ProyectoMeep</string>
+    <string name="app_name" translatable="false">ProyectoMeep</string>
     <string name="logLblLogin">Inicio de sesíon</string>
     <string name="logTxtUser">Usuario</string>
-    <string name="lblTxtNombres" translatable="false">Nombres Completos</string>
+    <string name="lblTxtNombres">Nombres Completos</string>
     <string name="logTxtClave">Contraseña</string>
     <string name="logTxtContra1">Contraseña</string>
     <string name="logTxtContra2">Contraseña</string>
     <string name="logTxtEmail">Correo electronico</string>
-    <string name="logTxtTelefono" translatable="false">Telefóno</string>
+    <string name="logTxtTelefono">Telefóno</string>
     <string name="logTxtClaveConfirm">Confirman Contraseña</string>
     <string name="logChkRecordar">Recordar sesión</string>
     <string name="logChkTerminos">Al firmar aceptas el Equipo de servicio y Política de privacidad</string>
@@ -55,11 +55,11 @@
     <string name="lblProgress3">En progreso</string>
     <string name="lblOpen">Abierto</string>
     <string name="lblOpen2">Abierto</string>
-    <string name="lblFecha">02.05.24 09:00-05.05.24 22:00</string>
-    <string name="lblFecha2">27.04.24 07:00-11.05.24 23:00</string>
-    <string name="lblFecha3">06.05.24 10:00-20.05.24 13:00</string>
-    <string name="lblFecha4">20.04.24 12:00-08.05.24 18:00</string>
-    <string name="lblFecha5">06.05.24 22:00-30.06.24 07:00</string>
+    <string name="lblFecha" translatable="false">02.05.24 09:00-05.05.24 22:00</string>
+    <string name="lblFecha2" translatable="false">27.04.24 07:00-11.05.24 23:00</string>
+    <string name="lblFecha3" translatable="false">06.05.24 10:00-20.05.24 13:00</string>
+    <string name="lblFecha4" translatable="false">20.04.24 12:00-08.05.24 18:00</string>
+    <string name="lblFecha5" translatable="false">06.05.24 22:00-30.06.24 07:00</string>
     <string name="lblProyect1">Machine Learnig</string>
     <string name="lblProyect2">Proyecto 2</string>
     <string name="lblProyect3">Proyecto 3</string>
@@ -86,9 +86,9 @@
     =========================================
     FOROOOO
     <string name="lblForo">Foro</string>
-    <string name="lblusuario1">Michael</string>
-    <string name="lblusuario2">Lulita</string>
-    <string name="lblusuario3">Facundo</string>
+    <string name="lblusuario1" translatable="false">Michael</string>
+    <string name="lblusuario2" translatable="false">Lulita</string>
+    <string name="lblusuario3" translatable="false">Facundo</string>
     <string name="lblpost">Trabajemos el proyecto</string>
     <string name="lblpost2">Ya esta listo verifiquen!!</string>
     <string name="lblpost3">Necesito ayuda, URGENTE</string>
@@ -96,10 +96,10 @@
     <string name="lblcpost2">posteado por Lulita hace 1h</string>
     <string name="lblcpost3">posteado por Facundo ayer</string>
     <string name="lblcomment">Hola amigos! No se preocupen mañana empezaremos con el proyecto </string>
-    <string name="lblnumber">2</string>
-    <string name="lblnumber2">0</string>
-    <string name="lblnumber3">5</string>
-    <string name="lblnumber4">1</string>
+    <string name="lblnumber" translatable="false">2</string>
+    <string name="lblnumber2" translatable="false">0</string>
+    <string name="lblnumber3" translatable="false">5</string>
+    <string name="lblnumber4" translatable="false">1</string>
 
 
     <string name="navigation_drawer_open">Abrir</string>
@@ -142,25 +142,25 @@
 
     =========================================
     MESSAGE LIST
-    <string name="lblCon1">BETO</string>
+    <string name="lblCon1" translatable="false">BETO</string>
     <string name="lblCon1.1">Beto: NO JODAS</string>
     <string name="lblCon2">DJ PICHULita</string>
     <string name="lblCon2.2">DJ Pichulita: Me duele la prostata</string>
-    <string name="lblCon3">Lulita</string>
+    <string name="lblCon3" translatable="false">Lulita</string>
     <string name="lblCon3.3">Lulita: Ay mi cholito</string>
-    <string name="lblCon4">Angela</string>
+    <string name="lblCon4" translatable="false">Angela</string>
     <string name="lblCon4.4">Angela: Me pica el huevo</string>
     <string name="lblCon5">Cuñado de Todos</string>
     <string name="lblCon5.5">Cuñado de Todos: GO TONO</string>
-    <string name="lblCon6">Xupapi</string>
+    <string name="lblCon6" translatable="false">Xupapi</string>
     <string name="lblCon6.6">Xupapi: NO JODAS MRD</string>
-    <string name="lblCon7">GAAAA</string>
+    <string name="lblCon7" translatable="false">GAAAA</string>
     <string name="lblCon7.7">GAAAA: QUIERO CACA WAZAAA</string>
-    <string name="lblCon8">Carlozzzzzz</string>
+    <string name="lblCon8" translatable="false">Carlozzzzzz</string>
     <string name="lblCon8.8">Carlozzzzzz: deja dormir no mas</string>
-    <string name="lblTime1">12:00 p.m.</string>
-    <string name="lblTime2">10:00 p.m.</string>
-    <string name="lblNum">1</string>
+    <string name="lblTime1" translatable="false">12:00 p.m.</string>
+    <string name="lblTime2" translatable="false">10:00 p.m.</string>
+    <string name="lblNum" translatable="false">1</string>
 
 
     <string name="dialog1" translatable="false">El terror de la chata</string>
@@ -184,7 +184,7 @@
     PROYECTS
     <string name="lblCabeP1">Mis Proyectos</string>
     <string name="lblInic1">Lider del Proyecto:</string>
-    <string name="lblUserAsig">Facundo</string>
+    <string name="lblUserAsig" translatable="false">Facundo</string>
     <string name="lblToaTare">Total de Tareas</string>
     <string name="lblIn1">Título de Tarea</string>
     <string name="lblIn2">Miembros</string>
