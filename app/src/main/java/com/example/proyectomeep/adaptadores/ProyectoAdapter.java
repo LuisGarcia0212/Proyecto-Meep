@@ -1,6 +1,7 @@
 package com.example.proyectomeep.adaptadores;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,19 +15,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.clases.Menu;
 import com.example.proyectomeep.clases.Proyectos;
-import com.example.proyectomeep.fragmentos.BienvenidaFragment;
-import com.example.proyectomeep.fragmentos.CrearPFragment;
-import com.example.proyectomeep.fragmentos.ForoFragment;
-import com.example.proyectomeep.fragmentos.ProyectoFragment;
-import com.example.proyectomeep.fragmentos.ProyectsFragment;
-import com.example.proyectomeep.fragmentos.TareasFragment;
+
 
 import java.util.List;
 
@@ -67,8 +62,14 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ViewHo
         } else if (proyectos.getEstado().equals("Finalizado")) {
             holder.estado.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.orange));
         }
+
         // Manejar el clic en el contenedor del elemento del RecyclerView
         holder.contenedor.setOnClickListener(v -> {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt("idProyectoClicked", proyectos.getIdProyecto());
+            editor.apply();
+
             idRolClicked = proyectos.getId_rol();
             System.out.println(idRolClicked);
             notifyDataSetChanged(); // Notificar al RecyclerView de que los datos han cambiado
