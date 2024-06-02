@@ -205,12 +205,26 @@
     <string name="txtMiembro1">Miembro 1</string>
     =========================================
     ACERCA DE
-    <string name="lblAcer">Acerca de Nosotros</string>
-    <string name="lblQuSms">Quienes somos</string>
-    <string name="lblFun">Fundadores</string>
-    <string name="lblCont">Contactanos</string>
-    <string name="lblPre">Preguntas Frecuentes</string>
-    <string name="lblsobre">Absuelve tus dudas y consultas con esta información</string>
-
-
+    <string name="lblAcer" translatable="false">Acerca de Nosotros</string>
+    <string name="lblQuSms" translatable="false">Quienes somos</string>
+    <string name="lblFun" translatable="false">Fundadores</string>
+    <string name="lblCont" translatable="false">Contactanos</string>
+    <string name="lblPre" translatable="false">Preguntas Frecuentes</string>
+    <string name="lblsobre" translatable="false">Absuelve tus dudas y consultas con esta información</string>
+    <string name="lblsobre1" translatable="false">En Meep Work, somos un equipo apasionado de desarrolladores, diseñadores y estrategas dedicados a transformar ideas innovadoras en aplicaciones móviles de éxito. Fundada en 2023, nuestra misión es brindar soluciones tecnológicas de alta calidad que impulsen la eficiencia y el crecimiento de nuestros clientes.</string>
+    <string name="lblFun1" translatable="false">Fundadores: </string>
+    <string name="lblFun1.1" translatable="false">Carlos Alarcón </string>
+    <string name="lblFun1.1.1" translatable="false">https://github.com/TobeCA12381</string>
+    <string name="lblFun2.2" translatable="false">Sebitas Neciosup</string>
+    <string name="lblFun2.2.2" translatable="false">https://github.com/Sebas6422</string>
+    <string name="lblFun3.3" translatable="false">Julio Cuba</string>
+    <string name="lblFun3.3.3" translatable="false">https://github.com/JulioCCD</string>
+    <string name="lblFun4.4" translatable="false">Carlos Soca</string>
+    <string name="lblFun4.4.4" translatable="false">https://github.com/Car12Sc</string>
+    <string name="lblFun5.5" translatable="false">Aldair Rodrigo</string>
+    <string name="lblFun5.5.5" translatable="false">https://github.com/AldairDLC</string>
+    <string name="lblFun6.6" translatable="false">Luis García</string>
+    <string name="lblFun6.6.6" translatable="false">https://github.com/LuisGarcia0212</string>
+    <string name="lblFace" translatable="false">https://www.facebook.com/profile.php?id=61560310536887</string>
+    <string name="lblIns" translatable="false">https://www.instagram.com/meep_work/</string>
 </resources>
