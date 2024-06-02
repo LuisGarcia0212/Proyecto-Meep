@@ -20,6 +20,7 @@ import com.example.proyectomeep.R;
 import com.example.proyectomeep.actividades.MiembrosActivity;
 import com.example.proyectomeep.actividades.RestablecerContrasenhaActivity;
 import com.example.proyectomeep.clases.Menu;
+import com.example.proyectomeep.clases.Usuario;
 
 import org.w3c.dom.Text;
 
@@ -75,6 +76,8 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
     Fragment[] fragments;
     AlertDialog a2;
 
+    Usuario usuario;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -122,7 +125,10 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
 
     private void ingresarMiembros() {
         Intent iMiembro = new Intent(getActivity(), MiembrosActivity.class);
+        usuario = (Usuario) getActivity().getIntent().getSerializableExtra("usuario");
+        iMiembro.putExtra("usuario", usuario);
         startActivity(iMiembro);
+        getActivity().finish();
     }
 
     private void ingresarTareas() {
@@ -146,9 +152,7 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
         View dialogView = inflater.inflate(R.layout.fragment_dialog_usuario, null);
         d.setView(dialogView);
         a2 = d.create();
-
         Button btnEnviar = dialogView.findViewById(R.id.btnEnviarMensaje);
-
         btnEnviar.setOnClickListener(this);
 
         a2.show();
