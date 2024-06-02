@@ -9,7 +9,7 @@ public class Proyectos implements Serializable {
     private String descripcionProyecto;
     private int id_rol;
 
-    public Proyectos() {
+    public Proyectos(String nombreProyec, String foto, String nombresCompletos, int idRol) {
     }
 
     public Proyectos(int idProyecto, String estado, String nombreProyecto, String descripcionProyecto, int id_rol) {
