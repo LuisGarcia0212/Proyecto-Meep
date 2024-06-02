@@ -50,7 +50,7 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
     Button btnIniciarSesion;
 
 
-    public static final String[] languages = {"Selecciona el lenguaje","Español","Ingles"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,36 +67,7 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
         lblRegistro.setOnClickListener(this);
         lblRestablecer.setOnClickListener(this);
 
-
         validarRecordarSesion();
-
-
-        spinner = findViewById(R.id.spinner);
-
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item,languages);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setSelection(0);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedLang = parent.getItemAtPosition(position).toString();
-                if (selectedLang.equals("Español")){
-                    setLocal(InicionSesionMeepActivity.this,"es");
-                    finish();
-                    startActivity(getIntent());
-                } else if (selectedLang.equals("Ingles")) {
-                    setLocal(InicionSesionMeepActivity.this,"en");
-                    finish();
-                    startActivity(getIntent());
-                }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
     }
 
     private void validarRecordarSesion() {
