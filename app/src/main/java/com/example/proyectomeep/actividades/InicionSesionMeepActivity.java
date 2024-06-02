@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -22,12 +23,16 @@ import com.example.proyectomeep.SQLite.MEEP;
 import com.example.proyectomeep.clases.Usuario;
 import com.example.veterinaria.clases.Hash;
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.Base64;
 import com.loopj.android.http.BaseJsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Locale;
 
 import cz.msebera.android.httpclient.Header;
@@ -157,8 +162,8 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
                                 usuario.setTelefono(jsonArray.getJSONObject(0).getString("Telefono"));
                                 usuario.setDireccion(jsonArray.getJSONObject(0).getString("Direccion"));
                                 usuario.setDescripcion(jsonArray.getJSONObject(0).getString("Descripcion"));
-                                usuario.setFoto(jsonArray.getJSONObject(0).getString("Foto"));
-
+                                Uri imagenU = saveImageToTempFile(jsonArray.getJSONObject(0).getString("Foto"));
+                                usuario.setFoto(imagenU.toString());
                                 if(chkRecordar.isChecked())
                                     mp.agregarUsuario(usuario.getIdUsuario(), usuario.getUsuario(), usuario.getClave());
                                 Intent iBienvenida = new Intent(getApplicationContext(), BienvenidaActivity.class);
@@ -168,6 +173,8 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
                             }
                         }
                     } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    } catch (IOException e) {
                         throw new RuntimeException(e);
                     }
 
@@ -187,6 +194,16 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
             }
         });
     }
+
+    private Uri saveImageToTempFile(String base64Image) throws IOException {
+        byte[] imageBytes = Base64.decode(base64Image, Base64.DEFAULT);
+        File tempFile = File.createTempFile("tempImage", ".png", getCacheDir());
+        FileOutputStream fos = new FileOutputStream(tempFile);
+        fos.write(imageBytes);
+        fos.close();
+        return Uri.fromFile(tempFile);
+    }
+
 
 
     private void ingresarRestablecer() {
