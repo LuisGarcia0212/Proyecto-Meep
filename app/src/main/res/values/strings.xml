@@ -203,5 +203,13 @@
     <string name="txtMiembros">Miembros</string>
     <string name="txtBusquedaM">Buscar por nombre</string>
     <string name="txtMiembro1">Miembro 1</string>
+    =========================================
+    ACERCA DE
+    <string name="lblAcer">Acerca de Nosotros</string>
+    <string name="lblQuSms">Quienes somos</string>
+    <string name="lblFun">Fundadores</string>
+    <string name="lblCont">Contactanos</string>
+    <string name="lblPre">Preguntas Frecuentes</string>
+    <string name="lblsobre">Absuelve tus dudas y consultas con esta información</string>
 
 </resources>

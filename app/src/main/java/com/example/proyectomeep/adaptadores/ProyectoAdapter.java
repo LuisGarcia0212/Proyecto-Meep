@@ -2,6 +2,8 @@ package com.example.proyectomeep.adaptadores;
 
 import android.content.Context;
 import android.database.Cursor;
+
+import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,7 +23,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,12 +30,7 @@ import com.example.proyectomeep.R;
 import com.example.proyectomeep.SQLite.DatabaseHelper;
 import com.example.proyectomeep.clases.Menu;
 import com.example.proyectomeep.clases.Proyectos;
-import com.example.proyectomeep.fragmentos.BienvenidaFragment;
-import com.example.proyectomeep.fragmentos.CrearPFragment;
-import com.example.proyectomeep.fragmentos.ForoFragment;
-import com.example.proyectomeep.fragmentos.ProyectoFragment;
-import com.example.proyectomeep.fragmentos.ProyectsFragment;
-import com.example.proyectomeep.fragmentos.TareasFragment;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +51,6 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ViewHo
         loadProjects();
     }
     private void loadProjects() {
-        listaProyectos.clear(); // Limpiar la lista antes de añadir nuevos elementos
         Cursor cursor = dbHelper.getAllProjects();
         if (cursor != null && cursor.moveToFirst()) {
             // Obtener los índices de las columnas
@@ -111,8 +106,14 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ViewHo
         } else if (proyectos.getEstado().equals("Finalizado")) {
             holder.estado.setBackgroundColor(ContextCompat.getColor(holder.itemView.getContext(), R.color.orange));
         }
+
         // Manejar el clic en el contenedor del elemento del RecyclerView
         holder.contenedor.setOnClickListener(v -> {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            editor.putInt("idProyectoClicked", proyectos.getIdProyecto());
+            editor.apply();
+
             idRolClicked = proyectos.getId_rol();
             System.out.println(idRolClicked);
             notifyDataSetChanged(); // Notificar al RecyclerView de que los datos han cambiado
@@ -152,6 +153,22 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ViewHo
             ft.replace(R.id.menuRelaArea, fragments[idBoton]); // Fragment correspondiente al rol 2
         }
         ft.commit();
+    }
+
+
+    public void pinProjectToTop(int projectId) {
+        // Encuentra el proyecto en la lista
+        for (int i = 0; i < listaProyectos.size(); i++) {
+            if (listaProyectos.get(i).getIdProyecto() == projectId) {
+                // Remueve el proyecto de su posición actual
+                Proyectos proyecto = listaProyectos.remove(i);
+                // Agrega el proyecto al inicio de la lista
+                listaProyectos.add(0, proyecto);
+                // Notifica al adaptador que los datos han cambiado
+                notifyDataSetChanged();
+                break; // Termina el bucle después de encontrar el proyecto
+            }
+        }
     }
 
 
@@ -203,6 +220,10 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ViewHo
         if(itemId == R.id.action_pin){
             pinned = !pinned;
             Toast.makeText(context, pinned ? "Pinned" : "Unpinned", Toast.LENGTH_SHORT).show();
+            // Fija el proyecto en la parte superior si se marca como fijado
+            if (pinned) {
+                pinProjectToTop(projectId);
+            }
         } else if(itemId == R.id.addfavorites1){
             favorite = !favorite;
             Toast.makeText(context, favorite ? "Added to favorites" : "Removed from favorites", Toast.LENGTH_SHORT).show();

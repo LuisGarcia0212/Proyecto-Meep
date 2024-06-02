@@ -100,7 +100,6 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
         if (item.getItemId() == R.id.nav_item_one){
             ingresarCuenta();
         } else if (item.getItemId() == R.id.nav_item_two) {

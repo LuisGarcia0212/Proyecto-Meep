@@ -11,6 +11,9 @@ public class Proyectos implements Serializable {
     private boolean favorite;
     private int id_rol;
 
+    public Proyectos() {
+    }
+
     public Proyectos(int idProyecto, String estado, String nombreProyecto, String descripcionProyecto, boolean pinned, boolean favorite, int id_rol) {
         this.idProyecto = idProyecto;
         this.estado = estado;

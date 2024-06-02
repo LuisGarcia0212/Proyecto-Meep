@@ -1,13 +1,16 @@
 package com.example.proyectomeep.fragmentos;
 
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.actividades.MiembrosActivity;
@@ -127,6 +131,9 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
         Intent iMiembro = new Intent(getActivity(), MiembrosActivity.class);
         usuario = (Usuario) getActivity().getIntent().getSerializableExtra("usuario");
         iMiembro.putExtra("usuario", usuario);
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        int idProyectoClicked = sharedPreferences.getInt("idProyectoClicked", -1);
+        iMiembro.putExtra("idProyecto", idProyectoClicked);
         startActivity(iMiembro);
         getActivity().finish();
     }
@@ -154,7 +161,6 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
         a2 = d.create();
         Button btnEnviar = dialogView.findViewById(R.id.btnEnviarMensaje);
         btnEnviar.setOnClickListener(this);
-
         a2.show();
     }
 
