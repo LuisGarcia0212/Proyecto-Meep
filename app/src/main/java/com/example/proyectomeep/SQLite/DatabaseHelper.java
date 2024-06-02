@@ -13,7 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
 
     public static final String TABLE_PROJECTS = "projects";
-    private static final String COLUMN_DESCRIPTION = "description";
+    public static final String COLUMN_DESCRIPTION = "description";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME = "name";
     public static final String COLUMN_PINNED = "pinned";
@@ -34,6 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String CREATE_TABLE = "CREATE TABLE " + TABLE_PROJECTS + "(" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                 COLUMN_NAME + " TEXT," +
+                COLUMN_DESCRIPTION + " TEXT," + // Asegúrate de incluir la columna "description" aquí
                 COLUMN_PINNED + " INTEGER," +
                 COLUMN_FAVORITE + " INTEGER)";
         db.execSQL(CREATE_TABLE);
@@ -43,6 +44,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PROJECTS);
         onCreate(db);
+        db.execSQL("ALTER TABLE " + TABLE_PROJECTS + " ADD COLUMN " + COLUMN_DESCRIPTION + " TEXT");
     }
 
     public void updateProject(int id, boolean pinned, boolean favorite) {
@@ -57,39 +59,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public Cursor getProject(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_PROJECTS, new String[]{COLUMN_ID, COLUMN_NAME, COLUMN_PINNED, COLUMN_FAVORITE},
+        Cursor cursor = db.query(TABLE_PROJECTS, new String[]{COLUMN_ID, COLUMN_NAME, COLUMN_DESCRIPTION, COLUMN_PINNED, COLUMN_FAVORITE},
                 COLUMN_ID + "=?", new String[]{String.valueOf(id)}, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
         }
         return cursor;
-
     }
-    public void deleteProject(int id) {
+    public Cursor getAllProjects() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.query(TABLE_PROJECTS, new String[]{COLUMN_ID, COLUMN_NAME, COLUMN_DESCRIPTION, COLUMN_PINNED, COLUMN_FAVORITE}, // Incluir description
+                null, null, null, null, COLUMN_PINNED + " DESC, " + COLUMN_NAME + " ASC");
+    }
+    public void addProject(String name, String description, boolean pinned, boolean favorite) {
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_PROJECTS, COLUMN_ID + "=?", new String[]{String.valueOf(id)});
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_NAME, name);
+        values.put(COLUMN_DESCRIPTION, description); // Incluir la descripción
+        values.put(COLUMN_PINNED, pinned ? 1 : 0);
+        values.put(COLUMN_FAVORITE, favorite ? 1 : 0);
+        db.insert(TABLE_PROJECTS, null, values);
         db.close();
     }
-    /*
-    // Método para actualizar la lista de proyectos (ejemplo genérico)
-    public ArrayList<Proyecto> actualizarListaProyectos() {
-        ArrayList<Proyecto> listaProyectos = new ArrayList<>();
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_PROJECTS, null);
-        if (cursor != null && cursor.moveToFirst()) {
-            do {
-                int id = cursor.getInt(cursor.getColumnIndex(COLUMN_ID));
-                String nombre = cursor.getString(cursor.getColumnIndex(COLUMN_NAME));
-                boolean pinned = cursor.getInt(cursor.getColumnIndex(COLUMN_PINNED)) == 1;
-                boolean favorite = cursor.getInt(cursor.getColumnIndex(COLUMN_FAVORITE)) == 1;
-
-                // Crear objeto Proyecto y agregarlo a la lista
-                Proyecto proyecto = new Proyecto(id, nombre, pinned, favorite);
-                listaProyectos.add(proyecto);
-            } while (cursor.moveToNext());
-            cursor.close();
-        }
-        return listaProyectos;
-    }*/
 
 }

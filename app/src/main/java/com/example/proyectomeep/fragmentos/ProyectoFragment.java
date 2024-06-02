@@ -125,11 +125,6 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
         ImageView imgCProyect = view.findViewById(R.id.imgToken);
         imgJoin.setOnClickListener(this);
         imgCProyect.setOnClickListener(this);
-
-
-        menuProyect1.setOnClickListener(this);
-        btnFavorite.setOnClickListener(this);
-        updateFavoriteButtonState();
         return view;
     }
 
@@ -150,6 +145,8 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
                                                     jsonArray.getJSONObject(i).getString("Estado"),
                                                     jsonArray.getJSONObject(i).getString("NombreProyec"),
                                                     jsonArray.getJSONObject(i).getString("Descripcion"),
+                                                    true,
+                                                    true,
                                                     jsonArray.getJSONObject(i).getInt("id_Rol")));
                             adapter.notifyDataSetChanged();
                         }
@@ -178,10 +175,6 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
             ingresarUnirse();
         } else if (v.getId() == R.id.imgToken) {
             ingresarCProyecto();
-        } else if (v.getId() == R.id.menuProyect1){
-            showPopupMenu(v);
-        } else if (v.getId() == R.id.addfavorites1) {
-            toggleFavorite();
         }
     }
 
@@ -207,68 +200,6 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
         ft.replace(R.id.menuRelaArea, fragments[idBoton]);
         ft.commit();
     }
-    private void showPopupMenu(View view) {
-        PopupMenu popup = new PopupMenu(getContext(), view);
-        MenuInflater inflater = popup.getMenuInflater();
-        inflater.inflate(R.menu.proyect_popup_menu, popup.getMenu());
-        popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int projectId = 1; // Example project ID, replace with actual ID
-                handleMenuClick(projectId, item.getItemId());
-                return true;
-            }
-        });
-        popup.show();
-    }
 
-    private void handleMenuClick(int projectId, int itemId) {
-        boolean pinned = false;
-        boolean favorite = false;
-        Cursor cursor = dbHelper.getProject(projectId);
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                int pinnedColumnIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_PINNED);
-                int favoriteColumnIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_FAVORITE);
-                if (pinnedColumnIndex != -1 && favoriteColumnIndex != -1) {
-                    pinned = cursor.getInt(pinnedColumnIndex) == 1;
-                    favorite = cursor.getInt(favoriteColumnIndex) == 1;
-                }
-            }
-            cursor.close();
-        }
-        if(itemId == R.id.action_pin){
-            pinned = !pinned;
-            Toast.makeText(getContext(), pinned ? "Pinned" : "Unpinned", Toast.LENGTH_SHORT).show();
-        } else if(itemId == R.id.addfavorites1){
-            favorite = !favorite;
-            Toast.makeText(getContext(), favorite ? "Added to favorites" : "Removed from favorites", Toast.LENGTH_SHORT).show();
-        }
-        if(itemId ==  R.id.delete){
-            dbHelper.deleteProject(projectId);
-            Toast.makeText(getContext(), "Proyecto eliminado", Toast.LENGTH_SHORT).show();
-        }
-        dbHelper.updateProject(projectId, pinned, favorite);
-    }
-    private void updateFavoriteButtonState() {
-        int projectId = 1; // Replace with the actual project ID
-        Cursor cursor = dbHelper.getProject(projectId);
-        if (cursor != null && cursor.moveToFirst()) {
-            int favoriteColumnIndex = cursor.getColumnIndex(DatabaseHelper.COLUMN_FAVORITE);
-            if (favoriteColumnIndex != -1) {
-                isFavorite = cursor.getInt(favoriteColumnIndex) == 1;
-            }
-            cursor.close();
-        }
-        btnFavorite.setImageResource(isFavorite ? R.drawable.staroff : R.drawable.staron);
-    }
-
-    private void toggleFavorite() {
-        int projectId = 1; // Replace with the actual project ID
-        isFavorite = !isFavorite;
-        dbHelper.updateProject(projectId, false, isFavorite); // Update only the favorite status
-        btnFavorite.setImageResource(isFavorite ? R.drawable.staroff : R.drawable.staron);
-        Toast.makeText(getContext(), isFavorite ? "Added to favorites" : "Removed from favorites", Toast.LENGTH_SHORT).show();
-    }
 }
 
