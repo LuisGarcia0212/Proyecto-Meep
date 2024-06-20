@@ -83,6 +83,25 @@
                     android:inputType="textPersonName"
                     android:maxLength="100"
                     android:paddingLeft="10dp"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/logTxtDirección"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginHorizontal="30dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/edit_text_backgroud"
+                        android:drawableStart="@drawable/ic_address"
+                        android:drawablePadding="10dp"
+                        android:hint="@string/logTxtDireccion"
+                        android:inputType="textPersonName"
+                        android:maxLength="100"
+                        android:paddingLeft="10dp" />
+                </com.google.android.material.textfield.TextInputLayout>
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -162,25 +181,6 @@
                     android:paddingLeft="10dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/logTxtDirección"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:background="@drawable/edit_text_backgroud"
-                    android:layout_marginHorizontal="30dp"
-                    android:layout_marginBottom="10dp"
-                    android:drawableStart="@drawable/ic_address"
-                    android:drawablePadding="10dp"
-                    android:hint="@string/logTxtDireccion"
-                    android:inputType="textPersonName"
-                    android:maxLength="100"
-                    android:paddingLeft="10dp"/>
-            </com.google.android.material.textfield.TextInputLayout>
-
             <CheckBox
                 android:id="@+id/logChkTerminos"
                 android:layout_width="wrap_content"
@@ -203,6 +203,47 @@
                 android:textAllCaps="false"
                 android:textColor="@color/white"/>
 
+            <TextView
+                android:id="@+id/coment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginHorizontal="50dp"
+                android:layout_marginTop="10dp"
+                android:textColor="#625a5a"
+                android:text="@string/conten">
+
+            </TextView>
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/GIT"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/github"/>
+
+                <ImageView
+                    android:id="@+id/FB"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/facebook" />
+
+                <ImageView
+                    android:id="@+id/GG"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_margin="20dp"
+                    android:src="@drawable/google"/>
+            </LinearLayout>
         </LinearLayout>
+
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

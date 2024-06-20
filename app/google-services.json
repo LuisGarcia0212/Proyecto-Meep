@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "357843656064",
+    "project_id": "meep-fd820",
+    "storage_bucket": "meep-fd820.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:357843656064:android:6c80fc68f3ecce9f053565",
+        "android_client_info": {
+          "package_name": "com.example.proyectomeep"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "357843656064-pg8ic21ijjc306ptijispnaoe5rv3d99.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.proyectomeep",
+            "certificate_hash": "397c2c0e76a9fb51558d916555a5ac9b9a17abc3"
+          }
+        },
+        {
+          "client_id": "357843656064-cgv4rsr8hn0a1nvv833l57t4lircin5s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqCpqThWYbkjHvxUra0QS1jpeur-jx1n4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "357843656064-cgv4rsr8hn0a1nvv833l57t4lircin5s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

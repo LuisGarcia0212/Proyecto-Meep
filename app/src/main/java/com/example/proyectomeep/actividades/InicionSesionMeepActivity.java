@@ -1,5 +1,7 @@
 package com.example.proyectomeep.actividades;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
@@ -8,12 +10,14 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,7 +25,22 @@ import android.widget.Toast;
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.SQLite.MEEP;
 import com.example.proyectomeep.clases.Usuario;
+import com.example.proyectomeep.fragmentos.BienvenidaFragment;
 import com.example.veterinaria.clases.Hash;
+import com.facebook.AccessToken;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEvent;
+import com.facebook.appevents.AppEventsLogger;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.Base64;
 import com.loopj.android.http.BaseJsonHttpResponseHandler;
@@ -33,6 +52,7 @@ import org.json.JSONException;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Locale;
 
 import cz.msebera.android.httpclient.Header;
@@ -48,13 +68,24 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
     CheckBox chkRecordar;
 
     Button btnIniciarSesion;
+    private LoginButton btnfb;
 
+     ImageView btnfb2;
+     private CallbackManager callbackManager;
 
+     //beto
+
+FirebaseAuth firebaseAuth= FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(this);
+        AppEventsLogger.activateApp(getApplication());
         setContentView(R.layout.activity_inicion_sesion_meep);
+        callbackManager = CallbackManager.Factory.create();
+
+
 
         lblRegistro = findViewById(R.id.logLblRegistro1);
         txtUser = findViewById(R.id.logTxtUser);
@@ -62,13 +93,66 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
         btnIniciarSesion = findViewById(R.id.logBtnIniciar);
         lblRestablecer = findViewById(R.id.logLblRestablecer1);
         chkRecordar = findViewById(R.id.logChkRecordar);
-
+        btnfb = findViewById(R.id.fb);
+        btnfb2 = findViewById(R.id.FB);
         btnIniciarSesion.setOnClickListener(this);
         lblRegistro.setOnClickListener(this);
         lblRestablecer.setOnClickListener(this);
 
-        validarRecordarSesion();
+
+        btnfb.setPermissions("email");
+btnfb.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+    @Override
+    public void onSuccess(LoginResult loginResult) {
+        AccessToken accessToken =loginResult.getAccessToken();
+        System.out.println("User ID: "+accessToken.getUserId());
+        System.out.println("Token: "+accessToken.getToken());
     }
+
+    @Override
+    public void onCancel() {
+        System.out.println("Cancelado");
+    }
+
+    @Override
+    public void onError(@NonNull FacebookException e) {
+        System.out.println("Error: "+e.getMessage());
+    }
+});
+
+        LoginManager.getInstance().registerCallback(callbackManager,
+                new FacebookCallback<LoginResult>() {
+                    @Override
+                    public void onSuccess(LoginResult loginResult) {
+
+                        startActivity(new Intent(InicionSesionMeepActivity.this,BienvenidaActivity.class));
+                        finish();
+                    }
+
+                    @Override
+                    public void onCancel() {
+                        // App code
+                    }
+
+                    @Override
+                    public void onError(FacebookException exception) {
+                        // App code
+                    }
+                });
+
+        btnfb2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LoginManager.getInstance().logInWithReadPermissions(InicionSesionMeepActivity.this, Arrays.asList("public_profile"));
+            }
+
+
+        });
+        validarRecordarSesion();
+
+
+    }
+
 
     private void validarRecordarSesion() {
         MEEP mp = new MEEP(this);
@@ -94,6 +178,9 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
         }else if (v.getId() == R.id.logLblRestablecer1) {
             ingresarRestablecer();
     }
+
+
+
     }
 
     private void ingresarRegistro(){
@@ -182,4 +269,12 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
         startActivity(iRestablecer);
         finish();
     }
+
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
     }

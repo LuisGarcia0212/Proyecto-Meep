@@ -7,6 +7,7 @@
 
     <application
         android:allowBackup="true"
+        android:configChanges="locale"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
         android:icon="@mipmap/ic_logomeap"
@@ -16,6 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoMeep"
         tools:targetApi="31">
+        <activity
+            android:name=".actividades.FBActivity"
+            android:exported="false" />
         <activity
             android:name=".actividades.MiembrosActivity"
             android:exported="false" />
@@ -58,6 +62,19 @@
         <activity
             android:name=".actividades.CuentaActivity"
             android:exported="false" />
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/facebook_client_token" />
+
+
     </application>
 
 </manifest>
