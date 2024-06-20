@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">ProyectoMeep</string>
+    <string name="facebook_app_id" translatable="false">1449971675643582</string>
+    <string name="facebook_client_token" translatable="false">736c943081ec725c16d598ec09f69f2e</string>
     <string name="logLblLogin">Inicio de sesíon</string>
     <string name="logTxtUser">Usuario</string>
     <string name="lblTxtNombres">Nombres Completos</string>
@@ -227,4 +229,5 @@
     <string name="lblFun6.6.6" translatable="false">https://github.com/LuisGarcia0212</string>
     <string name="lblFace" translatable="false">https://www.facebook.com/profile.php?id=61560310536887</string>
     <string name="lblIns" translatable="false">https://www.instagram.com/meep_work/</string>
+    <string name="conten" translatable="false">TAMBIÉN PUEDES CREAR UNA CUENTA CON</string>
 </resources>

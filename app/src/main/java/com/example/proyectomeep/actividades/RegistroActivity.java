@@ -1,9 +1,11 @@
 package com.example.proyectomeep.actividades;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +13,10 @@ import android.widget.Toast;
 
 import com.example.proyectomeep.R;
 import com.example.veterinaria.clases.Hash;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.BaseJsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -28,7 +34,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
     EditText txtNombres, txtUsuario, txtClave, txtEmail, txtTelefono, txtDireccion;
 
-
+    FirebaseAuth firebaseAuth= FirebaseAuth.getInstance();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +49,11 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
         btnRegistro = findViewById(R.id.logBtnRegistrar);
         btnRegistro.setOnClickListener(this);
+
+
+
     }
+
 
     @Override
     public void onClick(View v) {
