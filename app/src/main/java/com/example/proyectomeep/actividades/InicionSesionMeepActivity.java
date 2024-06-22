@@ -39,8 +39,6 @@ import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.Base64;
 import com.loopj.android.http.BaseJsonHttpResponseHandler;
@@ -68,14 +66,14 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
     CheckBox chkRecordar;
 
     Button btnIniciarSesion;
-    private LoginButton btnfb;
 
-     ImageView btnfb2;
+
+     ImageView btnfb;
      private CallbackManager callbackManager;
 
      //beto
 
-FirebaseAuth firebaseAuth= FirebaseAuth.getInstance();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,48 +83,22 @@ FirebaseAuth firebaseAuth= FirebaseAuth.getInstance();
         setContentView(R.layout.activity_inicion_sesion_meep);
         callbackManager = CallbackManager.Factory.create();
 
-
-
         lblRegistro = findViewById(R.id.logLblRegistro1);
         txtUser = findViewById(R.id.logTxtUser);
         txtPsw = findViewById(R.id.logTxtClave);
         btnIniciarSesion = findViewById(R.id.logBtnIniciar);
         lblRestablecer = findViewById(R.id.logLblRestablecer1);
         chkRecordar = findViewById(R.id.logChkRecordar);
-        btnfb = findViewById(R.id.fb);
-        btnfb2 = findViewById(R.id.FB);
+        btnfb = findViewById(R.id.FB);
         btnIniciarSesion.setOnClickListener(this);
         lblRegistro.setOnClickListener(this);
         lblRestablecer.setOnClickListener(this);
-
-
-        btnfb.setPermissions("email");
-btnfb.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-    @Override
-    public void onSuccess(LoginResult loginResult) {
-        AccessToken accessToken =loginResult.getAccessToken();
-        System.out.println("User ID: "+accessToken.getUserId());
-        System.out.println("Token: "+accessToken.getToken());
-    }
-
-    @Override
-    public void onCancel() {
-        System.out.println("Cancelado");
-    }
-
-    @Override
-    public void onError(@NonNull FacebookException e) {
-        System.out.println("Error: "+e.getMessage());
-    }
-});
 
         LoginManager.getInstance().registerCallback(callbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-
-                        startActivity(new Intent(InicionSesionMeepActivity.this,BienvenidaActivity.class));
-                        finish();
+                        handleFacebookAccessToken(loginResult.getAccessToken());
                     }
 
                     @Override
@@ -140,19 +112,54 @@ btnfb.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                     }
                 });
 
-        btnfb2.setOnClickListener(new View.OnClickListener() {
+        btnfb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 LoginManager.getInstance().logInWithReadPermissions(InicionSesionMeepActivity.this, Arrays.asList("public_profile"));
             }
-
-
         });
+
         validarRecordarSesion();
-
-
     }
 
+    private void handleFacebookAccessToken(AccessToken token) {
+        AsyncHttpClient client = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.put("token", token.getToken());
+
+        client.post(urlIniciarSesion, params, new BaseJsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, Object response) {
+                try {
+                    JSONArray jsonArray = new JSONArray(rawJsonResponse);
+                    if (jsonArray.length() > 0) {
+                        // Usuario encontrado en la base de datos
+                        int id = jsonArray.getJSONObject(0).getInt("idUsuario");
+                        String user = jsonArray.getJSONObject(0).getString("Username");
+                        String password = jsonArray.getJSONObject(0).getString("Contraseña");
+
+                        // Iniciar sesión con los datos obtenidos
+                        iniciarSesion(user, password, true);
+                    } else {
+                        // Usuario no encontrado en la base de datos
+                        Toast.makeText(getApplicationContext(), "Usuario no registrado", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    Toast.makeText(getApplicationContext(), "Error al procesar la respuesta del servidor", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, Object errorResponse) {
+                Toast.makeText(getApplicationContext(), "Error: " + statusCode, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            protected Object parseResponse(String rawJsonData, boolean isFailure) throws Throwable {
+                return null;
+            }
+        });
+    }
 
     private void validarRecordarSesion() {
         MEEP mp = new MEEP(this);
@@ -276,5 +283,6 @@ btnfb.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
         callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
+
 
     }
