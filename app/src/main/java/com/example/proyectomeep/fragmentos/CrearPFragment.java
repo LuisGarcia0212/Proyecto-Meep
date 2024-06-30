@@ -69,7 +69,6 @@ public class CrearPFragment extends Fragment implements View.OnClickListener, Me
         fragment.setArguments(args);
         return fragment;
     }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,13 +77,9 @@ public class CrearPFragment extends Fragment implements View.OnClickListener, Me
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
     //BD
     private String urlCrearProyecto = "http://meep.atwebpages.com/services/agregarProyecto.php";
-
     EditText editNombre, editToken, editDescripcion;
-
-
     Fragment[] fragments;
 
     @Override
