@@ -56,6 +56,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.update(TABLE_PROJECTS, values, COLUMN_ID + "=?", new String[]{String.valueOf(id)});
         db.close();
     }
+    public void deleteProyect(int projectId) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.delete(TABLE_PROJECTS, COLUMN_ID + " = ?", new String[]{String.valueOf(projectId)});
+        db.close();
+    }
 
     public Cursor getProject(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
@@ -71,15 +76,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.query(TABLE_PROJECTS, new String[]{COLUMN_ID, COLUMN_NAME, COLUMN_DESCRIPTION, COLUMN_PINNED, COLUMN_FAVORITE}, // Incluir description
                 null, null, null, null, COLUMN_PINNED + " DESC, " + COLUMN_NAME + " ASC");
     }
-    public void addProject(String name, String description, boolean pinned, boolean favorite) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME, name);
-        values.put(COLUMN_DESCRIPTION, description); // Incluir la descripción
-        values.put(COLUMN_PINNED, pinned ? 1 : 0);
-        values.put(COLUMN_FAVORITE, favorite ? 1 : 0);
-        db.insert(TABLE_PROJECTS, null, values);
-        db.close();
-    }
+
 
 }

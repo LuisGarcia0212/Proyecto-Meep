@@ -205,13 +205,8 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
 
         psw = recordar ? psw : hash.StringToHash(psw, "SHA256");
 
-        if (verificarEmail(user)) {
-            params.add("clave", psw);
-            params.add("email", user);
-        } else {
-            params.add("usuario", user);
-            params.add("clave", psw);
-        }
+      params.add("usuario",user);
+      params.add("clave",psw);
 
         ahcIniciarSesion.post(urlIniciarSesion, params, new BaseJsonHttpResponseHandler() {
             @Override
