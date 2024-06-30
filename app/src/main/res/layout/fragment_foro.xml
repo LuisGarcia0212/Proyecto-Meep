@@ -12,11 +12,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginBottom="50dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:background="@color/btnColor">
+            android:background="@color/btnColor"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/barra"
@@ -30,11 +31,11 @@
                 android:id="@+id/lblForo"
                 android:layout_width="284dp"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_regular"
                 android:layout_gravity="center_vertical"
+                android:fontFamily="@font/inter_regular"
                 android:text="@string/lblForo"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <ImageView
                 android:id="@+id/backproyect"
@@ -43,7 +44,18 @@
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/search"
                 app:tint="@color/white" />
+
+            <ImageView
+                android:id="@+id/ubi"
+                android:layout_width="25dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/mas"
+                app:tint="@color/white" />
+
         </LinearLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"

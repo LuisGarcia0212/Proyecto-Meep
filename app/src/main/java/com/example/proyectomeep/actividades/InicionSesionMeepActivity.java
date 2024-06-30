@@ -205,6 +205,7 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
 
         psw = recordar ? psw : hash.StringToHash(psw, "SHA256");
 
+
       params.add("usuario",user);
       params.add("clave",psw);
 
@@ -213,23 +214,22 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
             public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, Object response) {
                 if (statusCode == 200) {
                     try {
-                        JSONObject jsonObject = new JSONObject(rawJsonResponse);
-                        if (jsonObject.getString("status").equals("success")) {
-                            JSONObject data = jsonObject.getJSONObject("data");
-                            int id = data.getInt("idUsuario");
+                        JSONArray jsonArray = new JSONArray(rawJsonResponse);
+                        if(jsonArray.length() > 0){
+                            int id = jsonArray.getJSONObject(0).getInt("idUsuario");
                             if (id == -1) {
                                 Toast.makeText(getApplicationContext(), "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
                             } else {
                                 Usuario usuario = new Usuario();
                                 usuario.setIdUsuario(id);
-                                usuario.setNombresC(data.getString("NombresCompletos"));
-                                usuario.setUsuario(data.getString("Username"));
-                                usuario.setClave(data.getString("Contraseña"));
-                                usuario.setEmail(data.getString("Email"));
-                                usuario.setTelefono(data.getString("Telefono"));
-                                usuario.setDireccion(data.getString("Direccion"));
-                                usuario.setDescripcion(data.getString("Descripcion"));
-                                Uri imagenU = saveImageToTempFile(data.getString("Foto"));
+                                usuario.setNombresC(jsonArray.getJSONObject(0).getString("NombresCompletos"));
+                                usuario.setUsuario(jsonArray.getJSONObject(0).getString("Username"));
+                                usuario.setClave(jsonArray.getJSONObject(0).getString("Contraseña"));
+                                usuario.setEmail(jsonArray.getJSONObject(0).getString("Email"));
+                                usuario.setTelefono(jsonArray.getJSONObject(0).getString("Telefono"));
+                                usuario.setDireccion(jsonArray.getJSONObject(0).getString("Direccion"));
+                                usuario.setDescripcion(jsonArray.getJSONObject(0).getString("Descripcion"));
+                                Uri imagenU = saveImageToTempFile(jsonArray.getJSONObject(0).getString("Foto"));
                                 usuario.setFoto(imagenU.toString());
                                 if (chkRecordar.isChecked()) {
                                     mp.agregarUsuario(usuario.getIdUsuario(), usuario.getUsuario(), usuario.getClave());
@@ -265,20 +265,11 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
                     Log.e("JSON Exception", "Error al convertir la respuesta a JSON: " + e.getMessage());
                     return null;
                 }
+
             }
         });
     }
 
-
-    private boolean verificarEmail(String email) {
-        if (email == null || email.isEmpty()) {
-            return false;
-        }
-
-        Pattern p = Pattern.compile("^[A-Za-z0-9_-]+@(gmail\\.com|hotmail\\.com)$");
-        Matcher m = p.matcher(email);
-        return m.find();
-    }
 
     private Uri saveImageToTempFile(String base64Image) throws IOException {
         byte[] imageBytes = Base64.decode(base64Image, Base64.DEFAULT);

@@ -1,18 +1,37 @@
 package com.example.proyectomeep.fragmentos;
 
+import static com.facebook.FacebookSdk.getApplicationContext;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.clases.Menu;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.BaseJsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,7 +80,12 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
         }
     }
 
+    final static String urlDetalleProyecto = "http://meep.atwebpages.com/services/detalleProyecto.php";
+
     Fragment[] fragments;
+    TextView txtEstado, txtNombreProyecto, txtAdministrador;
+    int idProyecto;
+    List<String[]> lista;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,7 +105,73 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
         Button btnTarea = view.findViewById(R.id.logBtnViTareas);
         btnForo.setOnClickListener(this);
         btnTarea.setOnClickListener(this);
+
+        //Datos del proyecto
+        txtEstado = view.findViewById(R.id.lblEstado);
+        txtNombreProyecto = view.findViewById(R.id.lblNomProyecto);
+        txtAdministrador = view.findViewById(R.id.lblUserAdmin);
+        SharedPreferences sharedPreferences = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        idProyecto = sharedPreferences.getInt("idProyectoClicked", -1);
+        lista = new ArrayList<>();
+
+        cargarDetallesDelProyecto();
+
         return view;
+    }
+
+    private void cargarDetallesDelProyecto() {
+        AsyncHttpClient ahcDetalleProyecto = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+
+        params.add("proyectoid", String.valueOf(idProyecto));
+
+        ahcDetalleProyecto.post(urlDetalleProyecto, params, new BaseJsonHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, Object response) {
+                if (statusCode == 200){
+                    try {
+                        JSONArray jsonArray = new JSONArray(rawJsonResponse);
+                        lista.clear();
+                        for (int i = 0; i < jsonArray.length(); i++){
+                            String[] detalle = {jsonArray.getJSONObject(i).getString("Estado"),
+                                    jsonArray.getJSONObject(i).getString("NombreProyec"),
+                                    jsonArray.getJSONObject(i).getString("NombresCompletos"),
+                                    jsonArray.getJSONObject(i).getString("Nombre_Rol")};
+                            lista.add(detalle);
+                        }
+
+                        // Usando Stream para filtrar y asignar
+                        lista.stream()
+                                .filter(elemento -> "Administrador".equals(elemento[3]))
+                                .findFirst()
+                                .ifPresent(administrador -> {
+                                    txtAdministrador.setText(administrador[2]);
+                                    txtNombreProyecto.setText(administrador[1]);
+                                    txtEstado.setText(administrador[0]);
+                                });
+
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, Object errorResponse) {
+                Toast.makeText(getApplicationContext(), "Error: " + statusCode, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            protected Object parseResponse(String rawJsonData, boolean isFailure) throws Throwable {
+                try {
+                    return new JSONObject(rawJsonData);
+                } catch (JSONException e) {
+                    Log.e("JSON Exception", "Error al convertir la respuesta a JSON: " + e.getMessage());
+                    return null;
+                }
+            }
+        });
     }
 
     @Override

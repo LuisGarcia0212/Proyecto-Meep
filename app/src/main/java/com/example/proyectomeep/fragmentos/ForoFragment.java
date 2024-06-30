@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectomeep.R;
+import com.example.proyectomeep.actividades.Maps_Activity;
 import com.example.proyectomeep.actividades.MiembrosActivity;
 import com.example.proyectomeep.actividades.RestablecerContrasenhaActivity;
 import com.example.proyectomeep.clases.Menu;
@@ -106,6 +107,9 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
         txtPublicacion.setOnClickListener(this);
         txtTareas.setOnClickListener(this);
         txtMiembros.setOnClickListener(this);
+        ImageView imgMas= view.findViewById(R.id.ubi);
+        imgMas.setOnClickListener(this);
+
         return view;
     }
 
@@ -124,7 +128,15 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
             ingresarTareas();
         } else if (v.getId() == R.id.lblMiembros) {
             ingresarMiembros();
+        } else if (v.getId() == R.id.ubi) {
+            NuevoForo();
         }
+    }
+
+    private void NuevoForo() {
+        Intent iForo= new Intent(getActivity(), Maps_Activity.class);
+        iForo.putExtra("usuario", usuario);
+        startActivity(iForo);
     }
 
     private void ingresarMiembros() {
