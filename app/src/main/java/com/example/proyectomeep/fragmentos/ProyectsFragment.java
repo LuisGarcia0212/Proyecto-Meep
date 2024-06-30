@@ -2,25 +2,34 @@ package com.example.proyectomeep.fragmentos;
 
 import static com.facebook.FacebookSdk.getApplicationContext;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectomeep.R;
+import com.example.proyectomeep.adaptadores.MiembroAdapter;
 import com.example.proyectomeep.clases.Menu;
+import com.example.proyectomeep.clases.Miembro;
 import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.Base64;
 import com.loopj.android.http.BaseJsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
@@ -29,9 +38,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import cz.msebera.android.httpclient.Header;
+import de.hdodenhof.circleimageview.CircleImageView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -84,8 +96,12 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
 
     Fragment[] fragments;
     TextView txtEstado, txtNombreProyecto, txtAdministrador;
+    CircleImageView imgAdmin;
+    ImageView agregarM;
     int idProyecto;
     List<String[]> lista;
+
+    AlertDialog a3;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -103,19 +119,25 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
 
         Button btnForo = view.findViewById(R.id.logBtnForo);
         Button btnTarea = view.findViewById(R.id.logBtnViTareas);
-        btnForo.setOnClickListener(this);
-        btnTarea.setOnClickListener(this);
+
 
         //Datos del proyecto
         txtEstado = view.findViewById(R.id.lblEstado);
         txtNombreProyecto = view.findViewById(R.id.lblNomProyecto);
         txtAdministrador = view.findViewById(R.id.lblUserAdmin);
+        imgAdmin = view.findViewById(R.id.liderProyecto);
+        agregarM = view.findViewById(R.id.agregarMiembro);
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         idProyecto = sharedPreferences.getInt("idProyectoClicked", -1);
         lista = new ArrayList<>();
 
+
+
         cargarDetallesDelProyecto();
 
+        agregarM.setOnClickListener(this);
+        btnForo.setOnClickListener(this);
+        btnTarea.setOnClickListener(this);
         return view;
     }
 
@@ -137,11 +159,25 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
                             String[] detalle = {jsonArray.getJSONObject(i).getString("Estado"),
                                     jsonArray.getJSONObject(i).getString("NombreProyec"),
                                     jsonArray.getJSONObject(i).getString("NombresCompletos"),
-                                    jsonArray.getJSONObject(i).getString("Nombre_Rol")};
+                                    jsonArray.getJSONObject(i).getString("Nombre_Rol"),
+                                    jsonArray.getJSONObject(i).getString("Foto")};
                             lista.add(detalle);
                         }
 
                         // Usando Stream para filtrar y asignar
+                        Optional<String> imOptional = lista.stream()
+                                .filter(elemento -> "Administrador".equals(elemento[3]))
+                                .map(elemento -> elemento[4])
+                                .findFirst();
+                        if (imOptional.isPresent()) {
+                            String imagen = imOptional.get();
+                            byte[] imageByte = Base64.decode(imagen, Base64.DEFAULT);
+                            Bitmap bitmap = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
+                            imgAdmin.setImageBitmap(bitmap);
+                        } else {
+                            // Manejo cuando no hay administrador
+                            System.out.println("No se encontró el administrador.");
+                        }
                         lista.stream()
                                 .filter(elemento -> "Administrador".equals(elemento[3]))
                                 .findFirst()
@@ -180,7 +216,35 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
             ingresarForo();
         } else if (v.getId() == R.id.logBtnViTareas) {
             ingresarTareas();
+        } else if (v.getId() == R.id.agregarMiembro) {
+            abrirDialogM();
         }
+    }
+
+    RecyclerView recMiembros;
+    ArrayList<Miembro> listaMi;
+    MiembroAdapter adapter = null;
+
+    private void abrirDialogM() {
+        AlertDialog.Builder d = new AlertDialog.Builder(getContext(), R.style.CustomDialogTheme);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_miembro_nuevo, null);
+        d.setView(dialogView);
+        recMiembros = dialogView.findViewById(R.id.cardMiembro);
+        listaMi = new ArrayList<>();
+        LinearLayoutManager manager = new LinearLayoutManager(getActivity());
+        recMiembros.setLayoutManager(manager);
+        adapter = new MiembroAdapter(listaMi);
+        recMiembros.setAdapter(adapter);
+
+        mostrarMiembros();
+
+        a3 = d.create();
+        a3.show();
+    }
+
+    private void mostrarMiembros() {
+
     }
 
     private void ingresarTareas() {
