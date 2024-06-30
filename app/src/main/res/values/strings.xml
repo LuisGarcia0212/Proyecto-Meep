@@ -230,4 +230,5 @@
     <string name="lblFace" translatable="false">https://www.facebook.com/profile.php?id=61560310536887</string>
     <string name="lblIns" translatable="false">https://www.instagram.com/meep_work/</string>
     <string name="conten" translatable="false">TAMBIÉN PUEDES CREAR UNA CUENTA CON</string>
+    <string name="MAPS_API_KEY">AIzaSyBLCeIFzYGSEchAFnm8Z2Xt_xaftOWEvpk</string>
 </resources>
