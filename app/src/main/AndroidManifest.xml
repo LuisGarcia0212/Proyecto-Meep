@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProyectoMeep"
         tools:targetApi="31">
+        <activity
+            android:name=".actividades.Maps_Activity"
+            android:exported="false" />
         <activity
             android:name=".actividades.FBActivity"
             android:exported="false" />
@@ -59,6 +64,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBLCeIFzYGSEchAFnm8Z2Xt_xaftOWEvpk" />
+
         <activity
             android:name=".actividades.CuentaActivity"
             android:exported="false" />
@@ -73,8 +84,6 @@
         <meta-data
             android:name="com.facebook.sdk.ClientToken"
             android:value="@string/facebook_client_token" />
-
-
     </application>
 
 </manifest>
