@@ -197,8 +197,9 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
 
         psw = recordar ? psw : hash.StringToHash(psw, "SHA256");
 
-        params.add("usuario", user);
-        params.add("clave", psw);
+
+      params.add("usuario",user);
+      params.add("clave",psw);
 
         ahcIniciarSesion.post(urlIniciarSesion, params, new BaseJsonHttpResponseHandler() {
             @Override
@@ -256,6 +257,7 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
                     Log.e("JSON Exception", "Error al convertir la respuesta a JSON: " + e.getMessage());
                     return null;
                 }
+
             }
         });
     }

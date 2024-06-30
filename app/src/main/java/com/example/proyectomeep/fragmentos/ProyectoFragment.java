@@ -61,7 +61,6 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
     private ImageView menuProyect1;
     private ImageButton btnFavorite;
     private boolean isFavorite;
-
     public ProyectoFragment() {
         // Required empty public constructor
     }
@@ -97,7 +96,7 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
     final static String urlMostraProyecto  = "http://meep.atwebpages.com/services/mostrarProyecto.php";
     Fragment[] fragments;
     RecyclerView rvProyecto;
-    ArrayList<Proyectos> lista;
+    ArrayList<Proyectos> lista, allProyectos, favoriteProyects;
     ProyectoAdapter adapter = null;
 
     @Override
@@ -114,6 +113,8 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
 
         rvProyecto = view.findViewById(R.id.cardProyceto);
         lista = new ArrayList<>();
+        allProyectos = new ArrayList<>();
+        favoriteProyects = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         rvProyecto.setLayoutManager(manager);
         adapter = new ProyectoAdapter(getContext(),lista, fragments);
@@ -125,6 +126,21 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
         ImageView imgCProyect = view.findViewById(R.id.imgToken);
         imgJoin.setOnClickListener(this);
         imgCProyect.setOnClickListener(this);
+
+        // Establece onClick para "allProyectos" y "Mis favoritos"
+        view.findViewById(R.id.lblAllproyectos).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                adapter.updateProyects(allProyectos); // Mostrar todos los proyectos
+            }
+        });
+
+        view.findViewById(R.id.lblMisfav).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showFavoriteProjects(v); // Mostrar proyectos favoritos
+            }
+        });
         return view;
     }
 
@@ -140,6 +156,26 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
                     try {
                         JSONArray jsonArray = new JSONArray(rawJsonResponse);
                         lista.clear();
+                        allProyectos.clear();
+                        favoriteProyects.clear();
+                        for (int i = 0; i < jsonArray.length(); i++) {
+                            Proyectos proyecto = new Proyectos(
+                                    jsonArray.getJSONObject(i).getInt("idProyecto"),
+                                    jsonArray.getJSONObject(i).getString("Estado"),
+                                    jsonArray.getJSONObject(i).getString("NombreProyec"),
+                                    jsonArray.getJSONObject(i).getString("Descripcion"),
+                                    true,
+                                    true,
+                                    jsonArray.getJSONObject(i).getInt("id_Rol")
+                            );
+                            lista.add(proyecto);
+                            allProyectos.add(proyecto); // Add to all projects list
+                            if (proyecto.isFavorite()) {
+                                favoriteProyects.add(proyecto); // Add to favorite projects list if it's a favorite
+                            }
+                        }
+                        adapter.notifyDataSetChanged();
+                        /*
                         for (int i = 0; i < jsonArray.length(); i++){
                             lista.add(new Proyectos(jsonArray.getJSONObject(i).getInt("idProyecto"),
                                                     jsonArray.getJSONObject(i).getString("Estado"),
@@ -149,7 +185,7 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
                                                     true,
                                                     jsonArray.getJSONObject(i).getInt("id_Rol")));
                             adapter.notifyDataSetChanged();
-                        }
+                        }*/
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
                     }
@@ -169,6 +205,19 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
         });
     }
 
+    public void showAllProjects(View view) {
+        adapter.updateProyects(allProyectos);
+    }
+
+    public void showFavoriteProjects(View view) {
+        ArrayList<Proyectos> favoriteProyectosList = new ArrayList<>();
+        for (Proyectos proyecto : allProyectos) {
+            if (proyecto.isFavorite()) {
+                favoriteProyectosList.add(proyecto);
+            }
+        }
+        adapter.updateProyects(favoriteProyectosList);
+    }
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.imgJoin){

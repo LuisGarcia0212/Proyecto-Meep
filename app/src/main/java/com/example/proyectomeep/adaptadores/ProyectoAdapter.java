@@ -121,7 +121,17 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ViewHo
         });
 
         // Configurar el botón de favoritos
-        holder.btnFavorite.setOnClickListener(v -> toggleFavorite(holder, proyectos.getIdProyecto()));
+        holder.btnFavorite.setImageResource(proyectos.isFavorite() ? R.drawable.staron : R.drawable.staroff);
+
+        holder.btnFavorite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                proyectos.setFavorite(!proyectos.isFavorite());
+                notifyItemChanged(position);
+            }
+        });
+        /*holder.btnFavorite.setOnClickListener(v -> toggleFavorite(holder, proyectos.getIdProyecto()));
+        */
         // Configurar el menú emergente
         holder.menuProyect1.setOnClickListener(v -> showPopupMenu(v, proyectos.getIdProyecto()));
         // Actualizar el estado del botón de favoritos
@@ -133,6 +143,11 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ViewHo
         return listaProyectos.size();
     }
 
+    public void updateProyects(ArrayList<Proyectos> newProyects) {
+        listaProyectos.clear();
+        listaProyectos.addAll(newProyects);
+        notifyDataSetChanged();
+    }
     private void ingresarAoP() {
         int btnMenu;
         if(idRolClicked == 1){
@@ -154,8 +169,6 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ViewHo
         }
         ft.commit();
     }
-
-
     public void pinProjectToTop(int projectId) {
         // Encuentra el proyecto en la lista
         for (int i = 0; i < listaProyectos.size(); i++) {
@@ -170,7 +183,6 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ViewHo
             }
         }
     }
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         CardView carItemProyecto;
@@ -224,13 +236,27 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ViewHo
             if (pinned) {
                 pinProjectToTop(projectId);
             }
-        } else if(itemId == R.id.addfavorites1){
+        }  else if (itemId == R.id.action_delete) {
+            deleteProyect(projectId);
+            Toast.makeText(context, "Project deleted", Toast.LENGTH_SHORT).show();
+
+        }    else if(itemId == R.id.addfavorites1){
             favorite = !favorite;
             Toast.makeText(context, favorite ? "Added to favorites" : "Removed from favorites", Toast.LENGTH_SHORT).show();
         }
         dbHelper.updateProject(projectId, pinned, favorite);
         loadProjects(); // Recargar los proyectos para reflejar el cambio de fijación
         notifyDataSetChanged();
+    }
+    private void deleteProyect(int projectId) {
+        dbHelper.deleteProyect(projectId);
+        for (int i = 0; i < listaProyectos.size(); i++) {
+            if (listaProyectos.get(i).getIdProyecto() == projectId) {
+                listaProyectos.remove(i);
+                notifyItemRemoved(i);
+                break;
+            }
+        }
     }
     private void updateFavoriteButtonState(ViewHolder holder, int projectId) {
         Cursor cursor = dbHelper.getProject(projectId);
@@ -244,10 +270,4 @@ public class ProyectoAdapter extends RecyclerView.Adapter<ProyectoAdapter.ViewHo
         holder.btnFavorite.setImageResource(isFavorite ? R.drawable.staroff : R.drawable.staron);
     }
 
-    private void toggleFavorite(ViewHolder holder, int projectId) {
-        isFavorite = !isFavorite;
-        dbHelper.updateProject(projectId, false, isFavorite); // Update only the favorite status
-        holder.btnFavorite.setImageResource(isFavorite ? R.drawable.staroff : R.drawable.staron);
-        Toast.makeText(context, isFavorite ? "Added to favorites" : "Removed from favorites", Toast.LENGTH_SHORT).show();
-    }
 }
