@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.proyectomeep.R;
-import com.example.veterinaria.clases.Hash;
+import com.example.proyectomeep.clases.Hash;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;

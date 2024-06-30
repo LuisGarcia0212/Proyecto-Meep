@@ -14,7 +14,7 @@ import android.text.InputType;
 
 
 import com.example.proyectomeep.SQLite.MEEP;
-import com.example.veterinaria.clases.Hash;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.proyectomeep.R;
+import com.example.proyectomeep.clases.Hash;
 import com.example.proyectomeep.clases.Usuario;
 
 import com.loopj.android.http.AsyncHttpClient;
