@@ -205,6 +205,7 @@
                 android:padding="5dp"
                 android:layout_weight="1">
                 <EditText
+                    android:id="@+id/editTareasRestantes"
                     android:layout_width="70sp"
                     android:layout_height="70sp"
                     android:enabled="false"
@@ -212,7 +213,7 @@
                     android:textSize="35sp"
                     android:layout_weight="800"
                     android:textStyle="bold"
-                    android:text="15"
+                    android:text="0"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/border1"/>
                 <TextView
@@ -233,6 +234,7 @@
                 android:padding="5dp"
                 android:layout_weight="1">
                 <EditText
+                    android:id="@+id/editTareasRealizadas"
                     android:layout_width="70sp"
                     android:layout_height="70sp"
                     android:enabled="false"
@@ -262,6 +264,7 @@
                 android:layout_weight="1">
 
                 <EditText
+                    android:id="@+id/editTareasTotal"
                     android:layout_width="70sp"
                     android:layout_height="70sp"
                     android:enabled="false"
@@ -269,7 +272,7 @@
                     android:textSize="35sp"
                     android:layout_weight="800"
                     android:textStyle="bold"
-                    android:text="15"
+                    android:text="0"
                     android:layout_gravity="center_horizontal"
                     android:background="@drawable/border1"/>
                 <TextView

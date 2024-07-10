@@ -21,6 +21,8 @@ public class AcercaDeActivity extends AppCompatActivity implements View.OnClickL
     private Usuario usuario;
     private ImageView backCount;
 
+    private int Boton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +39,9 @@ public class AcercaDeActivity extends AppCompatActivity implements View.OnClickL
         lblAcercaDe.setVisibility(View.GONE);
         lblFunda.setVisibility(View.GONE);
         lblContac.setVisibility(View.GONE);
+
+        Boton = getIntent().getIntExtra("idBoton", 0);
+
 
         // Configurar OnClickListener para infomas
         infomas.setOnClickListener(new View.OnClickListener() {
@@ -90,6 +95,8 @@ public class AcercaDeActivity extends AppCompatActivity implements View.OnClickL
     private void volver() {
         Intent iBienvenida = new Intent(this, BienvenidaActivity.class);
         iBienvenida.putExtra("usuario", usuario);
+        iBienvenida.putExtra("idBoton", Boton);
+        System.out.println("Se esta enviando "+ Boton);
         startActivity(iBienvenida);
         finish();
     }

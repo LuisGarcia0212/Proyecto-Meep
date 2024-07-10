@@ -135,7 +135,6 @@ public class ConfigFragment extends Fragment implements View.OnClickListener {
         chkNotificaciones.setChecked(notificaciones);
         chkSonido.setChecked(sonido);
         cboIdiomas.setSelection(idioma);
-
     }
 
 

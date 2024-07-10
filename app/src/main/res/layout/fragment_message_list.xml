@@ -12,23 +12,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <RelativeLayout
-            android:id="@+id/header"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:background="@color/btnColor">
-
-            <ImageView
-                android:id="@+id/logBackMenu"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="20dp"
-                android:rotation="90"
-                android:src="@drawable/chevron_down"
-                app:tint="@color/white" />
-        </RelativeLayout>
-
         <LinearLayout
             android:id="@+id/chat1"
             android:layout_width="match_parent"

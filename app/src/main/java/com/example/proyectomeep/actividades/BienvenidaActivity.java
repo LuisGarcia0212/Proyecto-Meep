@@ -52,6 +52,8 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
     Fragment[] fragments;
     TextView nombreUsuario;
 
+    private int boton = -1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +70,7 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         fragments[3] = new ConfigFragment();
         fragments[4] = new ForoFragment();
 
-        int idBoton = 0;
+        int idBoton = getIntent().getIntExtra("idBoton", -1);
         onClickMenu(idBoton);
 
         Toolbar toolbar = findViewById(R.id.toolBar_main);
@@ -126,6 +128,7 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
     private void ingresarCuenta() {
         Intent iCuenta= new Intent(this, CuentaActivity.class);
         iCuenta.putExtra("usuario", usuario);
+        iCuenta.putExtra("idBoton", boton);
         startActivity(iCuenta);
         finish();
     }
@@ -134,6 +137,7 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
     private void acercaDe() {
         Intent iAcerca= new Intent(this, AcercaDeActivity.class);
         iAcerca.putExtra("usuario", usuario);
+        iAcerca.putExtra("idBoton", boton);
         startActivity(iAcerca);
         finish();
     }
@@ -164,6 +168,8 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.menuRelaArea, fragments[idBoton]);
+        boton = idBoton;
+        System.out.println("El proyecto se ubica en: "+boton);
         ft.commit();
     }
 
