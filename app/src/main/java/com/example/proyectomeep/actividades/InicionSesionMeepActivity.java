@@ -228,6 +228,7 @@ public class InicionSesionMeepActivity extends AppCompatActivity implements View
                                 }
                                 Intent iBienvenida = new Intent(getApplicationContext(), BienvenidaActivity.class);
                                 iBienvenida.putExtra("usuario", usuario);
+                                iBienvenida.putExtra("idBoton", 0);
                                 startActivity(iBienvenida);
                                 finish();
                             }

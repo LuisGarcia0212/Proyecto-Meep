@@ -52,6 +52,7 @@ public class CuentaActivity extends AppCompatActivity implements View.OnClickLis
     Boolean imgE = false;
     private static final int COD_SEL_IMAGE = 300;
 
+    private int Boton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -94,6 +95,8 @@ public class CuentaActivity extends AppCompatActivity implements View.OnClickLis
         String image = usuario.getFoto();
         Uri imagenUri = Uri.parse(image);
         imgCuenta.setImageURI(imagenUri);
+
+        Boton = getIntent().getIntExtra("idBoton", 0);
 
         backCuenta.setOnClickListener(this);
 
@@ -273,6 +276,7 @@ public class CuentaActivity extends AppCompatActivity implements View.OnClickLis
     private void volver() {
         Intent iBienvenida = new Intent(this, BienvenidaActivity.class);
         iBienvenida.putExtra("usuario", usuario);
+        iBienvenida.putExtra("idBoton", Boton);
         startActivity(iBienvenida);
         finish();
     }

@@ -20,6 +20,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -93,6 +94,7 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
     }
 
     final static String urlDetalleProyecto = "http://meep.atwebpages.com/services/detalleProyecto.php";
+    final static String urlTareasProyecto = "http://meep.atwebpages.com/services/consultarTareas.php";
 
     Fragment[] fragments;
     TextView txtEstado, txtNombreProyecto, txtAdministrador;
@@ -102,6 +104,8 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
     List<String[]> lista;
 
     AlertDialog a3;
+
+    EditText editPendiente, editFinalizadas, editTotales;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -131,7 +135,11 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
         idProyecto = sharedPreferences.getInt("idProyectoClicked", -1);
         lista = new ArrayList<>();
 
-
+        //para las tareas del proyecto
+        editPendiente = view.findViewById(R.id.editTareasRestantes);
+        editFinalizadas = view.findViewById(R.id.editTareasRealizadas);
+        editTotales = view.findViewById(R.id.editTareasTotal);
+        asignarConteoTareas();
 
         cargarDetallesDelProyecto();
 
@@ -139,6 +147,44 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
         btnForo.setOnClickListener(this);
         btnTarea.setOnClickListener(this);
         return view;
+    }
+
+    private void asignarConteoTareas() {
+        AsyncHttpClient ahcTareasProyecto = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+
+        params.add("proyectoid", String.valueOf(idProyecto));
+
+        ahcTareasProyecto.get(urlTareasProyecto, params, new BaseJsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, Object response) {
+                if (statusCode == 200){
+                    try {
+                        JSONArray jsonArray = new JSONArray(rawJsonResponse);
+                        editTotales.setText(jsonArray.getJSONObject(0).getString("total_tareas"));
+                        editPendiente.setText(jsonArray.getJSONObject(0).getString("tareas_pendientes"));
+                        editFinalizadas.setText(jsonArray.getJSONObject(0).getString("tareas_finalizadas"));
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, Object errorResponse) {
+                Toast.makeText(getApplicationContext(), "Error: " + statusCode, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            protected Object parseResponse(String rawJsonData, boolean isFailure) throws Throwable {
+                try {
+                    return new JSONObject(rawJsonData);
+                } catch (JSONException e) {
+                    Log.e("JSON Exception", "Error al convertir la respuesta a JSON: " + e.getMessage());
+                    return null;
+                }
+            }
+        });
     }
 
     private void cargarDetallesDelProyecto() {

@@ -45,7 +45,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     private String urlAgregarUsuario = "http://meep.atwebpages.com/services/agregarUsuario.php";
 
     Button btnRegistro;
-    ImageView btnfb,btnGG;
+    ImageView btnfb,btnGG, btnVolver;
     EditText txtNombres, txtUsuario, txtClave, txtEmail, txtTelefono, txtDireccion;
     private CallbackManager callbackManager;
 
@@ -76,6 +76,10 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         btnfb = findViewById(R.id.FB);
         btnGG = findViewById(R.id.GG);
         btnRegistro = findViewById(R.id.logBtnRegistrar);
+
+        btnVolver = findViewById(R.id.logVolverLogin);
+
+        btnVolver.setOnClickListener(this);
         btnRegistro.setOnClickListener(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -130,7 +134,14 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         if (v.getId() == R.id.logBtnRegistrar) {
             registrarUsuario();
+        } else if (v.getId() == R.id.logVolverLogin) {
+            volverLogin();
         }
+    }
+
+    private void volverLogin() {
+        Intent iSesion = new Intent(getApplicationContext(), InicionSesionMeepActivity.class);
+        startActivity(iSesion);
     }
 
     private void handleFacebookAccessToken(AccessToken token) {
