@@ -35,7 +35,7 @@ public class MiembrosActivity extends AppCompatActivity implements View.OnClickL
     RecyclerView recMiembros;
     ArrayList<Miembro> lista;
     MiembroAdapter adapter = null;
-
+    private int Boton;
     int idProyecto;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class MiembrosActivity extends AppCompatActivity implements View.OnClickL
         recMiembros.setAdapter(adapter);
 
         mostrarMiembros();
-
+        Boton = getIntent().getIntExtra("idBoton", 0);
         btnCerrar = findViewById(R.id.btnCLose);
         usuario = (Usuario) getIntent().getSerializableExtra("usuario");
         btnCerrar.setOnClickListener(this);
@@ -106,6 +106,7 @@ public class MiembrosActivity extends AppCompatActivity implements View.OnClickL
     private void volver() {
         Intent iBienvenida = new Intent(getApplicationContext(), BienvenidaActivity.class);
         iBienvenida.putExtra("usuario", usuario);
+        iBienvenida.putExtra("idBoton", 4);
         startActivity(iBienvenida);
         finish();
     }
