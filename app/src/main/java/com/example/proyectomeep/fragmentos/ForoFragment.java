@@ -21,6 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectomeep.R;
+import com.example.proyectomeep.actividades.BienvenidaActivity;
 import com.example.proyectomeep.actividades.Maps_Activity;
 import com.example.proyectomeep.actividades.MiembrosActivity;
 import com.example.proyectomeep.actividades.RestablecerContrasenhaActivity;
@@ -80,7 +81,6 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
 
     Fragment[] fragments;
     AlertDialog a2;
-
     Usuario usuario;
 
     @Override
@@ -88,6 +88,7 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_foro, container, false);
+
         fragments = new Fragment[7];
         fragments[0] = new BienvenidaFragment();
         fragments[1] = new ForoFragment();

@@ -99,7 +99,6 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         nombreUsuario.setText(usuario.getUsuario());
     }
 
-
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == R.id.nav_item_one){
