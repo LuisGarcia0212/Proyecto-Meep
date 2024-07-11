@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.NotificationManager;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +19,9 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.proyectomeep.R;
+import com.example.proyectomeep.actividades.BienvenidaActivity;
+import com.example.proyectomeep.clases.Menu;
+
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Build;
@@ -26,7 +31,7 @@ import java.util.Locale;
  * Use the {@link ConfigFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ConfigFragment extends Fragment implements View.OnClickListener {
+public class ConfigFragment extends Fragment implements View.OnClickListener, Menu {
     CheckBox chkNotificaciones, chkSonido;
     Spinner cboIdiomas;
 
@@ -74,21 +79,35 @@ public class ConfigFragment extends Fragment implements View.OnClickListener {
         }
 
     }
+    Fragment[] fragments;
+    ImageView imgVolver;
+
+    int Boton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View vista = inflater.inflate(R.layout.fragment_config, container, false);
+
+        fragments = new Fragment[5];
+
+        fragments[0] = new BienvenidaFragment();
+        fragments[1] = new MessageListFragment();
+        fragments[2] = new ProyectoFragment();
+        fragments[3] = new ConfigFragment();
+        fragments[4] = new ForoFragment();
+
         chkNotificaciones = vista.findViewById(R.id.frgCfgNotificaciones);
         chkSonido = vista.findViewById(R.id.frgCfgSonido);
         cboIdiomas = vista.findViewById(R.id.frgCfgIdiomas);
+        imgVolver = vista.findViewById(R.id.logVolverMenu);
 
         btnGuardar = vista.findViewById(R.id.frgCfgGuardar);
 
         //Configura los eventos on clic a los botones
         btnGuardar.setOnClickListener(this);
-
+        imgVolver.setOnClickListener(this);
 
         //cargar Idiomas al comboBox
         llenarIdiomas();
@@ -105,6 +124,7 @@ public class ConfigFragment extends Fragment implements View.OnClickListener {
             notificationManager.cancelAll();
         }
     }
+
     private void setLocale(String lang) {
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
@@ -143,7 +163,14 @@ public class ConfigFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         if(v.getId() == R.id.frgCfgGuardar){
             guardar();
+        }else if (v.getId() == R.id.logVolverMenu) {
+            volver();
         }
+    }
+
+    private void volver() {
+        int idBoton = 0;
+        onClickMenu(idBoton);
     }
 
     private void guardar() {
@@ -186,4 +213,11 @@ public class ConfigFragment extends Fragment implements View.OnClickListener {
         getActivity().finish();
     }
 
+    @Override
+    public void onClickMenu(int idBoton) {
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.menuRelaArea, fragments [idBoton]);
+        ft.commit();
+    }
 }

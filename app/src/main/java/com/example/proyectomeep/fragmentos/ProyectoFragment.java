@@ -15,12 +15,14 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.widget.ImageButton;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Toast;
 
 
@@ -110,6 +112,20 @@ public class ProyectoFragment extends Fragment implements View.OnClickListener, 
         fragments[3] = new CrearPFragment();
         fragments[4] = new ProyectsFragment();
         fragments[5] = new LinkProyectFragment();
+        ScrollView scrollView = view.findViewById(R.id.scrollMain);
+        LinearLayout linearLayout = view.findViewById(R.id.botonesL);
+
+        //para desaparecer los botones al scrollear
+        scrollView.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            @Override
+            public void onScrollChanged() {
+                int scrolly = scrollView.getScrollY();
+                if(scrolly > 0)
+                    linearLayout.setVisibility(View.GONE);
+                else
+                    linearLayout.setVisibility(View.VISIBLE);
+            }
+        });
 
         rvProyecto = view.findViewById(R.id.cardProyceto);
         lista = new ArrayList<>();

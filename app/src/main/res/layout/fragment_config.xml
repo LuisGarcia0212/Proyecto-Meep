@@ -18,7 +18,7 @@
             android:orientation="horizontal">
 
             <ImageView
-                android:id="@+id/backCuenta"
+                android:id="@+id/logVolverMenu"
                 android:layout_width="50dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_flechaback"

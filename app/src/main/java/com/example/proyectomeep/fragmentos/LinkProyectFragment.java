@@ -76,6 +76,7 @@ public class LinkProyectFragment extends Fragment implements View.OnClickListene
     Fragment[] fragments;
 
     EditText editNombre, editToken;
+    ImageView imgVolver;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -84,11 +85,13 @@ public class LinkProyectFragment extends Fragment implements View.OnClickListene
         fragments = new Fragment[1];
         fragments[0] = new ProyectoFragment();
         Button btnUnirse = view.findViewById(R.id.lblEnter);
+        imgVolver = view.findViewById(R.id.logVolverMenu);
 
         editNombre = view.findViewById(R.id.editName);
         editToken = view.findViewById(R.id.editCode);
 
         btnUnirse.setOnClickListener(this);
+        imgVolver.setOnClickListener(this);
         return view;
     }
 
@@ -96,7 +99,14 @@ public class LinkProyectFragment extends Fragment implements View.OnClickListene
     public void onClick(View v) {
         if (v.getId() == R.id.lblEnter){
             unirseProyecto(editNombre.getText().toString(), editToken.getText().toString());
+        } else if (v.getId() == R.id.logVolverMenu) {
+            volver();
         }
+    }
+
+    private void volver() {
+        int idBoton = 0;
+        onClickMenu(idBoton);
     }
 
     private void unirseProyecto(String nombreP, String tokenP) {
