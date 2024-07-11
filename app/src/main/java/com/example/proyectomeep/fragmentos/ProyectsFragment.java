@@ -99,7 +99,7 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
     Fragment[] fragments;
     TextView txtEstado, txtNombreProyecto, txtAdministrador;
     CircleImageView imgAdmin;
-    ImageView agregarM;
+    ImageView agregarM, imgVolver;
     int idProyecto;
     List<String[]> lista;
 
@@ -131,6 +131,8 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
         txtAdministrador = view.findViewById(R.id.lblUserAdmin);
         imgAdmin = view.findViewById(R.id.liderProyecto);
         agregarM = view.findViewById(R.id.agregarMiembro);
+        imgVolver = view.findViewById(R.id.logVolverMenu);
+
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         idProyecto = sharedPreferences.getInt("idProyectoClicked", -1);
         lista = new ArrayList<>();
@@ -146,6 +148,7 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
         agregarM.setOnClickListener(this);
         btnForo.setOnClickListener(this);
         btnTarea.setOnClickListener(this);
+        imgVolver.setOnClickListener(this);
         return view;
     }
 
@@ -264,7 +267,14 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
             ingresarTareas();
         } else if (v.getId() == R.id.agregarMiembro) {
             abrirDialogM();
+        } else if (v.getId() == R.id.logVolverMenu) {
+            volverMenu();
         }
+    }
+
+    private void volverMenu() {
+        int boton = 2;
+        onClickMenu(boton);
     }
 
     RecyclerView recMiembros;
