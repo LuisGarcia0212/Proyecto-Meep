@@ -40,6 +40,7 @@ public class MiembrosActivity extends AppCompatActivity implements View.OnClickL
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        usuario = (Usuario) getIntent().getSerializableExtra("usuario");
         setContentView(R.layout.activity_miembros);
         Intent intent = getIntent();
         idProyecto = intent.getIntExtra("idProyecto", -1);
@@ -47,13 +48,13 @@ public class MiembrosActivity extends AppCompatActivity implements View.OnClickL
         lista = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(this);
         recMiembros.setLayoutManager(manager);
-        adapter = new MiembroAdapter(lista);
+        adapter = new MiembroAdapter(lista, this,usuario, this);
         recMiembros.setAdapter(adapter);
 
         mostrarMiembros();
         Boton = getIntent().getIntExtra("idBoton", 0);
         btnCerrar = findViewById(R.id.btnCLose);
-        usuario = (Usuario) getIntent().getSerializableExtra("usuario");
+
         btnCerrar.setOnClickListener(this);
     }
 
@@ -71,7 +72,8 @@ public class MiembrosActivity extends AppCompatActivity implements View.OnClickL
                         JSONArray jsonArray = new JSONArray(rawJsonResponse);
                         lista.clear();
                         for (int i = 0; i < jsonArray.length(); i++){
-                            lista.add(new Miembro(jsonArray.getJSONObject(i).getString("NombreProyec"),
+                            lista.add(new Miembro(jsonArray.getJSONObject(i).getInt("idUsuario"),
+                                                    jsonArray.getJSONObject(i).getString("NombreProyec"),
                                                     jsonArray.getJSONObject(i).getString( "Foto"),
                                                     jsonArray.getJSONObject(i).getString("NombresCompletos"),
                                                     jsonArray.getJSONObject(i).getInt("id_Rol")));

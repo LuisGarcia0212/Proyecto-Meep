@@ -3,7 +3,7 @@ package com.example.proyectomeep.clases;
 import java.io.Serializable;
 
 public class Miembro implements Serializable {
-
+    private int idParticipante;
     private String nombreProyecto;
     private String fotoParticipante;
     private String nombreParticipante;
@@ -12,12 +12,16 @@ public class Miembro implements Serializable {
     public Miembro() {
     }
 
-    public Miembro(String nombreProyecto, String fotoParticipante, String nombreParticipante, int rol) {
+    public Miembro(int idParticipante, String nombreProyecto, String fotoParticipante, String nombreParticipante, int rol) {
+        this.idParticipante = idParticipante;
         this.nombreProyecto = nombreProyecto;
         this.fotoParticipante = fotoParticipante;
         this.nombreParticipante = nombreParticipante;
         Rol = rol;
     }
+    public int getIdParticipante() { return idParticipante ;}
+
+    public void setIdParticipante(int idParticipante) { this.idParticipante = idParticipante; }
 
     public String getNombreProyecto() {
         return nombreProyecto;
