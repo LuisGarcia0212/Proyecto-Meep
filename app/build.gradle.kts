@@ -44,7 +44,6 @@ dependencies {
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
 
 
-
     //circule image
     implementation("de.hdodenhof:circleimageview:3.1.0")
 
