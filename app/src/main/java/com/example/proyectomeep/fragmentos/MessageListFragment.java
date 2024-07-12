@@ -5,14 +5,29 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.example.proyectomeep.R;
+import com.example.proyectomeep.adaptadores.MensajeriaAdapter;
+import com.example.proyectomeep.clases.MensajeriaInterna;
 import com.example.proyectomeep.clases.Menu;
+import com.example.proyectomeep.clases.Usuario;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.BaseJsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
+
+import java.util.ArrayList;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -62,6 +77,11 @@ public class MessageListFragment extends Fragment implements View.OnClickListene
     }
 
     Fragment[] fragments;
+    final static String urlMostrarChat = "http://meep.atwebpages.com/services/consultaMensajeriaUsuario.php";
+    RecyclerView recMensajeria;
+    ArrayList<MensajeriaInterna> lista;
+    MensajeriaAdapter adapter = null;
+    Usuario usuario = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -76,17 +96,67 @@ public class MessageListFragment extends Fragment implements View.OnClickListene
         fragments[3] = new CrearPFragment();
         fragments[4] = new MessageListFragment();
         fragments[5] = new MenInterFragment();
+        recMensajeria = view.findViewById(R.id.cardMensajeria);
+        lista = new ArrayList<>();
+        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+        recMensajeria.setLayoutManager(manager);
+        adapter = new MensajeriaAdapter(lista);
+        recMensajeria.setAdapter(adapter);
+        usuario = (Usuario) getActivity().getIntent().getSerializableExtra("usuario");
+        mostraMensajeria();
 
-        LinearLayout chat1 = view.findViewById(R.id.chat1);
 
-        chat1.setOnClickListener(this);
         return view;
+    }
+
+    private void mostraMensajeria() {
+        AsyncHttpClient ahcMensajeria = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.add("usu1", String.valueOf(usuario.getIdUsuario()));
+
+        ahcMensajeria.get(urlMostrarChat, params, new BaseJsonHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, Object response) {
+                if (statusCode == 200){
+                    try {
+                        JSONArray jsonArray = new JSONArray(rawJsonResponse);
+                        lista.clear();
+                        for (int i = 0; i < jsonArray.length(); i++){
+
+                            lista.add(new MensajeriaInterna(jsonArray.getJSONObject(i).getInt("idMensajeria"),
+                                                            usuario.getIdUsuario(),
+                                                            jsonArray.getJSONObject(i).getInt("otro_usuario"),
+                                                            jsonArray.getJSONObject(i).getString("Username"),
+                                                            jsonArray.getJSONObject(i).getString("ultimo_mensaje"),
+                                                            jsonArray.getJSONObject(i).getString("ultima_hora"),
+                                                            jsonArray.getJSONObject(i).getString("ultima_fecha"),
+                                                            jsonArray.getJSONObject(i).getString("Foto")));
+                            adapter.notifyDataSetChanged();
+                        }
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+
+
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, Object errorResponse) {
+
+            }
+
+            @Override
+            protected Object parseResponse(String rawJsonData, boolean isFailure) throws Throwable {
+                return null;
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.chat1)
-            mensajeInterno();
+
     }
 
     private void mensajeInterno() {
