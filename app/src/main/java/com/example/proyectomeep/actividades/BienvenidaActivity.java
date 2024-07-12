@@ -32,6 +32,7 @@ import com.example.proyectomeep.clases.Menu;
 import com.example.proyectomeep.clases.Usuario;
 import com.example.proyectomeep.fragmentos.BienvenidaFragment;
 import com.example.proyectomeep.fragmentos.ConfigFragment;
+import com.example.proyectomeep.fragmentos.MenInterFragment;
 import com.example.proyectomeep.fragmentos.MessageListFragment;
 import com.example.proyectomeep.fragmentos.ProyectoFragment;
 import com.example.proyectomeep.fragmentos.ForoFragment;
@@ -62,13 +63,14 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         usuario = (Usuario) getIntent().getSerializableExtra("usuario");
 
 
-        fragments = new Fragment[5];
+        fragments = new Fragment[6];
 
         fragments[0] = new BienvenidaFragment();
         fragments[1] = new MessageListFragment();
         fragments[2] = new ProyectoFragment();
         fragments[3] = new ConfigFragment();
         fragments[4] = new ForoFragment();
+        fragments[5] = new MenInterFragment();
 
         int idBoton = getIntent().getIntExtra("idBoton", -1);
         onClickMenu(idBoton);

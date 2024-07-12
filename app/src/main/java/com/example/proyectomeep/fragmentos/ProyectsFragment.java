@@ -29,6 +29,7 @@ import com.example.proyectomeep.R;
 import com.example.proyectomeep.adaptadores.MiembroAdapter;
 import com.example.proyectomeep.clases.Menu;
 import com.example.proyectomeep.clases.Miembro;
+import com.example.proyectomeep.clases.Usuario;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.Base64;
 import com.loopj.android.http.BaseJsonHttpResponseHandler;
@@ -106,13 +107,14 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
     AlertDialog a3;
 
     EditText editPendiente, editFinalizadas, editTotales;
+    Usuario usuario;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_proyects, container, false);
-
+        usuario = (Usuario) getActivity().getIntent().getSerializableExtra("usuario");
         fragments = new Fragment[6];
         fragments[0] = new BienvenidaFragment();
         fragments[1] = new ForoFragment();
@@ -290,7 +292,7 @@ public class ProyectsFragment extends Fragment implements View.OnClickListener, 
         listaMi = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(getActivity());
         recMiembros.setLayoutManager(manager);
-        adapter = new MiembroAdapter(listaMi);
+        adapter = new MiembroAdapter(listaMi, getContext(), usuario, getActivity());
         recMiembros.setAdapter(adapter);
 
         mostrarMiembros();
