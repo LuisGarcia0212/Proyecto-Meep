@@ -13,11 +13,16 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.actividades.BienvenidaActivity;
@@ -33,8 +38,15 @@ import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
+import java.util.Random;
 
 import cz.msebera.android.httpclient.Header;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -96,7 +108,10 @@ public class MenInterFragment extends Fragment implements View.OnClickListener, 
 
     private int volver;
     final static String urlMostraChat = "http://meep.atwebpages.com/services/mostrarChatUsuario.php";
+    final static String urlMandarMensaje = "http://meep.atwebpages.com/services/generarMensaje.php";
     Fragment[] fragments;
+    EditText editChat;
+    ImageView btnEnviar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -108,6 +123,8 @@ public class MenInterFragment extends Fragment implements View.OnClickListener, 
         ImageView imgBack = view.findViewById(R.id.logBackMenu);
         imgUsuario = view.findViewById(R.id.imgUsuario2);
         txtNombreUsuario = view.findViewById(R.id.lblCabezalUsuario2);
+        editChat = view.findViewById(R.id.lblchat);
+        btnEnviar = view.findViewById(R.id.btnEnviarMensaje);
 
         fragments = new Fragment[6];
 
@@ -128,6 +145,7 @@ public class MenInterFragment extends Fragment implements View.OnClickListener, 
         mostrarChatUsuario();
         
         imgBack.setOnClickListener(this);
+        btnEnviar.setOnClickListener(this);
 
         return view;
     }
@@ -187,11 +205,80 @@ public class MenInterFragment extends Fragment implements View.OnClickListener, 
         });
     }
 
+    public void mandarMensaje(String mensaje, int iUs1, int iUs2){// Obtener la fecha y hora actual
+        Date currentDate = new Date();
+
+        // Definir el formato para la fecha y la hora
+        SimpleDateFormat dateFormatter = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        SimpleDateFormat timeFormatter = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+
+        // Formatear la fecha y la hora
+        String formattedDate = dateFormatter.format(currentDate);
+        String formattedTime = timeFormatter.format(currentDate);
+
+        AsyncHttpClient ahcMandarMensaje = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+
+        params.add("idUsu1", String.valueOf(iUs1));
+        params.add("idUsu2", String.valueOf(iUs2));
+        params.add("mensaje", mensaje);
+        params.add("fecha",formattedDate);
+        params.add("hora", formattedTime);
+
+        ahcMandarMensaje.post(urlMandarMensaje, params, new BaseJsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, Object response) {
+                if (statusCode == 200){
+                    try {
+                        int result = Integer.parseInt(rawJsonResponse.trim());
+                        if (result == 1) {
+                            Chat nuevoMensaje = new Chat(0, iUs1, usuario.getUsuario(), usuario.getFoto(),
+                                    iUs2, txtNombreUsuario.getText().toString(), "", mensaje, formattedDate, formattedTime);
+                            lista.add(nuevoMensaje);
+                            adapter.notifyDataSetChanged();
+                            recChats.scrollToPosition(lista.size() - 1);
+                            Toast.makeText(getActivity().getApplicationContext(), "Si se registro el mensaje " + statusCode, Toast.LENGTH_SHORT).show();
+                        } else {
+                            // Manejar otros casos según sea necesario
+                            Toast.makeText(getActivity().getApplicationContext(), "Respuesta inesperada del servidor: " + rawJsonResponse, Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (NumberFormatException e) {
+                        // Manejar el caso donde la respuesta no es un entero válido
+                        Log.e("Error", "Respuesta no válida del servidor: " + rawJsonResponse);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, Object errorResponse) {
+                Toast.makeText(getActivity().getApplicationContext(), "Error: " + statusCode, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            protected Object parseResponse(String rawJsonData, boolean isFailure) throws Throwable {
+                try {
+                    return new JSONObject(rawJsonData);
+                } catch (JSONException e) {
+                    Log.e("JSON Exception", "Error al convertir la respuesta a JSON: " + e.getMessage());
+                    return null;
+                }
+            }
+        });
+    }
 
     @Override
     public void onClick(View v) {
         if(v.getId() == R.id.logBackMenu){
             volverBienvenida();
+        }else if (v.getId() == R.id.btnEnviarMensaje){
+            if(editChat.getText().toString().isEmpty()){
+                return;
+            }else {
+                mandarMensaje(editChat.getText().toString(), usuario.getIdUsuario(), idUser2);
+                editChat.setText("");
+                editChat.setSelection(0);
+                return;
+            }
         }
     }
 

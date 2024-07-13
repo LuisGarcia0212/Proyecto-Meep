@@ -72,28 +72,36 @@
 
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:orientation="horizontal"
-        android:layout_marginBottom="50dp"
-        android:layout_marginHorizontal="10dp">
+        android:padding="5dp"
+        android:layout_marginBottom="50dp">
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/hface"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"/>
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_face"
+            android:layout_marginHorizontal="5dp"
+            android:layout_gravity="center_vertical"/>
 
         <EditText
             android:id="@+id/lblchat"
-            android:layout_width="match_parent"
-            android:layout_height="40dp"
-            android:layout_marginLeft="50dp"
-            android:paddingHorizontal="10dp"
+            android:layout_width="310dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:padding="10dp"
             android:background="@drawable/edit_text_backgroud"
-            android:hint="@string/lblchat"/>
-    </RelativeLayout>
+            android:hint="@string/lblchat"
+            android:maxLength="1000"/>
+        <ImageView
+            android:id="@+id/btnEnviarMensaje"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:layout_marginHorizontal="5dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_send"/>
+    </LinearLayout>
 </FrameLayout>
