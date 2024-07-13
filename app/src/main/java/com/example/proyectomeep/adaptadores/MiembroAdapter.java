@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -79,8 +80,12 @@ public class MiembroAdapter extends RecyclerView.Adapter<MiembroAdapter.ViewHold
             editor.apply();
 
             idUsuarioClicked = miembro.getIdParticipante();
-            abrirDialog(miembro.getFotoParticipante(), miembro.getNombreParticipante());
-            notifyDataSetChanged();
+            if (idUsuarioClicked == usuario.getIdUsuario()){
+                Toast.makeText(activity.getApplicationContext(), "No puedes realizar esta acción", Toast.LENGTH_SHORT).show();
+            }else {
+                abrirDialog(miembro.getFotoParticipante(), miembro.getNombreParticipante());
+                notifyDataSetChanged();
+            }
         });
 
     }

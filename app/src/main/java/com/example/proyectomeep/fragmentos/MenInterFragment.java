@@ -109,9 +109,11 @@ public class MenInterFragment extends Fragment implements View.OnClickListener, 
     private int volver;
     final static String urlMostraChat = "http://meep.atwebpages.com/services/mostrarChatUsuario.php";
     final static String urlMandarMensaje = "http://meep.atwebpages.com/services/generarMensaje.php";
+    final static String urlBuscarUsuario2 = "http://meep.atwebpages.com/services/buscarUsuario.php";
     Fragment[] fragments;
     EditText editChat;
     ImageView btnEnviar;
+    Usuario usuario2;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -125,6 +127,7 @@ public class MenInterFragment extends Fragment implements View.OnClickListener, 
         txtNombreUsuario = view.findViewById(R.id.lblCabezalUsuario2);
         editChat = view.findViewById(R.id.lblchat);
         btnEnviar = view.findViewById(R.id.btnEnviarMensaje);
+        usuario2 = new Usuario();
 
         fragments = new Fragment[6];
 
@@ -163,29 +166,36 @@ public class MenInterFragment extends Fragment implements View.OnClickListener, 
                 if (statusCode == 200){
                     try {
                         JSONArray jsonArray = new JSONArray(rawJsonResponse);
-                        lista.clear();
-                        for (int i = 0; i < jsonArray.length(); i++){
-                            lista.add(new Chat(jsonArray.getJSONObject(i).getInt("idMensajeria"),
-                                               jsonArray.getJSONObject(i).getInt("idUsuarioE"),
-                                               jsonArray.getJSONObject(i).getString("usuario_emisor"),
-                                               jsonArray.getJSONObject(i).getString("foto_emisor"),
-                                               jsonArray.getJSONObject(i).getInt("idUsuarioR"),
-                                               jsonArray.getJSONObject(i).getString("usuario_receptor"),
-                                               jsonArray.getJSONObject(i).getString("foto_receptor"),
-                                               jsonArray.getJSONObject(i).getString("mensaje"),
-                                               jsonArray.getJSONObject(i).getString("fecha"),
-                                               jsonArray.getJSONObject(i).getString("hora")));
-                            adapter.notifyDataSetChanged();
+                        if (jsonArray.toString() != "[]"){
+                            crearNuevoChat();
+                            return;
+                        }else {
+                            System.out.println("Entro al lleno");
+                            lista.clear();
+                            for (int i = 0; i < jsonArray.length(); i++){
+                                lista.add(new Chat(jsonArray.getJSONObject(i).getInt("idMensajeria"),
+                                        jsonArray.getJSONObject(i).getInt("idUsuarioE"),
+                                        jsonArray.getJSONObject(i).getString("usuario_emisor"),
+                                        jsonArray.getJSONObject(i).getString("foto_emisor"),
+                                        jsonArray.getJSONObject(i).getInt("idUsuarioR"),
+                                        jsonArray.getJSONObject(i).getString("usuario_receptor"),
+                                        jsonArray.getJSONObject(i).getString("foto_receptor"),
+                                        jsonArray.getJSONObject(i).getString("mensaje"),
+                                        jsonArray.getJSONObject(i).getString("fecha"),
+                                        jsonArray.getJSONObject(i).getString("hora")));
+                                adapter.notifyDataSetChanged();
+                                recChats.scrollToPosition(lista.size() - 1);
+                            }
+                            String img;
+                            Chat chat = lista.stream()
+                                    .findFirst()
+                                    .orElse(null);
+                            txtNombreUsuario.setText(chat.getUserReceptor());
+                            img = chat.getFoto_receptor();
+                            byte[] imageByte = Base64.decode(img, Base64.DEFAULT);
+                            Bitmap bitmap = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
+                            imgUsuario.setImageBitmap(bitmap);
                         }
-                        String img;
-                        Chat chat = lista.stream()
-                                .findFirst()
-                                .orElse(null);
-                        txtNombreUsuario.setText(chat.getUserReceptor());
-                        img = chat.getFoto_receptor();
-                        byte[] imageByte = Base64.decode(img, Base64.DEFAULT);
-                        Bitmap bitmap = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
-                        imgUsuario.setImageBitmap(bitmap);
 
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
@@ -215,6 +225,8 @@ public class MenInterFragment extends Fragment implements View.OnClickListener, 
         // Formatear la fecha y la hora
         String formattedDate = dateFormatter.format(currentDate);
         String formattedTime = timeFormatter.format(currentDate);
+        System.out.println("la fecha es: "+formattedDate);
+        System.out.println("la hora es: "+formattedTime);
 
         AsyncHttpClient ahcMandarMensaje = new AsyncHttpClient();
         RequestParams params = new RequestParams();
@@ -237,7 +249,6 @@ public class MenInterFragment extends Fragment implements View.OnClickListener, 
                             lista.add(nuevoMensaje);
                             adapter.notifyDataSetChanged();
                             recChats.scrollToPosition(lista.size() - 1);
-                            Toast.makeText(getActivity().getApplicationContext(), "Si se registro el mensaje " + statusCode, Toast.LENGTH_SHORT).show();
                         } else {
                             // Manejar otros casos según sea necesario
                             Toast.makeText(getActivity().getApplicationContext(), "Respuesta inesperada del servidor: " + rawJsonResponse, Toast.LENGTH_SHORT).show();
@@ -262,6 +273,47 @@ public class MenInterFragment extends Fragment implements View.OnClickListener, 
                     Log.e("JSON Exception", "Error al convertir la respuesta a JSON: " + e.getMessage());
                     return null;
                 }
+            }
+        });
+    }
+
+    private void crearNuevoChat() {
+        AsyncHttpClient ahcBuscarCliente = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+
+        params.add("idUsuario", String.valueOf(idUser2));
+
+        ahcBuscarCliente.get(urlBuscarUsuario2, params, new BaseJsonHttpResponseHandler() {
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, Object response) {
+                if (statusCode == 200){
+                    try {
+                        JSONArray jsonArray = new JSONArray(rawJsonResponse);
+                        usuario2.setIdUsuario(jsonArray.getJSONObject(0).getInt("idUsuario"));
+                        usuario2.setNombresC(jsonArray.getJSONObject(0).getString("NombresCompletos"));
+                        usuario2.setUsuario(jsonArray.getJSONObject(0).getString("Username"));
+                        usuario2.setFoto(jsonArray.getJSONObject(0).getString("Foto"));
+
+                        txtNombreUsuario.setText(usuario2.getUsuario());
+                        String img = usuario2.getFoto();
+                        byte[] imageByte = Base64.decode(img, Base64.DEFAULT);
+                        Bitmap  bitmap = BitmapFactory.decodeByteArray(imageByte, 0, imageByte.length);
+                        imgUsuario.setImageBitmap(bitmap);
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, Object errorResponse) {
+
+            }
+
+            @Override
+            protected Object parseResponse(String rawJsonData, boolean isFailure) throws Throwable {
+                return null;
             }
         });
     }

@@ -70,16 +70,6 @@
                 android:background="@drawable/edit_boton_celeste"
                 android:text="Enviar mensaje"/>
 
-
-            <Button
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:layout_marginHorizontal="15dp"
-                android:textSize="15sp"
-                android:background="@drawable/edit_boton_celeste"
-                android:text="Seguir" />
         </LinearLayout>
     </LinearLayout>
 
