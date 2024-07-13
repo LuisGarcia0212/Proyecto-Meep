@@ -62,6 +62,7 @@ public class MensajeriaAdapter extends RecyclerView.Adapter<MensajeriaAdapter.Vi
             SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt("idMiembroClicked", mensajeria.getIdUsuario2());
+            editor.putInt("fragementoVolver", 1);
             editor.apply();
             idUsuarioClicked = mensajeria.getIdUsuario2();
             int idBotom = 5;

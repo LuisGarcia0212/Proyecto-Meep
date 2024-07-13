@@ -170,7 +170,6 @@ public class BienvenidaActivity extends AppCompatActivity implements NavigationV
         FragmentTransaction ft = fm.beginTransaction();
         ft.replace(R.id.menuRelaArea, fragments[idBoton]);
         boton = idBoton;
-        System.out.println("El proyecto se ubica en: "+boton);
         ft.commit();
     }
 

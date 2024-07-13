@@ -75,6 +75,7 @@ public class MiembroAdapter extends RecyclerView.Adapter<MiembroAdapter.ViewHold
             SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPreferences.edit();
             editor.putInt("idMiembroClicked", miembro.getIdParticipante());
+            editor.putInt("fragementoVolver", 4);
             editor.apply();
 
             idUsuarioClicked = miembro.getIdParticipante();

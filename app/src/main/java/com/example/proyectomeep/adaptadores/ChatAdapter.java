@@ -58,10 +58,12 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
             holder.imgChat1.setImageBitmap(bitmap2);
             holder.imgChat.setVisibility(View.INVISIBLE);
             holder.contenedorD.setGravity(Gravity.RIGHT);
+            holder.chat.setBackgroundResource(R.drawable.edit_boton_celeste);
         }
         else if (chats.getIdUsuario2() == usuario.getIdUsuario()){
             holder.imgChat.setImageBitmap(bitmap2);
             holder.imgChat1.setVisibility(View.INVISIBLE);
+            holder.chat.setBackgroundResource(R.drawable.border);
         }
     }
 
@@ -74,6 +76,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
         CircleImageView imgChat, imgChat1;
         TextView txtMensaje;
         LinearLayout contenedorD;
+        LinearLayout chat;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -82,6 +85,7 @@ public class ChatAdapter extends RecyclerView.Adapter<ChatAdapter.ViewHolder> {
             imgChat = itemView.findViewById(R.id.imgUsuario);
             txtMensaje = itemView.findViewById(R.id.lblMensaje);
             contenedorD = itemView.findViewById(R.id.contenedorD);
+            chat = itemView.findViewById(R.id.contenedorChat);
         }
     }
 }
