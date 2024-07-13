@@ -139,7 +139,7 @@
     =========================================
     MENSAJERIA INTERNA
 
-    <string name="lblCabezal">BETO - AREA SISTEMAS</string>
+    <string name="lblCabezal">BETO</string>
     <string name="lblchat" translatable="false">Aa</string>
     <string name="lblConv1">a que hora vas a avanzar?</string>
     <string name="lblConv2">Ahora no mi rei, ando en mi reu con el gremio</string>
