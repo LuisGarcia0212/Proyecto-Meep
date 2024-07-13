@@ -24,6 +24,7 @@
                 android:src="@drawable/psyduck_user"
                 android:layout_gravity="center_vertical"/>
             <LinearLayout
+                android:id="@+id/contenedorChat"
                 android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

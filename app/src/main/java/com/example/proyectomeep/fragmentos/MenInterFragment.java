@@ -8,6 +8,8 @@ import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -21,6 +23,7 @@ import com.example.proyectomeep.R;
 import com.example.proyectomeep.actividades.BienvenidaActivity;
 import com.example.proyectomeep.adaptadores.ChatAdapter;
 import com.example.proyectomeep.clases.Chat;
+import com.example.proyectomeep.clases.Menu;
 import com.example.proyectomeep.clases.Usuario;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.Base64;
@@ -41,7 +44,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
  * Use the {@link MenInterFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MenInterFragment extends Fragment implements View.OnClickListener {
+public class MenInterFragment extends Fragment implements View.OnClickListener, Menu {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -91,8 +94,9 @@ public class MenInterFragment extends Fragment implements View.OnClickListener {
     Usuario usuario;
     private int idUser2;
 
+    private int volver;
     final static String urlMostraChat = "http://meep.atwebpages.com/services/mostrarChatUsuario.php";
-
+    Fragment[] fragments;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -100,10 +104,19 @@ public class MenInterFragment extends Fragment implements View.OnClickListener {
         usuario = (Usuario) getActivity().getIntent().getSerializableExtra("usuario");
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         idUser2 = sharedPreferences.getInt("idMiembroClicked", -1);
-        System.out.println("el valor del usuario 2 es: "+idUser2);
+        volver = sharedPreferences.getInt("fragementoVolver", -1);
         ImageView imgBack = view.findViewById(R.id.logBackMenu);
         imgUsuario = view.findViewById(R.id.imgUsuario2);
         txtNombreUsuario = view.findViewById(R.id.lblCabezalUsuario2);
+
+        fragments = new Fragment[6];
+
+        fragments[0] = new BienvenidaFragment();
+        fragments[1] = new MessageListFragment();
+        fragments[2] = new ProyectoFragment();
+        fragments[3] = new ConfigFragment();
+        fragments[4] = new ForoFragment();
+        fragments[5] = new MenInterFragment();
 
         recChats = view.findViewById(R.id.cardChats);
         lista = new ArrayList<>();
@@ -183,11 +196,16 @@ public class MenInterFragment extends Fragment implements View.OnClickListener {
     }
 
     private void volverBienvenida() {
-        Intent iBienvenida = new Intent(getActivity(), BienvenidaActivity.class);
-        iBienvenida.putExtra("usuario", usuario);
-        iBienvenida.putExtra("idBoton", 0);
-        startActivity(iBienvenida);
+        int iBoton = volver;
+        onClickMenu(iBoton);
     }
 
 
+    @Override
+    public void onClickMenu(int idBoton) {
+        FragmentManager fm = getActivity().getSupportFragmentManager();
+        FragmentTransaction ft = fm.beginTransaction();
+        ft.replace(R.id.menuRelaArea, fragments[idBoton]);
+        ft.commit();
+    }
 }
