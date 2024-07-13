@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/fondoMeep"
+        tools:ignore="MissingConstraints">
+        <LinearLayout
+            android:id="@+id/contenedorD"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:orientation="horizontal">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgUsuario"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginVertical="10dp"
+                android:src="@drawable/psyduck_user"
+                android:layout_gravity="center_vertical"/>
+            <LinearLayout
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/border"
+                android:layout_marginHorizontal="10dp"
+                android:layout_marginVertical="10dp"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/lblMensaje"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/inter_regular"
+                    android:text="@string/lblConv2"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/imgUsuario1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="5dp"
+                android:src="@drawable/psyduck_user"
+                android:layout_gravity="center_vertical"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
