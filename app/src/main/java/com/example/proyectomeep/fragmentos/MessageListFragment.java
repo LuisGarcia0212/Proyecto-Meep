@@ -100,7 +100,7 @@ public class MessageListFragment extends Fragment implements View.OnClickListene
         lista = new ArrayList<>();
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         recMensajeria.setLayoutManager(manager);
-        adapter = new MensajeriaAdapter(lista);
+        adapter = new MensajeriaAdapter(lista, getContext(), fragments);
         recMensajeria.setAdapter(adapter);
         usuario = (Usuario) getActivity().getIntent().getSerializableExtra("usuario");
         mostraMensajeria();

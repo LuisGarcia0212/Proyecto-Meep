@@ -100,7 +100,7 @@ public class MenInterFragment extends Fragment implements View.OnClickListener {
         usuario = (Usuario) getActivity().getIntent().getSerializableExtra("usuario");
         SharedPreferences sharedPreferences = getContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         idUser2 = sharedPreferences.getInt("idMiembroClicked", -1);
-
+        System.out.println("el valor del usuario 2 es: "+idUser2);
         ImageView imgBack = view.findViewById(R.id.logBackMenu);
         imgUsuario = view.findViewById(R.id.imgUsuario2);
         txtNombreUsuario = view.findViewById(R.id.lblCabezalUsuario2);
