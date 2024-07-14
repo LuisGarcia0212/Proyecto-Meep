@@ -314,6 +314,8 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="30dp"
+                        android:maxLength="50"
+                        android:inputType="text"
                         android:background="@drawable/edit_text_background2"/>
                 </LinearLayout>
 
@@ -386,6 +388,8 @@
                         android:id="@+id/editDescripcion"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
+                        android:maxLength="1000"
+                        android:inputType="text"
                         android:background="@drawable/edit_text_background2"/>
                 </LinearLayout>
             </LinearLayout>

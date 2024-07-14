@@ -127,9 +127,6 @@ public class LinkProyectFragment extends Fragment implements View.OnClickListene
                             // El servidor indica que ya existe una entrada duplicada
                             Toast.makeText(getActivity().getApplicationContext(), "Ya estás unido a este proyecto", Toast.LENGTH_SHORT).show();
                         } else {
-                            // Otra respuesta exitosa del servidor
-                            // Puedes procesar la respuesta según sea necesario
-                            // Aquí asumo que la respuesta contiene el mensaje de éxito
                             Toast.makeText(getActivity().getApplicationContext(), "Se unió al proyecto con exito", Toast.LENGTH_SHORT).show();
                             int btnMenu = 0;
                             onClickMenu(btnMenu);
@@ -140,7 +137,6 @@ public class LinkProyectFragment extends Fragment implements View.OnClickListene
                 @Override
                 public void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, Object errorResponse) {
                     Toast.makeText(getActivity().getApplicationContext(), "Error: "+statusCode, Toast.LENGTH_SHORT).show();
-
                 }
 
                 @Override

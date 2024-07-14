@@ -21,8 +21,20 @@ import com.example.proyectomeep.R;
 import com.example.proyectomeep.actividades.MapaActivity;
 import com.example.proyectomeep.actividades.TaskAdapter;
 import com.example.proyectomeep.actividades.TaskViewActivity;
+import com.example.proyectomeep.adaptadores.TareaPendienteAdpter;
+import com.example.proyectomeep.clases.TareaPendiente;
+import com.example.proyectomeep.clases.Usuario;
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.BaseJsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,52 +84,72 @@ public class BienvenidaFragment extends Fragment {
         }
 
     }
-    private RecyclerView recyclerView;
-    //private ArrayList<TaskAdapter.TaskItem> arrayList;
-    private ArrayList<String> arrayList;
-    private TaskAdapter adapter;
+    final static String urlMostrarTarea = "http://meep.atwebpages.com/services/mostrarTareaUsuario.php";
+
+    RecyclerView recTareas;
+    ArrayList<TareaPendiente> lista;
+
+    TareaPendienteAdpter adapter;
+    Usuario usuario;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view1 = inflater.inflate(R.layout.fragment_bienvenida, container, false);
-        recyclerView = view1.findViewById(R.id.linearNotificaciones);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        View view = inflater.inflate(R.layout.fragment_bienvenida, container, false);
+        usuario = (Usuario) getActivity().getIntent().getSerializableExtra("usuario");
 
-        arrayList = new ArrayList<>();
-        arrayList.add("TAREAS DESARROLLO WEB\n\n"+
-                "Actualizar la Base de Datos de Clientes\n\n"+
-                "-> Revisar y actualizar la información de contacto.\n-> Verificar la precisión de las direcciones y teléfonos.");
-        arrayList.add("TAREAS MARKETING\n\n"+
-                "Crear Contenido para Redes Sociales\n\n"+
-                "-> Diseñar gráficos y escribir publicaciones.\n-> Programar publicaciones utilizando herramientas como Hootsuite o Buffer.");
-        arrayList.add("TAREAS DE RR.HH\n\n"+
-                "Capacitación y Desarrollo\n\n"+
-                "-> Organizar programas de capacitación para empleados.\n-> Evaluar la efectividad de las capacitaciones y hacer ajustes.");
-        /*arrayList.add(new TaskAdapter.TaskItem("TAREAS DESARROLLO WEB\n",
-                "Actualizar la Base de Datos de Clientes\n",
-                "-> Revisar y actualizar la información de contacto.\n-> Verificar la precisión de las direcciones y teléfonos.",
-                18f, 16f, 14f, Color.BLACK, Color.BLUE, Color.RED));
-        arrayList.add(new TaskAdapter.TaskItem("TAREAS MARKETING\n",
-                "Crear Contenido para Redes Sociales\n",
-                "-> Diseñar gráficos y escribir publicaciones.\n-> Programar publicaciones utilizando herramientas como Hootsuite o Buffer.",
-                18f, 16f, 14f, Color.BLACK, Color.BLUE, Color.RED));
-        arrayList.add(new TaskAdapter.TaskItem("TAREAS DE RR.HH\n",
-                "Capacitación y Desarrollo\n\n",
-                "-> Organizar programas de capacitación para empleados.\n-> Evaluar la efectividad de las capacitaciones y hacer ajustes.",
-                18f, 16f, 14f, Color.BLACK, Color.BLUE, Color.RED));
-        */
-        adapter = new TaskAdapter(getContext(), arrayList);
-        recyclerView.setAdapter(adapter);
-        adapter.setOnItemClickListener(new TaskAdapter.OnItemClickListener() {
+        recTareas = view.findViewById(R.id.cardTareasP);
+        lista = new ArrayList<>();
+        LinearLayoutManager manager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
+        recTareas.setLayoutManager(manager);
+        adapter = new TareaPendienteAdpter(lista);
+        recTareas.setAdapter(adapter);
+
+        mostrarTareas();
+
+        return view;
+    }
+
+    private void mostrarTareas() {
+        AsyncHttpClient ahcTareasPendientes = new AsyncHttpClient();
+        RequestParams params = new RequestParams();
+        params.add("usuarioid", String.valueOf(usuario.getIdUsuario()));
+
+
+        ahcTareasPendientes.get(urlMostrarTarea, params, new BaseJsonHttpResponseHandler() {
+
             @Override
-            public void onClick(TextView textView, String text) {
-                startActivity(new Intent(getActivity(), TaskViewActivity.class)
-                                .putExtra("tareas", text),
-                        ActivityOptions.makeSceneTransitionAnimation(getActivity(), textView, "tareas").toBundle());
+            public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, Object response) {
+                if (statusCode == 200){
+                    try {
+                        JSONArray jsonArray = new JSONArray(rawJsonResponse);
+                        lista.clear();
+                        for (int i = 0; i < jsonArray.length(); i++){
+                            lista.add(new TareaPendiente(jsonArray.getJSONObject(i).getInt("idTarea"),
+                                                         jsonArray.getJSONObject(i).getString("Nombre_tarea"),
+                                                         jsonArray.getJSONObject(i).getString("Descripcion_tarea"),
+                                                         jsonArray.getJSONObject(i).getInt("id_Usuario_Tarea"),
+                                                         jsonArray.getJSONObject(i).getInt("id_Proyecto_Tarea"),
+                                                         jsonArray.getJSONObject(i).getString("estado"),
+                                                         jsonArray.getJSONObject(i).getString("NombreProyec")));
+                            adapter.notifyDataSetChanged();
+                        }
+                    } catch (JSONException e) {
+                        throw new RuntimeException(e);
+                    }
+
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, String rawJsonData, Object errorResponse) {
+
+            }
+
+            @Override
+            protected Object parseResponse(String rawJsonData, boolean isFailure) throws Throwable {
+                return null;
             }
         });
-
-        return view1;
     }
 }
