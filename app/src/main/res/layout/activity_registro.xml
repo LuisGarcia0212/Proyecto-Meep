@@ -131,7 +131,7 @@
                     android:drawableStart="@drawable/ic_email"
                     android:drawablePadding="10dp"
                     android:hint="@string/logTxtEmail"
-                    android:inputType="textPersonName"
+                    android:inputType="textEmailAddress"
                     android:maxLength="100"
                     android:paddingLeft="10dp"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -189,8 +189,8 @@
                     android:drawableStart="@drawable/ic_phone"
                     android:drawablePadding="10dp"
                     android:hint="@string/logTxtTelefono"
-                    android:inputType="textPersonName"
-                    android:maxLength="100"
+                    android:inputType="number"
+                    android:maxLength="9"
                     android:paddingLeft="10dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
