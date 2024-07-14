@@ -296,12 +296,21 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, String rawJsonResponse, Object response) {
                     if (statusCode == 200) {
-                        int retVal = rawJsonResponse.length() == 0 ? 0 : Integer.parseInt(rawJsonResponse);
+                        int retVal = 0;
+                        try {
+                            retVal = rawJsonResponse.length() == 0 ? 0 : Integer.parseInt(rawJsonResponse);
+                        }catch (NumberFormatException e){
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(), "Ya se tiene registrado el correo", Toast.LENGTH_SHORT).show();
+                            return;
+                        }
                         if (retVal == 1) {
                             Toast.makeText(getApplicationContext(), "Usuario Registrado Correctamente", Toast.LENGTH_SHORT).show();
                             finish();
                             Intent iSesion = new Intent(getApplicationContext(), InicionSesionMeepActivity.class);
                             startActivity(iSesion);
+                        }else {
+                            Toast.makeText(getApplicationContext(), "Error al registrar usuario", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }
