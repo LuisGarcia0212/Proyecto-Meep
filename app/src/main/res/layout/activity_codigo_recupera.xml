@@ -76,8 +76,8 @@
                 android:drawableStart="@drawable/baseline_password_24"
                 android:drawablePadding="10dp"
                 android:hint="@string/logTxtCode"
-                android:inputType="number"
-                android:maxLength="100"
+                android:inputType="text"
+                android:maxLength="20"
                 android:paddingLeft="10dp"/>
         </com.google.android.material.textfield.TextInputLayout>
 
