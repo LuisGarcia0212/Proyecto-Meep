@@ -53,6 +53,7 @@ public class RestablecerContrasenhaActivity extends AppCompatActivity implements
     private void volverLogin() {
         Intent iSesion = new Intent(getApplicationContext(), InicionSesionMeepActivity.class);
         startActivity(iSesion);
+        finish();
     }
 
     private void enviarCorreoRecuperacion(String email, String codigo) {

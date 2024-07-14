@@ -312,7 +312,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                             retVal = rawJsonResponse.length() == 0 ? 0 : Integer.parseInt(rawJsonResponse);
                         }catch (NumberFormatException e){
                             e.printStackTrace();
-                            Toast.makeText(getApplicationContext(), "Ya se tiene registrado el correo", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Ya se tiene registrado ese usuario", Toast.LENGTH_SHORT).show();
                             return;
                         }
                         if (retVal == 1) {
