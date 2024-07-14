@@ -43,11 +43,10 @@
             android:textStyle="italic"/>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/linearNotificaciones"
+            android:id="@+id/cardTareasP"
             android:layout_width="match_parent"
-            android:layout_height="164dp"
-            android:orientation="horizontal"
-            app:layoutManager="com.google.android.material.carousel.CarouselLayoutManager" />
+            android:layout_height="wrap_content"/>
+
     </LinearLayout>
 
 </FrameLayout>
