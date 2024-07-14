@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -46,10 +47,9 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
 
     Button btnRegistro;
     ImageView btnfb,btnGG, btnVolver;
-    EditText txtNombres, txtUsuario, txtClave, txtEmail, txtTelefono, txtDireccion;
+    EditText txtNombres, txtUsuario, txtClave, txtClaveConfirmar, txtEmail, txtTelefono, txtDireccion;
     private CallbackManager callbackManager;
-
-
+    CheckBox chPolitica;
 
     private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 9001;
@@ -70,12 +70,14 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         txtNombres = findViewById(R.id.logTxtNombres);
         txtUsuario = findViewById(R.id.logTxtUsuario);
         txtClave = findViewById(R.id.logTxtClave);
+        txtClaveConfirmar = findViewById(R.id.logTxtClaveConfirm);
         txtEmail = findViewById(R.id.logTxtEmail);
         txtTelefono = findViewById(R.id.logTxtTelefono);
         txtDireccion = findViewById(R.id.logTxtDirección);
         btnfb = findViewById(R.id.FB);
         btnGG = findViewById(R.id.GG);
         btnRegistro = findViewById(R.id.logBtnRegistrar);
+        chPolitica = findViewById(R.id.logChkTerminos);
 
         btnVolver = findViewById(R.id.logVolverLogin);
 
@@ -133,10 +135,58 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if (v.getId() == R.id.logBtnRegistrar) {
+            if (validarCampos())
+                return;
+            if (validarCamposContrasenha()){
+                Toast.makeText(getApplicationContext(), "Las constraseñas no coinciden", Toast.LENGTH_SHORT).show();
+                return;
+            }
             registrarUsuario();
         } else if (v.getId() == R.id.logVolverLogin) {
             volverLogin();
         }
+    }
+
+    private boolean validarCampos() {
+        if (txtNombres.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), "Campo nombre vacio", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (txtUsuario.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), "Campo usuario vacio", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (txtClave.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), "Campo contraseña vacio", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (txtClaveConfirmar.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), "Campo confirmar contraseña vacio", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (txtEmail.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), "Campo email vacio", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (txtTelefono.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), "Campo teléfono vacio", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (txtDireccion.getText().toString().isEmpty()){
+            Toast.makeText(getApplicationContext(), "Campo dirección vacio", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        if (!chPolitica.isChecked()){
+            Toast.makeText(getApplicationContext(), "Aceptar Términos y Condiciones", Toast.LENGTH_SHORT).show();
+            return true;
+        }
+        return false;
+    }
+
+    private boolean validarCamposContrasenha() {
+        if (txtClave.getText().toString().equals(txtClaveConfirmar.getText().toString()))
+            return false;
+        return true;
     }
 
     private void volverLogin() {

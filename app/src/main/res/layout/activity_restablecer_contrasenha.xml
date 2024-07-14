@@ -85,7 +85,7 @@
                 android:drawableStart="@drawable/ic_email"
                 android:drawablePadding="10dp"
                 android:hint="@string/logTxtEmail"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
                 android:maxLength="100"
                 android:paddingLeft="10dp"/>
         </com.google.android.material.textfield.TextInputLayout>
