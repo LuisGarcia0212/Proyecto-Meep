@@ -27,6 +27,7 @@ public class CodigoRecuperaActivity extends AppCompatActivity implements View.On
     EditText edtCodigo;
     TextView lblVerificar;
     ImageView imgVolver;
+    String email;
     private String urlVerificarCodigo = "http://meep.atwebpages.com/services/verificacionC.php";
     private AsyncHttpClient asyncHttpClient = new AsyncHttpClient();
 
@@ -61,12 +62,12 @@ public class CodigoRecuperaActivity extends AppCompatActivity implements View.On
     private void verificarCodigoEnBaseDeDatos(final String codigo) {
         // Obtener el email del intent anterior (si lo pasaste)
         Intent intent = getIntent();
-        String email = intent.getStringExtra("email");
+        email = intent.getStringExtra("email");
 
         RequestParams params = new RequestParams();
         params.put("email", email);
         params.put("codigo", codigo);
-System.out.println(email);
+        System.out.println(email);
         asyncHttpClient.post(urlVerificarCodigo, params, new AsyncHttpResponseHandler() {
 
             @Override
@@ -111,6 +112,7 @@ System.out.println(email);
     private void iniciarVerificar() {
         // Aquí inicias la actividad para la verificación o recuperación de contraseña
         Intent iBienvenida = new Intent(this, RecuperacionActivity.class);
+        iBienvenida.putExtra("email", email);
         startActivity(iBienvenida);
         finish();
     }
