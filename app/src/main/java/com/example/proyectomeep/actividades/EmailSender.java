@@ -16,39 +16,58 @@ import javax.mail.internet.MimeMessage;
 
 public class EmailSender {
 
+    private static final String TAG = "EmailSender";
     private static final String EMAIL = "beto_186_15@hotmail.com"; // Cambia esto por tu dirección de correo Hotmail/Outlook
     private static final String PASSWORD = "Tobe15975312345689@@"; // Cambia esto por tu contraseña
 
     public static void sendEmail(final String recipient, final String subject, final String body) {
-        new AsyncTask<Void, Void, Void>() {
+        new AsyncTask<Void, Void, Boolean>() {
+
             @Override
-            protected Void doInBackground(Void... params) {
-                Properties properties = new Properties();
-                properties.put("mail.smtp.auth", "true");
-                properties.put("mail.smtp.starttls.enable", "true");
-                properties.put("mail.smtp.host", "smtp-mail.outlook.com"); // Servidor SMTP de Outlook (Hotmail)
-                properties.put("mail.smtp.port", "587"); // Puerto para TLS
-
-                Session session = Session.getInstance(properties, new Authenticator() {
-                    @Override
-                    protected PasswordAuthentication getPasswordAuthentication() {
-                        return new PasswordAuthentication(EMAIL, PASSWORD);
-                    }
-                });
-
+            protected Boolean doInBackground(Void... params) {
                 try {
+                    // Configurar propiedades para la sesión de correo
+                    Properties properties = new Properties();
+                    properties.put("mail.smtp.auth", "true");
+                    properties.put("mail.smtp.starttls.enable", "true");
+                    properties.put("mail.smtp.host", "smtp-mail.outlook.com"); // Servidor SMTP de Outlook (Hotmail)
+                    properties.put("mail.smtp.port", "587"); // Puerto para TLS
+
+                    // Iniciar sesión usando autenticación
+                    Session session = Session.getInstance(properties, new Authenticator() {
+                        @Override
+                        protected PasswordAuthentication getPasswordAuthentication() {
+                            return new PasswordAuthentication(EMAIL, PASSWORD);
+                        }
+                    });
+
+                    // Crear mensaje de correo
                     Message message = new MimeMessage(session);
                     message.setFrom(new InternetAddress(EMAIL));
                     message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(recipient));
                     message.setSubject(subject);
                     message.setText(body);
 
+                    // Enviar mensaje
                     Transport.send(message);
-                    Log.d("EmailSender", "Correo enviado satisfactoriamente a " + recipient);
+
+                    Log.d(TAG, "Correo enviado satisfactoriamente a " + recipient);
+                    return true;
+
                 } catch (MessagingException e) {
-                    e.printStackTrace();
+                    Log.e(TAG, "Error al enviar el correo", e);
+                    return false;
                 }
-                return null;
+            }
+
+            @Override
+            protected void onPostExecute(Boolean success) {
+                super.onPostExecute(success);
+                if (success) {
+                    // Manejar el éxito (opcional)
+                } else {
+                    // Manejar el fallo (opcional)
+                }
             }
         }.execute();
     }
