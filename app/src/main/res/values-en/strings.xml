@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="logLblLogin">Login</string>
-    <string name="logTxtUser">Username</string>
-    <string name="lblTxtNombres">full name</string>
+    <string name="logTxtUser">User</string>
+    <string name="lblTxtNombres">Full Name</string>
     <string name="logTxtClave">Password</string>
     <string name="logTxtContra1">Password</string>
     <string name="logTxtContra2">Password</string>
@@ -53,15 +53,10 @@
     <string name="lblProgress3">In progress</string>
     <string name="lblOpen">Open</string>
     <string name="lblOpen2">Open</string>
-    <string name="lblProyect1">Machine Learnig</string>
     <string name="lblProyect2">Project 2</string>
     <string name="lblProyect3">Project 2</string>
     <string name="lblProyect4">Project 2</string>
     <string name="lblProyect5">Project 2</string>
-    <string name="lblArea1">Marketing</string>
-    <string name="lblArea2">Web Development</string>
-    <string name="lblArea3">Administration</string>
-    <string name="lblArea4">Marketing</string>
     <string name="newproyect">Create Project</string>
     <string name="lblname">Project Name</string>
     <string name="lblescribirName">Write the name</string>
@@ -75,12 +70,9 @@
     <string name="logbtnCreaProyect">Create Project</string>
     <string name="lblForo">Forum</string>
     <string name="lblpost">Let\'s work on the project</string>
-    <string name="lblpost2">It\'s ready, check it!!</string>
-    <string name="lblpost3">I need help, URGENT</string>
     <string name="lblcpost">posted by Michael now</string>
     <string name="lblcpost2">posted by Lulita 1 hour ago</string>
     <string name="lblcpost3">posted by Facundo yesterday</string>
-    <string name="lblcomment">Hello friends! Don\'t worry, we\'ll start with the project tomorrow</string>
     <string name="navigation_drawer_open">Open</string>
     <string name="navigation_drawer_close">Close</string>
     <string name="item1">Account</string>
@@ -103,31 +95,10 @@
     <string name="lblPublicacion">Publication</string>
     <string name="lblTareas">Tasks</string>
     <string name="lblMiembros">members</string>
-    <string name="lblCabezal">BETO</string>
-    <string name="lblConv1">At what time are you going to advance?</string>
-    <string name="lblConv2">Not right now, my king, I\'m in a meeting with the guild.</string>
-    <string name="lblCon1.1">Beto: don\'t bother</string>
-    <string name="lblCon2.2">DJ Dilan: let\'s party!</string>
-    <string name="lblCon3.3">Lulita: Oh, my little one</string>
-    <string name="lblCon4.4">Angela: My leg is itching</string>
-    <string name="lblCon5">Brother-in-law of everyone</string>
-    <string name="lblCon5.5">Brother-in-law of Everyone: GO TONO</string>
-    <string name="lblCon6.6">Xupapi: Don\'t bother</string>
-    <string name="lblCon7.7">GAAAA: WAZAAA</string>
-    <string name="lblCon8.8">Carlozzzzzz: just let me sleep</string>
-    <string name="dialog1">The terror of Sarmiento</string>
+    <string name="lblAllproyectos">Everyone</string>
+    <string name="lblMisfav">My Favorites</string>
     <string name="dialog2">Profile Description</string>
     <string name="lblCabe">My Tasks</string>
-    <string name="lblIni1">Studying for Orlandini</string>
-    <string name="lblIni1.1">Sebitas eats his little empanada after racing</string>
-    <string name="lblIni2">Arriving early to the university</string>
-    <string name="lblIni2.2">Pesheto celebrates his birthday with his friends</string>
-    <string name="lblIni3">Attending Landita\'s classes</string>
-    <string name="lblIni3.3">Go to the gym.</string>
-    <string name="lblIni4">Attending Gerardito\'s classes</string>
-    <string name="lblIni4.4">Alvarito needs to finish his classes</string>
-    <string name="lblIni5">A little game</string>
-    <string name="lblIni5.5">Alfredito goes out to play with his friends</string>
     <string name="lblCabeP1">My Projects</string>
     <string name="lblInic1">Project Leader:</string>
     <string name="lblToaTare">Total Tasks</string>
@@ -141,7 +112,16 @@
     <string name="lblEnter">Join</string>
     <string name="txtMiembros">Members</string>
     <string name="txtBusquedaM">Search by name</string>
-    <string name="txtMiembro1">Member 1</string><![CDATA[
+    <string name="txtMiembro1">Member 1</string>
+    <string name="lblAcer">About us</string>
+    <string name="lblQuSms">Who we are</string>
+    <string name="lblFun">Founders:</string>
+    <string name="lblCont">Contact us</string>
+    <string name="lblPre">Frequently Asked Questions</string>
+    <string name="lblsobre">Resolve your doubts and inquiries with this information</string>
+    <string name="lblsobre1">At Meep Work, we are a passionate team of developers, designers, and strategists dedicated to transforming innovative ideas into successful mobile applications. Founded in 2023, our mission is to provide high-quality technological solutions that drive efficiency and growth for our clients.</string>
+    <string name="lblFun1">Founders:</string>
+    <string name="conten">YOU CAN ALSO CREATE AN ACCOUNT WITH</string><![CDATA[
 
     >>>>>>> 56b9672a45789b8e0df5393587cc32e31f3d4bc5
 ]]>

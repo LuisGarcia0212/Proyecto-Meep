@@ -3,6 +3,7 @@ package com.example.proyectomeep.actividades;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.proyectomeep.R;
@@ -45,18 +47,16 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     private String urlAgregarUsuario = "http://meep.atwebpages.com/services/agregarUsuario.php";
 
     Button btnRegistro;
-    ImageView btnfb,btnGG, btnVolver;
+    ImageView btnfb, btnGG, btnVolver;
     EditText txtNombres, txtUsuario, txtClave, txtEmail, txtTelefono, txtDireccion;
+    TextView terminos; // Mover la declaración aquí
+
     private CallbackManager callbackManager;
-
-
-
     private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 9001;
 
-
     private String facebookToken;
-    private String idToken;// Variable para almacenar el token de Facebook
+    private String idToken; // Variable para almacenar el token de Facebook
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         // Inicializar CallbackManager
         callbackManager = CallbackManager.Factory.create();
 
-        // Para insertar los datos en la BD
+        // Inicializar vistas después de setContentView()
         txtNombres = findViewById(R.id.logTxtNombres);
         txtUsuario = findViewById(R.id.logTxtUsuario);
         txtClave = findViewById(R.id.logTxtClave);
@@ -76,8 +76,8 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         btnfb = findViewById(R.id.FB);
         btnGG = findViewById(R.id.GG);
         btnRegistro = findViewById(R.id.logBtnRegistrar);
-
         btnVolver = findViewById(R.id.logVolverLogin);
+        terminos = findViewById(R.id.Terminos); // Inicializar terminos aquí
 
         btnVolver.setOnClickListener(this);
         btnRegistro.setOnClickListener(this);
@@ -121,14 +121,33 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
             }
         });
 
-    }
+        terminos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Abrir el modal o diálogo
+                AlertDialog.Builder builder = new AlertDialog.Builder(RegistroActivity.this);
+                View view = getLayoutInflater().inflate(R.layout.modal_terminosregistro, null);
+                builder.setView(view);
+                AlertDialog dialog = builder.create();
+                dialog.show();
 
+                // Configurar el botón para cerrar el modal
+                ImageView closeModal = view.findViewById(R.id.closeModal);
+                closeModal.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss(); // Cerrar el modal
+                    }
+                });
+            }
+        });
+
+    }
 
     private void signInWithGoogle() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-
 
     @Override
     public void onClick(View v) {
@@ -159,15 +178,12 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
                     txtNombres.setText(nombre);
                     txtEmail.setText(email);
 
-
                     // Guardar el token en una variable
                     facebookToken = token.getToken();
 
                     // Bloquear los campos para que no se puedan editar
                     txtNombres.setEnabled(false);
                     txtEmail.setEnabled(false);
-
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -181,17 +197,11 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         request.executeAsync();
     }
 
-
-
-
-
     private void handleGoogleSignInResult(@NonNull Task<GoogleSignInAccount> completedTask) {
         try {
-
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
             if (account != null) {
                 // Mostrar el correo electrónico en el campo correspondiente
-
                 txtEmail.setText(account.getEmail());
 
                 // Mostrar otros datos si son necesarios
@@ -213,7 +223,6 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
         }
     }
 
-
     private void registrarUsuario() {
         AsyncHttpClient ahcregistrarU = new AsyncHttpClient();
         RequestParams params = new RequestParams();
@@ -228,19 +237,17 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
             params.add("Descripcion", "-");
             params.add("Foto", "-");
 
-            if (facebookToken!=null){
+            if (facebookToken != null) {
                 params.add("token", facebookToken); // Agregar el token de Facebook a los parámetros
-            }else {
-                params.add("token", "-"); // Agregar el token de Facebook a los parámetros
+            } else {
+                params.add("token", "-"); // Agregar un valor por defecto si no hay token de Facebook
             }
 
-            if (idToken!=null){
-                params.put("token", idToken);; // Agregar el token de Facebook a los parámetros
-            }else {
-                params.put("token", "-"); // Agregar el token de google  a los parámetros
+            if (idToken != null) {
+                params.put("token", idToken); // Agregar el token de Google a los parámetros
+            } else {
+                params.put("token", "-"); // Agregar un valor por defecto si no hay token de Google
             }
-
-
 
             ahcregistrarU.post(urlAgregarUsuario, params, new BaseJsonHttpResponseHandler() {
                 @Override
@@ -290,6 +297,5 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
             handleGoogleSignInResult(task);
         }
     }
-
-
 }
+

@@ -9,7 +9,10 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="50dp"
+        tools:layout_editor_absoluteY="-55dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -22,6 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:id="@+id/logVolverLogin"
                     android:layout_width="50dp"
@@ -41,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
                     android:layout_marginTop="30dp"
-                    android:src="@drawable/logo1"/>
+                    android:src="@drawable/logo1" />
 
                 <TextView
                     android:id="@+id/lblProyecto"
@@ -66,16 +70,16 @@
                     android:id="@+id/logTxtNombres"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@drawable/edit_text_backgroud"
                     android:layout_marginHorizontal="30dp"
                     android:layout_marginTop="100dp"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/edit_text_backgroud"
                     android:drawableStart="@drawable/ic_user"
                     android:drawablePadding="10dp"
                     android:hint="@string/lblTxtNombres"
                     android:inputType="textPersonName"
                     android:maxLength="100"
-                    android:paddingLeft="10dp"/>
+                    android:paddingLeft="10dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -86,16 +90,16 @@
                     android:id="@+id/logTxtUsuario"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@drawable/edit_text_backgroud"
                     android:layout_marginHorizontal="30dp"
                     android:layout_marginTop="100dp"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/edit_text_backgroud"
                     android:drawableStart="@drawable/ic_user"
                     android:drawablePadding="10dp"
                     android:hint="@string/logTxtUser"
                     android:inputType="textPersonName"
                     android:maxLength="100"
-                    android:paddingLeft="10dp"/>
+                    android:paddingLeft="10dp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
@@ -125,15 +129,15 @@
                     android:id="@+id/logTxtEmail"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@drawable/edit_text_backgroud"
                     android:layout_marginHorizontal="30dp"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/edit_text_backgroud"
                     android:drawableStart="@drawable/ic_email"
                     android:drawablePadding="10dp"
                     android:hint="@string/logTxtEmail"
                     android:inputType="textPersonName"
                     android:maxLength="100"
-                    android:paddingLeft="10dp"/>
+                    android:paddingLeft="10dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -145,15 +149,15 @@
                     android:id="@+id/logTxtClave"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@drawable/edit_text_backgroud"
                     android:layout_marginHorizontal="30dp"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/edit_text_backgroud"
                     android:drawableStart="@drawable/ic_passord"
                     android:drawablePadding="10dp"
                     android:hint="@string/logTxtClave"
                     android:inputType="textPassword"
                     android:maxLength="100"
-                    android:paddingLeft="10dp"/>
+                    android:paddingLeft="10dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -165,14 +169,14 @@
                     android:id="@+id/logTxtClaveConfirm"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
-                    android:background="@drawable/edit_text_backgroud"
                     android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/edit_text_backgroud"
                     android:drawableStart="@drawable/ic_passord"
                     android:drawablePadding="10dp"
                     android:hint="@string/logTxtClaveConfirm"
                     android:inputType="textPassword"
                     android:maxLength="100"
-                    android:paddingLeft="10dp"/>
+                    android:paddingLeft="10dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
@@ -181,40 +185,54 @@
 
                 <EditText
                     android:id="@+id/logTxtTelefono"
-                    android:layout_width="match_parent"
+                    android:layout_width="311dp"
                     android:layout_height="50dp"
-                    android:background="@drawable/edit_text_backgroud"
                     android:layout_marginHorizontal="30dp"
                     android:layout_marginBottom="10dp"
+                    android:background="@drawable/edit_text_backgroud"
                     android:drawableStart="@drawable/ic_phone"
                     android:drawablePadding="10dp"
                     android:hint="@string/logTxtTelefono"
                     android:inputType="textPersonName"
                     android:maxLength="100"
-                    android:paddingLeft="10dp"/>
+                    android:paddingLeft="10dp" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <CheckBox
-                android:id="@+id/logChkTerminos"
-                android:layout_width="wrap_content"
-                android:layout_height="58dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginTop="10dp"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginHorizontal="30dp"
-                android:text="@string/logChkTerminos"
-                android:textColor="@color/lblSub"
-                android:buttonTint="@color/btnColor"/>
+                android:paddingBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center_vertical">
+
+                <CheckBox
+                    android:id="@+id/logChkTerminos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:buttonTint="@color/btnColor"
+                    android:textColor="@color/lblSub" />
+
+                <TextView
+                    android:id="@+id/Terminos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@string/logChkTerminos"
+                    android:textColor="#625a5a" />
+            </LinearLayout>
+
 
             <Button
                 android:id="@+id/logBtnRegistrar"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="@drawable/edit_botones"
                 android:layout_marginHorizontal="30dp"
-                android:textSize="20dp"
+                android:background="@drawable/edit_botones"
                 android:text="@string/logBtnRegistrar"
                 android:textAllCaps="false"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/coment"
@@ -223,10 +241,11 @@
                 android:layout_gravity="center_vertical"
                 android:layout_marginHorizontal="50dp"
                 android:layout_marginTop="10dp"
-                android:textColor="#625a5a"
-                android:text="@string/conten">
+                android:text="@string/conten"
+                android:textColor="#625a5a">
 
             </TextView>
+
             <LinearLayout
 
                 android:layout_width="match_parent"
@@ -240,7 +259,7 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_margin="20dp"
-                    android:src="@drawable/github"/>
+                    android:src="@drawable/github" />
 
                 <ImageView
                     android:id="@+id/FB"
@@ -254,7 +273,7 @@
                     android:layout_width="48dp"
                     android:layout_height="48dp"
                     android:layout_margin="20dp"
-                    android:src="@drawable/google"/>
+                    android:src="@drawable/google" />
             </LinearLayout>
         </LinearLayout>
 
