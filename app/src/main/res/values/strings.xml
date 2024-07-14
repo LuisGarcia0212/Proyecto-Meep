@@ -62,15 +62,15 @@
     <string name="lblFecha3" translatable="false">06.05.24 10:00-20.05.24 13:00</string>
     <string name="lblFecha4" translatable="false">20.04.24 12:00-08.05.24 18:00</string>
     <string name="lblFecha5" translatable="false">06.05.24 22:00-30.06.24 07:00</string>
-    <string name="lblProyect1">Machine Learnig</string>
+    <string name="lblProyect1" translatable="false">Machine Learnig</string>
     <string name="lblProyect2">Proyecto 2</string>
     <string name="lblProyect3">Proyecto 3</string>
     <string name="lblProyect4">Proyecto 4</string>
     <string name="lblProyect5">Proyecto 5</string>
-    <string name="lblArea1">Marketing</string>
-    <string name="lblArea2">Desarrollo Web</string>
-    <string name="lblArea3">Administración</string>
-    <string name="lblArea4">Marketing</string>
+    <string name="lblArea1" translatable="false">Marketing</string>
+    <string name="lblArea2" translatable="false">Desarrollo Web</string>
+    <string name="lblArea3" translatable="false">Administración</string>
+    <string name="lblArea4" translatable="false">Marketing</string>
 
     ====================================
     CREAR PROYECTO
@@ -92,12 +92,12 @@
     <string name="lblusuario2" translatable="false">Lulita</string>
     <string name="lblusuario3" translatable="false">Facundo</string>
     <string name="lblpost">Trabajemos el proyecto</string>
-    <string name="lblpost2">Ya esta listo verifiquen!!</string>
-    <string name="lblpost3">Necesito ayuda, URGENTE</string>
+    <string name="lblpost2" translatable="false">Ya esta listo verifiquen!!</string>
+    <string name="lblpost3" translatable="false">Necesito ayuda, URGENTE</string>
     <string name="lblcpost">posteado por Michael ahora</string>
     <string name="lblcpost2">posteado por Lulita hace 1h</string>
     <string name="lblcpost3">posteado por Facundo ayer</string>
-    <string name="lblcomment">Hola amigos! No se preocupen mañana empezaremos con el proyecto </string>
+    <string name="lblcomment" translatable="false">Hola amigos! No se preocupen mañana empezaremos con el proyecto </string>
     <string name="lblnumber" translatable="false">2</string>
     <string name="lblnumber2" translatable="false">0</string>
     <string name="lblnumber3" translatable="false">5</string>
@@ -139,51 +139,51 @@
     =========================================
     MENSAJERIA INTERNA
 
-    <string name="lblCabezal">BETO</string>
+    <string name="lblCabezal" translatable="false">BETO</string>
     <string name="lblchat" translatable="false">Aa</string>
-    <string name="lblConv1">a que hora vas a avanzar?</string>
-    <string name="lblConv2">Ahora no mi rei, ando en mi reu con el gremio</string>
+    <string name="lblConv1" translatable="false">a que hora vas a avanzar?</string>
+    <string name="lblConv2" translatable="false">Ahora no mi rei, ando en mi reu con el gremio</string>
 
 
     =========================================
     MESSAGE LIST
     <string name="lblCon1" translatable="false">BETO</string>
-    <string name="lblCon1.1">Beto: no fastidies</string>
+    <string name="lblCon1.1" translatable="false">Beto: no fastidies</string>
     <string name="lblCon2" translatable="false">DJ dilan</string>
-    <string name="lblCon2.2">DJ dilan: vamos de fiesta</string>
+    <string name="lblCon2.2" translatable="false">DJ dilan: vamos de fiesta</string>
     <string name="lblCon3" translatable="false">Lulita</string>
-    <string name="lblCon3.3">Lulita: Ay mi cholito</string>
+    <string name="lblCon3.3" translatable="false">Lulita: Ay mi cholito</string>
     <string name="lblCon4" translatable="false">Angela</string>
-    <string name="lblCon4.4">Angela: Me pica el huevo</string>
-    <string name="lblCon5">Cuñado de Todos</string>
-    <string name="lblCon5.5">Cuñado de Todos: GO TONO</string>
+    <string name="lblCon4.4" translatable="false">Angela: Me pica el huevo</string>
+    <string name="lblCon5" translatable="false">Cuñado de Todos</string>
+    <string name="lblCon5.5" translatable="false">Cuñado de Todos: GO TONO</string>
     <string name="lblCon6" translatable="false">Xupapi</string>
-    <string name="lblCon6.6">Xupapi: NO fastidies</string>
+    <string name="lblCon6.6" translatable="false">Xupapi: NO fastidies</string>
     <string name="lblCon7" translatable="false">GAAAA</string>
-    <string name="lblCon7.7">GAAAA:  WAZAAA</string>
+    <string name="lblCon7.7" translatable="false">GAAAA:  WAZAAA</string>
     <string name="lblCon8" translatable="false">Carlozzzzzz</string>
-    <string name="lblCon8.8">Carlozzzzzz: deja dormir no mas</string>
+    <string name="lblCon8.8" translatable="false">Carlozzzzzz: deja dormir no mas</string>
     <string name="lblTime1" translatable="false">12:00 p.m.</string>
     <string name="lblTime2" translatable="false">10:00 p.m.</string>
     <string name="lblNum" translatable="false">1</string>
 
 
-    <string name="dialog1">El terror de sarmiento</string>
+    <string name="dialog1" translatable="false">El terror de sarmiento</string>
     <string name="dialog2">Descripción del perfil</string>
 
     =========================================
     TAREAS
     <string name="lblCabe">Mis Tareas</string>
-    <string name="lblIni1">Estudiar para orlandini</string>
-    <string name="lblIni1.1">Sebitas come su empanadita despues de carrear</string>
-    <string name="lblIni2">llegar temprano a la U</string>
-    <string name="lblIni2.2">"pesheto celebra su cumple con sus amigos "</string>
-    <string name="lblIni3">Atender a las clases de Landita</string>
-    <string name="lblIni3.3">go gym</string>
-    <string name="lblIni4">Atender a las clases de Gerardito</string>
-    <string name="lblIni4.4">"Alvarito necesita terminara sus clases "</string>
-    <string name="lblIni5">un partidito?</string>
-    <string name="lblIni5.5">Alfredito sale a jugar con sus amigos</string>
+    <string name="lblIni1" translatable="false">Estudiar para orlandini</string>
+    <string name="lblIni1.1" translatable="false">Sebitas come su empanadita despues de carrear</string>
+    <string name="lblIni2" translatable="false">llegar temprano a la U</string>
+    <string name="lblIni2.2" translatable="false">"pesheto celebra su cumple con sus amigos "</string>
+    <string name="lblIni3" translatable="false">Atender a las clases de Landita</string>
+    <string name="lblIni3.3" translatable="false">go gym</string>
+    <string name="lblIni4" translatable="false">Atender a las clases de Gerardito</string>
+    <string name="lblIni4.4" translatable="false">"Alvarito necesita terminara sus clases "</string>
+    <string name="lblIni5" translatable="false">un partidito?</string>
+    <string name="lblIni5.5" translatable="false">Alfredito sale a jugar con sus amigos</string>
 
     =========================================
     PROYECTS
@@ -212,12 +212,12 @@
     ACERCA DE
     <string name="lblAcer" translatable="false">Acerca de Nosotros</string>
     <string name="lblQuSms" translatable="false">Quienes somos</string>
-    <string name="lblFun" translatable="false">Fundadores</string>
-    <string name="lblCont" translatable="false">Contactanos</string>
-    <string name="lblPre" translatable="false">Preguntas Frecuentes</string>
-    <string name="lblsobre" translatable="false">Absuelve tus dudas y consultas con esta información</string>
-    <string name="lblsobre1" translatable="false">En Meep Work, somos un equipo apasionado de desarrolladores, diseñadores y estrategas dedicados a transformar ideas innovadoras en aplicaciones móviles de éxito. Fundada en 2023, nuestra misión es brindar soluciones tecnológicas de alta calidad que impulsen la eficiencia y el crecimiento de nuestros clientes.</string>
-    <string name="lblFun1" translatable="false">Fundadores: </string>
+    <string name="lblFun">Fundadores:</string>
+    <string name="lblCont">Contactanos</string>
+    <string name="lblPre">Preguntas Frecuentes</string>
+    <string name="lblsobre">Absuelve tus dudas y consultas con esta información</string>
+    <string name="lblsobre1">En Meep Work, somos un equipo apasionado de desarrolladores, diseñadores y estrategas dedicados a transformar ideas innovadoras en aplicaciones móviles de éxito. Fundada en 2023, nuestra misión es brindar soluciones tecnológicas de alta calidad que impulsen la eficiencia y el crecimiento de nuestros clientes.</string>
+    <string name="lblFun1">Fundadores: </string>
     <string name="lblFun1.1" translatable="false">Carlos Alarcón </string>
     <string name="lblFun1.1.1" translatable="false">https://github.com/TobeCA12381</string>
     <string name="lblFun2.2" translatable="false">Sebitas Neciosup</string>
@@ -232,6 +232,8 @@
     <string name="lblFun6.6.6" translatable="false">https://github.com/LuisGarcia0212</string>
     <string name="lblFace" translatable="false">https://www.facebook.com/profile.php?id=61560310536887</string>
     <string name="lblIns" translatable="false">https://www.instagram.com/meep_work/</string>
-    <string name="conten" translatable="false">TAMBIÉN PUEDES CREAR UNA CUENTA CON</string>
-    <string name="MAPS_API_KEY">AIzaSyBLCeIFzYGSEchAFnm8Z2Xt_xaftOWEvpk</string>
+    <string name="conten">TAMBIÉN PUEDES CREAR UNA CUENTA CON</string>
+    <string name="MAPS_API_KEY" translatable="false">AIzaSyBLCeIFzYGSEchAFnm8Z2Xt_xaftOWEvpk</string>
+    <string name="terminos_y_condiciones" translatable="false">Al registrarse en nuestra app, usted acepta:\n\n1. Recopilación de Datos: Recogeremos información básica como nombre, correo electrónico y preferencias de uso.\n\n2. Uso de Datos: Utilizaremos sus datos para mejorar su experiencia y personalizar el contenido.\n\n3. Protección: Nos comprometemos a proteger su información personal y no la compartiremos sin su consentimiento.\n\n4. Comunicaciones: Podremos enviarle notificaciones y actualizaciones importantes sobre la app.\n\n5. Derechos: Usted tiene derecho a acceder, corregir o eliminar sus datos personales.\n\n6. Cambios: Nos reservamos el derecho de modificar estos términos, notificándole los cambios importantes.\n\n7. Consentimiento: Al continuar, usted acepta estos términos y el uso de sus datos como se describe.\n\nPara más información, visite nuestra Política de Privacidad completa.</string>
+
 </resources>
