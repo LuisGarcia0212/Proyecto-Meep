@@ -2,6 +2,7 @@ package com.example.proyectomeep.actividades;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -57,18 +58,21 @@ public class RestablecerContrasenhaActivity extends AppCompatActivity implements
         params.put("email", email);
 
         asyncHttpClient.post(urlVerificarUsuario, params, new AsyncHttpResponseHandler() {
+
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 if (responseBody != null) {
                     String response = new String(responseBody);
+                    Log.d("RESPONSE", "Response: " + response); // Registro para verificar la respuesta del servidor
+
                     try {
                         JSONObject json = new JSONObject(response);
                         boolean existe = json.getBoolean("existe");
                         if (existe) {
-                            String codigo = RandomStringGenerator.generateRandomCode(5); // Generar código de 5 caracteres
+                            String codigo = json.getString("codigo"); // Obtener el código devuelto por el servidor
                             enviarCorreoRecuperacion(email, codigo);
                             Toast.makeText(RestablecerContrasenhaActivity.this, "Se ha enviado un correo con instrucciones para restablecer tu contraseña.", Toast.LENGTH_SHORT).show();
-                            iniciarRecuperar();
+                            iniciarRecuperar(email);
                         } else {
                             Toast.makeText(RestablecerContrasenhaActivity.this, "El correo electrónico no está registrado.", Toast.LENGTH_SHORT).show();
                         }
@@ -81,6 +85,7 @@ public class RestablecerContrasenhaActivity extends AppCompatActivity implements
                 }
             }
 
+
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 Toast.makeText(RestablecerContrasenhaActivity.this, "Error al conectar con el servidor.", Toast.LENGTH_SHORT).show();
@@ -89,8 +94,10 @@ public class RestablecerContrasenhaActivity extends AppCompatActivity implements
     }
 
 
-    private void iniciarRecuperar() {
+
+    private void iniciarRecuperar(String email) {
         Intent iBienvenida = new Intent(this, CodigoRecuperaActivity.class);
+        iBienvenida.putExtra("email", email);
         startActivity(iBienvenida);
         finish();
     }
