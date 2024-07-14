@@ -47,9 +47,10 @@
 
             <ImageView
                 android:id="@+id/ubi"
-                android:layout_width="25dp"
-                android:layout_height="38dp"
-                android:layout_gravity="center_horizontal"
+                android:layout_width="30dp"
+                android:layout_marginLeft="15dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/mas"
                 app:tint="@color/white" />
 

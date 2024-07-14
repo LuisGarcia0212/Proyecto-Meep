@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.proyectomeep.R;
 import com.example.proyectomeep.actividades.BienvenidaActivity;
+import com.example.proyectomeep.actividades.CreaPubliActivity;
 import com.example.proyectomeep.actividades.Maps_Activity;
 import com.example.proyectomeep.actividades.MiembrosActivity;
 import com.example.proyectomeep.actividades.RestablecerContrasenhaActivity;
@@ -135,7 +136,7 @@ public class ForoFragment extends Fragment implements View.OnClickListener, Menu
     }
 
     private void NuevoForo() {
-        Intent iForo= new Intent(getActivity(), Maps_Activity.class);
+        Intent iForo= new Intent(getActivity(), CreaPubliActivity.class);
         iForo.putExtra("usuario", usuario);
         startActivity(iForo);
     }

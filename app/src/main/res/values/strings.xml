@@ -133,6 +133,9 @@
 
     <string name="lblAllproyectos">Todos</string>
     <string name="lblMisfav">Mis Favoritos</string>
+    <string name="lblCrear">Crear Publicación</string>
+    <string name="lblnamee">Torbe</string>
+    <string name="logBtnPubli">Publicar</string>
 
     >>>>>>> 56b9672a45789b8e0df5393587cc32e31f3d4bc5
 

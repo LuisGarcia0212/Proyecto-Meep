@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.proyectomeep.R;
@@ -24,7 +25,7 @@ public class Maps_Activity extends AppCompatActivity implements OnMapReadyCallba
     TextView logTxtCode;
     GoogleMap mMap;
     Button lblAceptar;
-
+    ImageView regre;
     Usuario usuario;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,18 +42,24 @@ public class Maps_Activity extends AppCompatActivity implements OnMapReadyCallba
         lblAceptar.setOnClickListener(this);
         Usuario usuario = (Usuario) getIntent().getSerializableExtra("usuario");
 
-
+        regre= findViewById(R.id.backCuenta);
+        regre.setOnClickListener(this);
     }
     public void onClick(View v) {
         if(v.getId()== R.id.lblAceptar){
             AceptarBtn();
+        }   else if (v.getId() == R.id.backCuenta) {
+        regresar();
         }
     }
 
+    private void regresar() {
+        Intent Ola= new Intent(this, CreaPubliActivity.class);
+        finish();
+    }
+
     private void AceptarBtn() {
-        Intent iRegreso = new Intent(this, ForoFragment.class);
-        iRegreso.putExtra("usuario", usuario);
-        startActivity(iRegreso);
+        Intent iRegreso = new Intent(this, CreaPubliActivity.class);
         finish();
     }
 
