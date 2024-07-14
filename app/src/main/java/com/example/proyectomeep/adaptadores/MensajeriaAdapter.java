@@ -57,6 +57,7 @@ public class MensajeriaAdapter extends RecyclerView.Adapter<MensajeriaAdapter.Vi
         holder.txtUsuario.setText(mensajeria.getUsername2());
         holder.txtMensaje.setText(mensajeria.getMensaje());
         holder.txtHora.setText(mensajeria.getHora().toString());
+        holder.imgUsuario.setImageBitmap(bitmap);
 
         holder.contenedor.setOnClickListener(v -> {
             SharedPreferences sharedPreferences = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);

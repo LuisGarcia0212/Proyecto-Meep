@@ -166,7 +166,8 @@ public class MenInterFragment extends Fragment implements View.OnClickListener, 
                 if (statusCode == 200){
                     try {
                         JSONArray jsonArray = new JSONArray(rawJsonResponse);
-                        if (jsonArray.toString() != "[]"){
+                        System.out.println("el valoor del json: "+jsonArray.length());
+                        if (jsonArray.length() == 0){
                             crearNuevoChat();
                             return;
                         }else {
