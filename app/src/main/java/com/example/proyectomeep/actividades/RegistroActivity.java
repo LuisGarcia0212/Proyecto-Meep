@@ -55,7 +55,6 @@ public class RegistroActivity extends AppCompatActivity implements View.OnClickL
     CheckBox chPolitica;
     TextView terminos; // Mover la declaración aquí
 
-    private CallbackManager callbackManager;
     private GoogleSignInClient mGoogleSignInClient;
     private static final int RC_SIGN_IN = 9001;
 
