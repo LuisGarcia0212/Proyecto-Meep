@@ -123,16 +123,18 @@ public class BienvenidaFragment extends Fragment {
                 if (statusCode == 200){
                     try {
                         JSONArray jsonArray = new JSONArray(rawJsonResponse);
-                        lista.clear();
-                        for (int i = 0; i < jsonArray.length(); i++){
-                            lista.add(new TareaPendiente(jsonArray.getJSONObject(i).getInt("idTarea"),
-                                                         jsonArray.getJSONObject(i).getString("Nombre_tarea"),
-                                                         jsonArray.getJSONObject(i).getString("Descripcion_tarea"),
-                                                         jsonArray.getJSONObject(i).getInt("id_Usuario_Tarea"),
-                                                         jsonArray.getJSONObject(i).getInt("id_Proyecto_Tarea"),
-                                                         jsonArray.getJSONObject(i).getString("estado"),
-                                                         jsonArray.getJSONObject(i).getString("NombreProyec")));
-                            adapter.notifyDataSetChanged();
+                        if (jsonArray.length() > 0){
+                            lista.clear();
+                            for (int i = 0; i < jsonArray.length(); i++){
+                                lista.add(new TareaPendiente(jsonArray.getJSONObject(i).getInt("idTarea"),
+                                        jsonArray.getJSONObject(i).getString("Nombre_tarea"),
+                                        jsonArray.getJSONObject(i).getString("Descripcion_tarea"),
+                                        jsonArray.getJSONObject(i).getInt("id_Usuario_Tarea"),
+                                        jsonArray.getJSONObject(i).getInt("id_Proyecto_Tarea"),
+                                        jsonArray.getJSONObject(i).getString("estado"),
+                                        jsonArray.getJSONObject(i).getString("NombreProyec")));
+                                adapter.notifyDataSetChanged();
+                            }
                         }
                     } catch (JSONException e) {
                         throw new RuntimeException(e);
